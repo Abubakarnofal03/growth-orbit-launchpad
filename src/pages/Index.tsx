@@ -137,7 +137,7 @@ const Index = () => {
     <Layout>
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -150,8 +150,8 @@ const Index = () => {
               transition={{ delay: 0.2 }}
               className="mb-8"
             >
-              <Badge className="bg-white/10 text-white border-white/20 backdrop-blur-sm mb-6">
-                🚀 Based in Pakistan • Serving USA, UAE & Beyond
+              <Badge className="bg-white/10 text-white border-white/20 backdrop-blur-sm mb-6 font-poppins">
+                Based in Pakistan • Serving USA, UAE & Beyond
               </Badge>
             </motion.div>
             
@@ -159,10 +159,10 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-4xl md:text-7xl font-bold mb-8 leading-tight"
+              className="text-hero font-bold mb-8 leading-tight font-poppins"
             >
               Fuel Your{" "}
-              <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+              <span className="text-primary">
                 Growth Journey
               </span>
             </motion.h1>
@@ -171,7 +171,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto"
+              className="text-body-lg text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto font-poppins"
             >
               Transform your business with expert marketing, branding, and development services. 
               We help ambitious companies achieve exceptional growth and dominate their markets.
@@ -223,11 +223,11 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4">Our Services</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <Badge variant="secondary" className="mb-4 font-poppins">Our Services</Badge>
+            <h2 className="text-subhead font-bold mb-6 font-poppins">
               Everything You Need to Grow
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
               From marketing and branding to development and strategy, 
               we provide comprehensive solutions for your growth needs.
             </p>
@@ -242,14 +242,14 @@ const Index = () => {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 h-full hover:shadow-strong transition-all duration-300 group cursor-pointer">
-                  <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${service.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <Card className="p-6 h-full hover:shadow-strong transition-all duration-300 group cursor-pointer hover:-translate-y-1">
+                  <div className="inline-flex p-3 rounded-lg bg-primary text-white mb-4 group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors font-poppins">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed font-poppins">
                     {service.description}
                   </p>
                   <ul className="space-y-1">
@@ -260,7 +260,7 @@ const Index = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="ghost" className="w-full mt-4 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Button variant="premium-outline" className="w-full mt-4 font-poppins">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -280,11 +280,11 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4">Success Stories</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <Badge variant="secondary" className="mb-4 font-poppins">Success Stories</Badge>
+            <h2 className="text-subhead font-bold mb-6 font-poppins">
               Proven Results That Speak
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
               See how we've helped businesses achieve exceptional growth across different industries.
             </p>
           </motion.div>
@@ -341,7 +341,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <Button variant="gradient" size="lg" asChild>
+            <Button variant="premium" size="lg" asChild>
               <a href="/case-studies">
                 View All Case Studies
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -360,8 +360,8 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4">Client Testimonials</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <Badge variant="secondary" className="mb-4 font-poppins">Client Testimonials</Badge>
+            <h2 className="text-subhead font-bold mb-6 font-poppins">
               What Our Clients Say
             </h2>
           </motion.div>
@@ -416,8 +416,8 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10" />
+      <section className="py-20 bg-brand-charcoal relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -425,10 +425,10 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center text-white max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-subhead font-bold mb-6 font-poppins">
               Ready to Fuel Your Growth?
             </h2>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-body-lg text-white/90 mb-8 leading-relaxed font-poppins">
               Join hundreds of successful businesses that have transformed their growth with our expertise.
               Get your free audit today and discover your growth potential.
             </p>

@@ -66,7 +66,7 @@ const Footer = () => {
               Fuel your growth journey with expert marketing, branding, and business development services. 
               Based in Pakistan, serving clients worldwide.
             </p>
-            <Button variant="gradient" asChild>
+            <Button variant="premium" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 Get Free Audit
               </a>

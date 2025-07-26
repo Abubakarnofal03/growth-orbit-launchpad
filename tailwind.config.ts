@@ -18,6 +18,14 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+			},
+			fontSize: {
+				'hero': ['72px', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'subhead': ['36px', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+				'body-lg': ['18px', { lineHeight: '1.6' }],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -66,8 +74,8 @@ export default {
 					primary: 'hsl(var(--brand-primary))',
 					secondary: 'hsl(var(--brand-secondary))',
 					accent: 'hsl(var(--brand-accent))',
-					success: 'hsl(var(--brand-success))',
-					warning: 'hsl(var(--brand-warning))'
+					charcoal: 'hsl(var(--brand-charcoal))',
+					navy: 'hsl(var(--brand-navy))'
 				}
 			},
 			backgroundImage: {

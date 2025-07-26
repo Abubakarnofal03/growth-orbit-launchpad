@@ -283,7 +283,7 @@ const Contact = () => {
 
                   <Button 
                     type="submit" 
-                    variant="gradient" 
+                    variant="premium" 
                     size="lg" 
                     className="w-full"
                     disabled={isSubmitting}
@@ -377,7 +377,7 @@ const Contact = () => {
               Have questions about our services, pricing, or process? 
               Don't hesitate to reach out. We're always happy to help.
             </p>
-            <Button variant="gradient" size="lg" asChild>
+            <Button variant="premium" size="lg" asChild>
               <a
                 href="https://wa.me/+923001234567?text=Hi! I have some questions about your services."
                 target="_blank"

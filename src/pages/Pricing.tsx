@@ -283,7 +283,7 @@ const Pricing = () => {
 
                       {/* CTA */}
                       <Button
-                        variant={plan.popular ? "gradient" : "outline"}
+                        variant={plan.popular ? "premium" : "premium-outline"}
                         className="w-full"
                         asChild
                       >
@@ -366,7 +366,7 @@ const Pricing = () => {
               let's create a custom growth strategy tailored specifically for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="gradient" size="lg" asChild>
+              <Button variant="premium" size="lg" asChild>
                 <a
                   href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'd like to discuss a custom pricing plan for my business.")}`}
                   target="_blank"

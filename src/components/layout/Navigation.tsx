@@ -37,15 +37,15 @@ const Navigation = () => {
       animate={{ y: 0, opacity: 1 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
-          : "bg-white/90 backdrop-blur-sm"
+          ? "bg-brand-charcoal/95 backdrop-blur-md shadow-medium border-b border-white/10"
+          : "bg-brand-charcoal/90 backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <span className="text-2xl font-light tracking-wide text-slate-600 group-hover:text-primary transition-colors duration-200">
+            <span className="text-2xl font-poppins font-semibold tracking-wide text-white group-hover:text-primary transition-colors duration-200">
               Growth Orbit
             </span>
           </Link>
@@ -56,10 +56,10 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-slate-900 relative ${
+                className={`text-sm font-medium transition-colors duration-200 hover:text-white relative font-poppins ${
                   location.pathname === item.path
-                    ? "text-slate-900"
-                    : "text-slate-600"
+                    ? "text-primary"
+                    : "text-white/80"
                 }`}
               >
                 {item.name}
@@ -75,7 +75,7 @@ const Navigation = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="default" className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-md" asChild>
+            <Button variant="premium" size="default" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 Contact Us
               </a>
@@ -84,10 +84,10 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-6 w-6 text-slate-600" /> : <Menu className="h-6 w-6 text-slate-600" />}
+            {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
           </button>
         </div>
       </div>
@@ -99,24 +99,24 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100"
+            className="md:hidden bg-brand-charcoal/95 backdrop-blur-md border-t border-white/10"
           >
             <div className="container mx-auto px-4 py-4 space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`block py-2 text-sm font-medium transition-colors ${
+                  className={`block py-2 text-sm font-medium transition-colors font-poppins ${
                     location.pathname === item.path
-                      ? "text-slate-900"
-                      : "text-slate-600 hover:text-slate-900"
+                      ? "text-primary"
+                      : "text-white/80 hover:text-white"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button variant="default" className="w-full mt-4 bg-primary hover:bg-primary/90 text-white" asChild>
+              <Button variant="premium" className="w-full mt-4" asChild>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   Contact Us
                 </a>

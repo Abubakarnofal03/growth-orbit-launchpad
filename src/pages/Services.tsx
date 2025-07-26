@@ -221,7 +221,7 @@ const Services = () => {
                         </ul>
                       </div>
 
-                      <Button variant="gradient" asChild>
+                      <Button variant="premium" asChild>
                         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                           Learn More
                         </a>
@@ -298,7 +298,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <Button variant="gradient" size="lg" asChild>
+            <Button variant="premium" size="lg" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 Get Custom Quote
               </a>
