@@ -46,9 +46,9 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <img 
-              src="/lovable-uploads/1ea8ab14-34bf-4456-a1d4-cb41e1a642bc.png" 
+              src="/lovable-uploads/f0e07b07-5b95-4c3d-addb-83e5c27c1497.png" 
               alt="Growth Orbit Logo" 
-              className="h-10 w-auto bg-white rounded-md px-2 py-1"
+              className="h-10 w-auto"
             />
             <span className="text-2xl font-poppins font-semibold tracking-wide text-white group-hover:text-primary transition-colors duration-200">
               Growth Orbit
