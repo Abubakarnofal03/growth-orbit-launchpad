@@ -8,28 +8,28 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Premium Agency Color Palette */
+    /* Growth Orbit Brand Color Palette - Based on Logo */
     --background: 0 0% 98%;
-    --foreground: 215 20% 15%;
+    --foreground: 213 100% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 20% 15%;
+    --card-foreground: 213 100% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 20% 15%;
+    --popover-foreground: 213 100% 15%;
 
-    /* Teal accent color for premium feel */
-    --primary: 174 72% 40%;
+    /* Green accent from logo arrow */
+    --primary: 145 85% 47%;
     --primary-foreground: 0 0% 100%;
 
     /* Soft panels */
     --secondary: 210 20% 96%;
-    --secondary-foreground: 215 15% 30%;
+    --secondary-foreground: 213 80% 20%;
 
     --muted: 210 20% 94%;
-    --muted-foreground: 215 15% 45%;
+    --muted-foreground: 213 50% 45%;
 
-    --accent: 174 72% 40%;
+    --accent: 145 85% 47%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
@@ -37,27 +37,27 @@ All colors MUST be HSL.
 
     --border: 210 20% 88%;
     --input: 210 20% 88%;
-    --ring: 174 72% 40%;
+    --ring: 145 85% 47%;
 
     --radius: 8px;
 
-    /* Premium Brand Colors */
-    --brand-primary: 174 72% 40%;
-    --brand-secondary: 215 25% 20%;
-    --brand-accent: 174 72% 40%;
-    --brand-charcoal: 215 25% 15%;
-    --brand-navy: 220 30% 20%;
+    /* Growth Orbit Brand Colors from Logo */
+    --brand-primary: 145 85% 47%;
+    --brand-secondary: 213 100% 15%;
+    --brand-accent: 145 85% 47%;
+    --brand-charcoal: 213 100% 15%;
+    --brand-navy: 213 100% 20%;
 
     /* Professional Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(174 72% 40%), hsl(174 50% 30%));
-    --gradient-hero: linear-gradient(135deg, hsl(215 25% 15%) 0%, hsl(220 30% 20%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(145 85% 47%), hsl(145 70% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(213 100% 15%) 0%, hsl(213 100% 20%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
 
     /* Refined Shadows */
-    --shadow-soft: 0 1px 3px hsl(215 25% 15% / 0.08);
-    --shadow-medium: 0 4px 16px hsl(215 25% 15% / 0.12);
-    --shadow-strong: 0 8px 32px hsl(215 25% 15% / 0.16);
-    --shadow-glow: 0 0 20px hsl(174 72% 40% / 0.3);
+    --shadow-soft: 0 1px 3px hsl(213 100% 15% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(213 100% 15% / 0.12);
+    --shadow-strong: 0 8px 32px hsl(213 100% 15% / 0.16);
+    --shadow-glow: 0 0 20px hsl(145 85% 47% / 0.3);
 
     /* Smooth Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -81,45 +81,45 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark mode with charcoal/navy palette */
-    --background: 215 25% 8%;
+    /* Dark mode with navy palette from logo */
+    --background: 213 100% 8%;
     --foreground: 210 20% 95%;
 
-    --card: 215 25% 10%;
+    --card: 213 100% 10%;
     --card-foreground: 210 20% 95%;
 
-    --popover: 215 25% 10%;
+    --popover: 213 100% 10%;
     --popover-foreground: 210 20% 95%;
 
-    --primary: 174 72% 40%;
+    --primary: 145 85% 47%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 25% 12%;
+    --secondary: 213 100% 12%;
     --secondary-foreground: 210 20% 85%;
 
-    --muted: 215 25% 12%;
+    --muted: 213 100% 12%;
     --muted-foreground: 210 15% 60%;
 
-    --accent: 174 72% 40%;
+    --accent: 145 85% 47%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 25% 18%;
-    --input: 215 25% 18%;
-    --ring: 174 72% 40%;
+    --border: 213 100% 18%;
+    --input: 213 100% 18%;
+    --ring: 145 85% 47%;
 
     /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(174 72% 40%), hsl(174 50% 30%));
-    --gradient-hero: linear-gradient(135deg, hsl(215 25% 10%) 0%, hsl(220 30% 12%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(215 25% 10%) 0%, hsl(215 25% 12%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(145 85% 47%), hsl(145 70% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(213 100% 10%) 0%, hsl(213 100% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(213 100% 10%) 0%, hsl(213 100% 12%) 100%);
 
     /* Dark shadows */
     --shadow-soft: 0 1px 3px hsl(0 0% 0% / 0.3);
     --shadow-medium: 0 4px 16px hsl(0 0% 0% / 0.4);
     --shadow-strong: 0 8px 32px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 20px hsl(174 72% 40% / 0.4);
+    --shadow-glow: 0 0 20px hsl(145 85% 47% / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

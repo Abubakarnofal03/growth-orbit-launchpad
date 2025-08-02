@@ -27,7 +27,7 @@ const Navigation = () => {
     { name: "Contact", path: "/contact" },
   ];
 
-  const whatsappNumber = "+923001234567"; // Replace with actual WhatsApp number
+  const whatsappNumber = "+923241693025";
   const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -45,6 +45,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
+            <img 
+              src="/lovable-uploads/ac2b5fbc-71ee-4c9e-ad40-98f7bf226399.png" 
+              alt="Growth Orbit Logo" 
+              className="h-10 w-auto"
+            />
             <span className="text-2xl font-poppins font-semibold tracking-wide text-white group-hover:text-primary transition-colors duration-200">
               Growth Orbit
             </span>
