@@ -129,7 +129,7 @@ const Index = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const whatsappNumber = "+923001234567";
+  const whatsappNumber = "+923241693025";
   const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -159,7 +159,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-hero font-bold mb-8 leading-tight font-poppins"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-hero font-bold mb-6 sm:mb-8 leading-tight font-poppins px-4 sm:px-0"
             >
               Fuel Your{" "}
               <span className="text-primary">
@@ -171,7 +171,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-body-lg text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto font-poppins"
+              className="text-base sm:text-lg md:text-xl lg:text-body-lg text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto font-poppins px-4 sm:px-0"
             >
               Transform your business with expert marketing, branding, and development services. 
               We help ambitious companies achieve exceptional growth and dominate their markets.
@@ -181,7 +181,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4 sm:px-0"
             >
               <Button variant="hero" size="lg" asChild>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -201,12 +201,12 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto"
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-2xl mx-auto px-4 sm:px-0"
             >
               {trustBadges.map((badge, index) => (
-                <div key={index} className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                  <span className="text-2xl">{badge.icon}</span>
-                  <span className="text-sm font-medium">{badge.name}</span>
+                <div key={index} className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3">
+                  <span className="text-lg sm:text-2xl">{badge.icon}</span>
+                  <span className="text-xs sm:text-sm font-medium text-center">{badge.name}</span>
                 </div>
               ))}
             </motion.div>
@@ -215,8 +215,8 @@ const Index = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -224,16 +224,16 @@ const Index = () => {
             className="text-center mb-16"
           >
             <Badge variant="secondary" className="mb-4 font-poppins">Our Services</Badge>
-            <h2 className="text-subhead font-bold mb-6 font-poppins">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-4 sm:mb-6 font-poppins">
               Everything You Need to Grow
             </h2>
-            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
+            <p className="text-base sm:text-lg md:text-body-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
               From marketing and branding to development and strategy, 
               we provide comprehensive solutions for your growth needs.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -242,14 +242,14 @@ const Index = () => {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 h-full hover:shadow-strong transition-all duration-300 group cursor-pointer hover:-translate-y-1">
+                <Card className="p-4 sm:p-6 h-full hover:shadow-strong transition-all duration-300 group cursor-pointer hover:-translate-y-1">
                   <div className="inline-flex p-3 rounded-lg bg-primary text-white mb-4 group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors font-poppins">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3 group-hover:text-primary transition-colors font-poppins">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed font-poppins">
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed font-poppins">
                     {service.description}
                   </p>
                   <ul className="space-y-1">
@@ -272,7 +272,7 @@ const Index = () => {
       </section>
 
       {/* Case Studies Carousel */}
-      <section className="py-20 bg-secondary/20">
+      <section className="py-16 sm:py-20 bg-secondary/20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -281,7 +281,7 @@ const Index = () => {
             className="text-center mb-16"
           >
             <Badge variant="secondary" className="mb-4 font-poppins">Success Stories</Badge>
-            <h2 className="text-subhead font-bold mb-6 font-poppins">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-4 sm:mb-6 font-poppins">
               Proven Results That Speak
             </h2>
             <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
@@ -289,7 +289,7 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {caseStudies.map((study, index) => (
               <motion.div
                 key={index}
@@ -312,7 +312,7 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{study.title}</h3>
                     <p className="text-sm text-primary font-medium mb-3">{study.client}</p>
                     <p className="text-muted-foreground mb-4">{study.description}</p>
                     

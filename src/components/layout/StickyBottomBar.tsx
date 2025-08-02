@@ -17,7 +17,7 @@ const StickyBottomBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isDismissed]);
 
-  const whatsappNumber = "+923001234567";
+  const whatsappNumber = "+923241693025";
   const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -35,21 +35,22 @@ const StickyBottomBar = () => {
           exit={{ y: 100, opacity: 0 }}
           className="fixed bottom-0 left-0 right-0 z-40 bg-gradient-primary text-white shadow-strong"
         >
-          <div className="container mx-auto px-4 py-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
+          <div className="container mx-auto px-4 sm:px-6 py-3">
+            <div className="flex items-center justify-between gap-2 sm:gap-4">
+              <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
                 <MessageCircle className="h-5 w-5 flex-shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium truncate">
+                  <p className="text-sm font-medium truncate hidden sm:block">
                     Ready to grow your business?
                   </p>
                   <p className="text-xs text-white/80 truncate">
-                    Get your free audit now via WhatsApp
+                    <span className="sm:hidden">Free Audit</span>
+                    <span className="hidden sm:inline">Get your free audit now via WhatsApp</span>
                   </p>
                 </div>
               </div>
               
-              <div className="flex items-center space-x-2 flex-shrink-0">
+              <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
                 <Button
                   variant="hero-secondary"
                   size="sm"
@@ -57,7 +58,8 @@ const StickyBottomBar = () => {
                   className="whitespace-nowrap"
                 >
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    Free Audit
+                    <span className="sm:hidden">Audit</span>
+                    <span className="hidden sm:inline">Free Audit</span>
                   </a>
                 </Button>
                 <button

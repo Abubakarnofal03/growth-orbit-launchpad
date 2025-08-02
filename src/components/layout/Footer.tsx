@@ -30,8 +30,8 @@ const Footer = () => {
       },
       {
         icon: <Phone className="h-4 w-4" />,
-        text: "+92 300 123 4567",
-        link: "tel:+923001234567",
+        text: "+92 324 169 3025",
+        link: "tel:+923241693025",
       },
     ],
   };
@@ -43,22 +43,22 @@ const Footer = () => {
     { icon: <Facebook className="h-5 w-5" />, href: "https://facebook.com/growthorbit", label: "Facebook" },
   ];
 
-  const whatsappNumber = "+923001234567";
+  const whatsappNumber = "+923241693025";
   const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <footer className="bg-gradient-to-b from-background to-secondary/20 border-t border-border">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Brand Section */}
-          <div className="space-y-4">
+          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center space-x-2">
               <div className="p-2 bg-gradient-primary rounded-lg">
                 <Rocket className="h-6 w-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-foreground">
+              <span className="text-lg sm:text-xl font-bold text-foreground">
                 Growth Orbit
               </span>
             </Link>
@@ -131,7 +131,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="border-t border-border pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-muted-foreground text-sm">
             © {currentYear} Growth Orbit. All rights reserved.
           </p>

@@ -129,7 +129,7 @@ const Pricing = () => {
     }
   ];
 
-  const whatsappNumber = "+923001234567";
+  const whatsappNumber = "+923241693025";
   const getWhatsappUrl = (planName: string) => {
     const message = `Hi! I'm interested in the ${planName} plan. Can you provide more details?`;
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -153,7 +153,7 @@ const Pricing = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero relative overflow-hidden">
+      <section className="py-16 sm:py-20 bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -161,10 +161,10 @@ const Pricing = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center text-white max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               Simple, Transparent Pricing
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed mb-6 sm:mb-8">
               Choose the perfect plan to fuel your growth journey. 
               All plans include our growth guarantee.
             </p>

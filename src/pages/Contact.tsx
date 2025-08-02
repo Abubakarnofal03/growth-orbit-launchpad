@@ -83,7 +83,7 @@ const Contact = () => {
       title: "WhatsApp",
       description: "Quick chat on WhatsApp",
       value: "+92 300 123 4567",
-      action: "https://wa.me/+923001234567?text=Hi! I'd like to discuss my project with you.",
+      action: "https://wa.me/+923241693025?text=Hi! I'd like to discuss my project with you.",
       actionText: "Chat Now"
     },
     {
@@ -91,7 +91,7 @@ const Contact = () => {
       title: "Call Us",
       description: "Speak directly with our team",
       value: "+92 300 123 4567",
-      action: "tel:+923001234567",
+      action: "tel:+923241693025",
       actionText: "Call Now"
     }
   ];
@@ -125,7 +125,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero relative overflow-hidden">
+      <section className="py-16 sm:py-20 bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -133,10 +133,10 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center text-white max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               Let's Start Your Growth Journey
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed">
               Ready to fuel your business growth? Get in touch and let's discuss 
               how we can help you achieve your goals.
             </p>
@@ -145,7 +145,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-20 bg-background">
+      <section className="py-16 sm:py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -157,13 +157,13 @@ const Contact = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Choose Your Preferred Way to Connect
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               We're here to help you succeed. Reach out through any of these channels 
               and we'll respond within 24 hours.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {contactMethods.map((method, index) => (
               <motion.div
                 key={index}
@@ -172,11 +172,11 @@ const Contact = () => {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 text-center hover:shadow-medium transition-all duration-300 group">
+                <Card className="p-4 sm:p-6 text-center hover:shadow-medium transition-all duration-300 group">
                   <div className="inline-flex p-3 bg-gradient-primary rounded-full text-white mb-4 group-hover:scale-110 transition-transform duration-300">
                     {method.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{method.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{method.title}</h3>
                   <p className="text-muted-foreground text-sm mb-4">{method.description}</p>
                   <p className="font-medium mb-4">{method.value}</p>
                   <Button variant="outline" asChild className="group-hover:border-primary group-hover:text-primary">
@@ -192,25 +192,25 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Office Info */}
-      <section className="py-20 bg-secondary/20">
+      <section className="py-16 sm:py-20 bg-secondary/20">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 max-w-6xl mx-auto">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Card className="p-8">
+              <Card className="p-6 sm:p-8">
                 <div className="mb-8">
-                  <h3 className="text-2xl font-bold mb-2">Send Us a Message</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2">Send Us a Message</h3>
                   <p className="text-muted-foreground">
                     Fill out the form below and we'll get back to you as soon as possible.
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name *</Label>
                       <Input
@@ -238,7 +238,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="company">Company Name</Label>
                       <Input
@@ -312,8 +312,8 @@ const Contact = () => {
               className="space-y-8"
             >
               {/* Office Information */}
-              <Card className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Our Office</h3>
+              <Card className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Our Office</h3>
                 <div className="space-y-6">
                   {officeInfo.map((info, index) => (
                     <div key={index} className="flex items-start space-x-4">
@@ -328,8 +328,8 @@ const Contact = () => {
               </Card>
 
               {/* Map Placeholder */}
-              <Card className="p-8">
-                <h3 className="text-xl font-bold mb-4">Find Us</h3>
+              <Card className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-bold mb-4">Find Us</h3>
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center">
                   <div className="text-center">
                     <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -361,7 +361,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-background">
+      <section className="py-16 sm:py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -370,16 +370,16 @@ const Contact = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <Badge variant="secondary" className="mb-4">Still Have Questions?</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
               We're Here to Help
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
               Have questions about our services, pricing, or process? 
               Don't hesitate to reach out. We're always happy to help.
             </p>
             <Button variant="premium" size="lg" asChild>
               <a
-                href="https://wa.me/+923001234567?text=Hi! I have some questions about your services."
+                href="https://wa.me/+923241693025?text=Hi! I have some questions about your services."
                 target="_blank"
                 rel="noopener noreferrer"
               >
