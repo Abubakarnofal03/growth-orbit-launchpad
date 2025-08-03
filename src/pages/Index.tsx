@@ -150,8 +150,8 @@ const Index = () => {
               transition={{ delay: 0.2 }}
               className="mb-8"
             >
-              <Badge className="bg-white/10 text-white border-white/20 backdrop-blur-sm mb-6 font-poppins">
-                Based in Pakistan • Serving USA, UAE & Beyond
+              <Badge className="bg-white/10 text-white border-white/20 backdrop-blur-sm mb-6 font-poppins text-base px-4 py-2">
+                Serving USA, UAE & Beyond
               </Badge>
             </motion.div>
             
@@ -197,7 +197,7 @@ const Index = () => {
             </motion.div>
 
             {/* Trust Badges */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
@@ -209,7 +209,7 @@ const Index = () => {
                   <span className="text-xs sm:text-sm font-medium text-center">{badge.name}</span>
                 </div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </section>
@@ -223,9 +223,9 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4 font-poppins">Our Services</Badge>
+                          {/* <Badge variant="secondary" className="mb-4 font-poppins text-base px-6 py-3">Our Services</Badge> */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-4 sm:mb-6 font-poppins">
-              Everything You Need to Grow
+              Our Services
             </h2>
             <p className="text-base sm:text-lg md:text-body-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
               From marketing and branding to development and strategy, 
