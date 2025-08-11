@@ -136,7 +136,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden animate-heartbeat">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
