@@ -55,7 +55,7 @@ const Navigation = () => {
         </Link>
 
         {/* Desktop Navigation - Hidden on small screens */}
-        <div className="hidden lg:flex items-center space-x-8">
+        <div className="hidden md:flex flex-1 items-center justify-center space-x-4 lg:space-x-6 xl:space-x-8">
           {navItems.map((item) => (
             <Link
               key={item.path}
