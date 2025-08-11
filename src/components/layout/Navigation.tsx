@@ -42,20 +42,20 @@ const Navigation = () => {
       }`}
     >
       <div className="flex items-center justify-between h-16 lg:h-20 px-4 sm:px-6 lg:px-8">
-        {/* Logo - Absolute Left */}
+        {/* Logo - Left Corner */}
         <Link to="/" className="flex items-center group flex-shrink-0">
           <img 
             src="/lovable-uploads/logo.png" 
             alt="SMARB Technologies Logo" 
-            className="h-20 w-auto"
+            className="h-16 lg:h-20 w-auto"
           />
-          <span className="text-2xl font-poppins font-bold tracking-wider text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-indigo-700 transition-all duration-300 drop-shadow-sm">
+          <span className="hidden sm:inline text-lg lg:text-2xl font-poppins font-bold tracking-wider text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-indigo-700 transition-all duration-300 drop-shadow-sm ml-2">
             SMARB Technologies
           </span>
         </Link>
 
-        {/* Desktop Navigation - Hidden on small screens */}
-        <div className="hidden md:flex flex-1 items-center justify-center space-x-4 lg:space-x-6 xl:space-x-8">
+        {/* Desktop Navigation - Centered */}
+        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-4 lg:space-x-6 xl:space-x-8">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -77,19 +77,10 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Right Side - Contact Button and Mobile Menu */}
+        {/* Right Corner - Contact Button and Mobile Menu */}
         <div className="flex items-center space-x-4">
           {/* Desktop Contact Button */}
-          <div className="hidden lg:flex">
-            <Button variant="default" size="default" asChild>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                Contact Us
-              </a>
-            </Button>
-          </div>
-
-          {/* Medium Screen Contact Button */}
-          <div className="hidden md:flex lg:hidden">
+          <div className="hidden md:flex">
             <Button variant="default" size="default" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 Contact Us
