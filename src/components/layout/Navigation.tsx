@@ -47,9 +47,9 @@ const Navigation = () => {
           <img 
             src="/lovable-uploads/logo.png" 
             alt="SMARB Technologies Logo" 
-            className="h-16 lg:h-20 w-auto"
+            className="h-12 lg:h-16 w-auto"
           />
-          <span className="hidden sm:inline text-lg lg:text-2xl font-poppins font-bold tracking-wider text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-indigo-700 transition-all duration-300 drop-shadow-sm ml-2">
+          <span className="hidden sm:inline text-base lg:text-xl font-poppins font-bold tracking-wider text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-indigo-700 transition-all duration-300 drop-shadow-sm ml-1.5">
             SMARB Technologies
           </span>
         </Link>
