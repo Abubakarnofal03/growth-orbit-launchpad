@@ -41,45 +41,55 @@ const Navigation = () => {
           : "bg-white/90 backdrop-blur-sm"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-0 group">
-            <img 
-              src="/lovable-uploads/logo.png" 
-              alt="Growth Orbit Logo" 
-              className="h-12 w-auto"
-            />
-            <span className="text-2xl font-poppins font-semibold tracking-wide text-gray-900 group-hover:text-primary transition-colors duration-200">
-              Growth Orbit
-            </span>
-          </Link>
+      <div className="flex items-center justify-between h-16 lg:h-20 px-4 sm:px-6 lg:px-8">
+        {/* Logo - Absolute Left */}
+        <Link to="/" className="flex items-center group flex-shrink-0">
+          <img 
+            src="/lovable-uploads/logo.png" 
+            alt="SMARB Technologies Logo" 
+            className="h-20 w-auto"
+          />
+          <span className="text-2xl font-poppins font-bold tracking-wider text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-indigo-700 transition-all duration-300 drop-shadow-sm">
+            SMARB Technologies
+          </span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-primary relative font-poppins ${
-                  location.pathname === item.path
-                    ? "text-primary"
-                    : "text-gray-700"
-                }`}
-              >
-                {item.name}
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                  />
-                )}
-              </Link>
-            ))}
+        {/* Desktop Navigation - Hidden on small screens */}
+        <div className="hidden lg:flex items-center space-x-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`text-sm font-medium transition-colors duration-200 hover:text-primary relative font-poppins ${
+                location.pathname === item.path
+                  ? "text-primary"
+                  : "text-gray-700"
+              }`}
+            >
+              {item.name}
+              {location.pathname === item.path && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                />
+              )}
+            </Link>
+          ))}
+        </div>
+
+        {/* Right Side - Contact Button and Mobile Menu */}
+        <div className="flex items-center space-x-4">
+          {/* Desktop Contact Button */}
+          <div className="hidden lg:flex">
+            <Button variant="default" size="default" asChild>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                Contact Us
+              </a>
+            </Button>
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Medium Screen Contact Button */}
+          <div className="hidden md:flex lg:hidden">
             <Button variant="default" size="default" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 Contact Us
@@ -106,7 +116,7 @@ const Navigation = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200"
           >
-            <div className="container mx-auto px-4 py-4 space-y-4">
+            <div className="px-4 py-4 space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
