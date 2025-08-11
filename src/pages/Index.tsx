@@ -255,12 +255,12 @@ const Index = () => {
                   <ul className="space-y-1">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                        <CheckCircle className="h-3 w-3 text-primary mr-2 flex-shrink-0" />
+                        <CheckCircle className="h-3 w-3 text-green-500 mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button variant="premium-outline" className="w-full mt-4 font-poppins">
+                  <Button variant="premium-outline" className="w-full mt-4 font-poppins hover:bg-green-500 hover:text-white hover:border-green-500">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
