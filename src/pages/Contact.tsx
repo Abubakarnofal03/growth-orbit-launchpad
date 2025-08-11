@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,7 @@ import {
   CheckCircle,
   Globe
 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -29,6 +30,11 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  // EmailJS init (public key)
+  useEffect(() => {
+    emailjs.init("oH_GTZMSMCN88APJx");
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -43,9 +49,24 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      // Build EmailJS template params
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || "—",
+        budget: formData.budget || "—",
+        message: formData.message,
+        to_name: "SMARB Technologies",
+        reply_to: formData.email,
+        page: "Contact Page"
+      };
+
+      await emailjs.send(
+        "service_29knpyq",
+        "template_zysdni2",
+        templateParams
+      );
+
       toast({
         title: "Message Sent Successfully!",
         description: "We'll get back to you within 24 hours.",
@@ -74,15 +95,15 @@ const Contact = () => {
       icon: <Mail className="h-6 w-6" />,
       title: "Email Us",
       description: "Get in touch via email",
-      value: "hello@growthorbit.com",
-      action: "mailto:hello@growthorbit.com",
+      value: "info.smarb@gmail.com",
+      action: "mailto:info.smarb@gmail.com",
       actionText: "Send Email"
     },
     {
       icon: <MessageCircle className="h-6 w-6" />,
       title: "WhatsApp",
       description: "Quick chat on WhatsApp",
-      value: "+92 300 123 4567",
+      value: "+92 324 169 3025",
       action: "https://wa.me/+923241693025?text=Hi! I'd like to discuss my project with you.",
       actionText: "Chat Now"
     },
@@ -90,27 +111,27 @@ const Contact = () => {
       icon: <Phone className="h-6 w-6" />,
       title: "Call Us",
       description: "Speak directly with our team",
-      value: "+92 300 123 4567",
+      value: "+92 300 169 3025",
       action: "tel:+923241693025",
       actionText: "Call Now"
     }
   ];
 
   const officeInfo = [
-    {
-      icon: <MapPin className="h-5 w-5" />,
-      label: "Address",
-      value: "DHA Phase 5, Lahore, Pakistan"
-    },
+    // {
+    //   icon: <MapPin className="h-5 w-5" />,
+    //   label: "Address",
+    //   value: "DHA Phase 5, Lahore, Pakistan"
+    // },
     {
       icon: <Clock className="h-5 w-5" />,
       label: "Business Hours",
-      value: "Mon - Fri: 9:00 AM - 6:00 PM (PKT)"
+      value: "Always Open"
     },
     {
       icon: <Globe className="h-5 w-5" />,
       label: "Serving",
-      value: "Pakistan, USA, UAE & Worldwide"
+      value: "Pakistan & Worldwide"
     }
   ];
 
@@ -328,7 +349,7 @@ const Contact = () => {
               </Card>
 
               {/* Map Placeholder */}
-              <Card className="p-6 sm:p-8">
+              {/* <Card className="p-6 sm:p-8">
                 <h3 className="text-lg sm:text-xl font-bold mb-4">Find Us</h3>
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center">
                   <div className="text-center">
@@ -341,7 +362,7 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-              </Card>
+              </Card> */}
 
               {/* Quick Response Guarantee */}
               <Card className="p-6 bg-gradient-primary text-white">
