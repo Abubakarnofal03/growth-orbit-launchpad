@@ -4,236 +4,428 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  TrendingUp, 
-  Palette, 
-  Users, 
-  Code, 
+  Brain,
+  Code2, 
+  Database, 
+  Cloud,
   ArrowRight,
   Star,
   Quote,
   CheckCircle,
-  Globe,
-  Award,
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
   Zap,
-  Target,
-  ChevronLeft,
-  ChevronRight
+  Bot,
+  Cpu,
+  Globe
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Index = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentSkill, setCurrentSkill] = useState(0);
+
+  const skills = [
+    { name: "Python", level: 95, icon: <Code2 className="h-6 w-6" /> },
+    { name: "AI/ML", level: 90, icon: <Brain className="h-6 w-6" /> },
+    { name: "Django", level: 88, icon: <Database className="h-6 w-6" /> },
+    { name: "React", level: 85, icon: <Globe className="h-6 w-6" /> },
+    { name: "Cloud (AWS)", level: 82, icon: <Cloud className="h-6 w-6" /> },
+    { name: "Angular", level: 80, icon: <Globe className="h-6 w-6" /> }
+  ];
+
+  const projects = [
+    {
+      title: "VisaMate AI",
+      description: "AI-powered visa application assistant with intelligent document processing and eligibility assessment.",
+      tech: ["Python", "AI/ML", "NLP", "Django"],
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
+      github: "#",
+      demo: "#",
+      featured: true
+    },
+    {
+      title: "SkillMap Platform",
+      description: "Comprehensive skill assessment and career path recommendation system using machine learning.",
+      tech: ["React", "Python", "TensorFlow", "PostgreSQL"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      github: "#",
+      demo: "#",
+      featured: true
+    },
+    {
+      title: "PDF QA System",
+      description: "Intelligent document analysis system for extracting insights from complex PDFs using LLMs.",
+      tech: ["Python", "LangChain", "OpenAI", "FastAPI"],
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
+      github: "#",
+      demo: "#",
+      featured: false
+    },
+    {
+      title: "Gender Classification AI",
+      description: "Advanced computer vision model for demographic analysis with high accuracy and bias mitigation.",
+      tech: ["TensorFlow", "OpenCV", "Python", "Docker"],
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop",
+      github: "#",
+      demo: "#",
+      featured: false
+    }
+  ];
 
   const services = [
     {
-      icon: <TrendingUp className="h-8 w-8" />,
-      title: "Digital Marketing",
-      description: "Drive growth with data-driven marketing strategies across all digital channels.",
-      features: ["SEO Optimization", "Social Media", "PPC Campaigns", "Analytics"],
-      color: "from-blue-500 to-purple-600"
+      icon: <Brain className="h-8 w-8" />,
+      title: "AI Solutions",
+      description: "Custom AI models, NLP systems, and machine learning applications tailored to your business needs.",
+      features: ["Machine Learning", "NLP", "Computer Vision", "LLM Integration"]
     },
     {
-      icon: <Palette className="h-8 w-8" />,
-      title: "Brand Strategy",
-      description: "Build a powerful brand identity that resonates and stands out in the market.",
-      features: ["Brand Identity", "Logo Design", "Guidelines", "Positioning"],
-      color: "from-purple-500 to-pink-600"
+      icon: <Code2 className="h-8 w-8" />,
+      title: "Backend Development",
+      description: "Scalable backend systems, APIs, and cloud-native applications built with modern technologies.",
+      features: ["Django/FastAPI", "PostgreSQL", "RESTful APIs", "Microservices"]
     },
     {
-      icon: <Users className="h-8 w-8" />,
-      title: "Business Development",
-      description: "Strategic consulting to scale operations and expand into new markets.",
-      features: ["Growth Strategy", "Market Research", "Partnerships", "Sales Optimization"],
-      color: "from-green-500 to-teal-600"
+      icon: <Globe className="h-8 w-8" />,
+      title: "Web Applications",
+      description: "Full-stack web applications with modern frameworks and responsive user interfaces.",
+      features: ["React", "Angular", "TypeScript", "Responsive Design"]
     },
     {
-      icon: <Code className="h-8 w-8" />,
-      title: "Web & Software",
-      description: "Custom development solutions that drive efficiency and user engagement.",
-      features: ["Web Development", "Mobile Apps", "API Integration", "Cloud Solutions"],
-      color: "from-orange-500 to-red-600"
+      icon: <Bot className="h-8 w-8" />,
+      title: "Chatbots & Automation",
+      description: "Intelligent chatbots and automation solutions to streamline business processes.",
+      features: ["RAG Systems", "LangChain", "Process Automation", "Integration APIs"]
     }
-  ];
-
-  const caseStudies = [
-    {
-      title: "E-commerce Growth Success",
-      client: "TechGear Pro",
-      result: "300% Revenue Increase",
-      description: "Transformed a struggling e-commerce business into a market leader",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      metrics: [
-        { label: "Revenue Growth", value: "300%" },
-        { label: "Conversion Rate", value: "180%" }
-      ]
-    },
-    {
-      title: "SaaS Platform Dominance",
-      client: "CloudSync Solutions",
-      result: "450% User Growth",
-      description: "Helped a startup become the #1 player in their market segment",
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop",
-      metrics: [
-        { label: "User Growth", value: "450%" },
-        { label: "Market Share", value: "#1" }
-      ]
-    },
-    {
-      title: "Healthcare Digital Transform",
-      client: "MediCare Plus",
-      result: "200% Patient Growth",
-      description: "Modernized a traditional practice with digital solutions",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop",
-      metrics: [
-        { label: "Patient Growth", value: "200%" },
-        { label: "Satisfaction", value: "95%" }
-      ]
-    }
-  ];
-
-  const testimonials = [
-    {
-      content: "Growth Orbit transformed our business completely. The results speak for themselves - we've never seen growth like this before.",
-      author: "Sarah Johnson",
-      role: "CEO, TechGear Pro",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      content: "They didn't just help us grow - they helped us become the market leader. Their strategic approach is unmatched.",
-      author: "Mike Chen",
-      role: "Founder, CloudSync Solutions",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      content: "The ROI from working with Growth Orbit has been incredible. Best investment we've made for our business.",
-      author: "Lisa Rodriguez",
-      role: "Director, MediCare Plus",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
-    }
-  ];
-
-  const trustBadges = [
-    { name: "Google Partner", icon: "🏆" },
-    { name: "Facebook Blueprint", icon: "📘" },
-    { name: "HubSpot Certified", icon: "🎯" },
-    { name: "AWS Partner", icon: "☁️" }
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+      setCurrentSkill((prev) => (prev + 1) % skills.length);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
-
-  const whatsappNumber = "+923241693025";
-  const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
+      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-brand-darker">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse delay-1000" />
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center text-white max-w-5xl mx-auto"
+            className="text-center text-white max-w-4xl mx-auto"
           >
+            {/* Professional Avatar Placeholder */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-primary flex items-center justify-center"
+            >
+              <Brain className="h-16 w-16 text-white" />
+            </motion.div>
+            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mb-8"
+              transition={{ delay: 0.4 }}
+              className="mb-6"
             >
-              <Badge className="bg-white/10 text-white border-white/20 backdrop-blur-sm mb-6 font-poppins text-base px-4 py-2">
-                Serving USA, UAE & Beyond
+              <Badge className="bg-primary/20 text-primary border-primary/30 backdrop-blur-sm mb-4 font-medium text-sm px-4 py-2">
+                Available for Freelance
               </Badge>
             </motion.div>
             
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-hero font-bold mb-6 sm:mb-8 leading-tight font-poppins px-4 sm:px-0"
+              transition={{ delay: 0.6 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             >
-              Fuel Your{" "}
-              <span className="text-primary">
-                Growth Journey
+              Applied AI Engineer &{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-primary">
+                Software Developer
               </span>
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="text-base sm:text-lg md:text-xl lg:text-body-lg text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto font-poppins px-4 sm:px-0"
+              transition={{ delay: 0.8 }}
+              className="text-xl md:text-2xl text-white/80 mb-12 leading-relaxed max-w-3xl mx-auto"
             >
-              Transform your business with expert marketing, branding, and development services. 
-              We help ambitious companies achieve exceptional growth and dominate their markets.
+              I build scalable AI-powered applications, backend systems, and cloud solutions 
+              that solve real-world problems with cutting-edge technology.
             </motion.p>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4 sm:px-0"
+              transition={{ delay: 1 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
             >
-              <Button variant="hero" size="lg" asChild>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  Get Free Audit
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg">
+                Work With Me
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="hero-secondary" size="lg" asChild>
-                <a href="/case-studies">
-                  View Case Studies
-                </a>
+              <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg">
+                View Projects
               </Button>
             </motion.div>
 
-            {/* Trust Badges */}
-            {/* <motion.div
+            {/* Tech Stack Preview */}
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-2xl mx-auto px-4 sm:px-0"
+              transition={{ delay: 1.2 }}
+              className="grid grid-cols-2 md:grid-cols-6 gap-4 max-w-2xl mx-auto"
             >
-              {trustBadges.map((badge, index) => (
-                <div key={index} className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3">
-                  <span className="text-lg sm:text-2xl">{badge.icon}</span>
-                  <span className="text-xs sm:text-sm font-medium text-center">{badge.name}</span>
+              {skills.map((skill, index) => (
+                <div key={index} className="flex flex-col items-center space-y-2 bg-white/5 backdrop-blur-sm rounded-lg p-3">
+                  {skill.icon}
+                  <span className="text-sm font-medium">{skill.name}</span>
                 </div>
               ))}
-            </motion.div> */}
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-16 sm:py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6">
+      {/* About Section */}
+      <section id="about" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-16">
+              <Badge variant="secondary" className="mb-4">About Me</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-dark">
+                Building the Future with AI
+              </h2>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                With extensive experience in AI/ML, backend development, and cloud architecture, 
+                I transform complex problems into elegant, scalable solutions.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-2xl font-semibold mb-6 text-brand-dark">Skills & Expertise</h3>
+                <div className="space-y-4">
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-center justify-between"
+                    >
+                      <div className="flex items-center space-x-3">
+                        {skill.icon}
+                        <span className="font-medium">{skill.name}</span>
+                      </div>
+                      <div className="flex-1 mx-4 bg-secondary rounded-full h-2">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          transition={{ delay: index * 0.1 + 0.5, duration: 1 }}
+                          viewport={{ once: true }}
+                          className="h-full bg-primary rounded-full"
+                        />
+                      </div>
+                      <span className="text-sm font-medium text-muted-foreground">{skill.level}%</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <Card className="p-6 hover:shadow-strong transition-all duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Zap className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Performance Driven</h4>
+                      <p className="text-muted-foreground">Optimized solutions that scale efficiently and deliver exceptional user experiences.</p>
+                    </div>
+                  </div>
+                </Card>
+
+                <Card className="p-6 hover:shadow-strong transition-all duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Cpu className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">AI-First Approach</h4>
+                      <p className="text-muted-foreground">Leveraging cutting-edge AI technologies to solve complex business challenges.</p>
+                    </div>
+                  </div>
+                </Card>
+
+                <Card className="p-6 hover:shadow-strong transition-all duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <CheckCircle className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Quality Focused</h4>
+                      <p className="text-muted-foreground">Clean, maintainable code with comprehensive testing and documentation.</p>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 bg-secondary/20">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-                          {/* <Badge variant="secondary" className="mb-4 font-poppins text-base px-6 py-3">Our Services</Badge> */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-4 sm:mb-6 font-poppins">
-              Our Services
+            <Badge variant="secondary" className="mb-4">Featured Work</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-dark">
+              Projects That Make Impact
             </h2>
-            <p className="text-base sm:text-lg md:text-body-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
-              From marketing and branding to development and strategy, 
-              we provide comprehensive solutions for your growth needs.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              A selection of AI-powered applications and systems I've built to solve real-world challenges.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {projects.filter(p => p.featured).map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="overflow-hidden hover:shadow-strong transition-all duration-300 group h-full">
+                  <div className="relative">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 right-4">
+                      <Badge className="bg-primary text-white">Featured</Badge>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-3 text-brand-dark">{project.title}</h3>
+                    <p className="text-muted-foreground mb-4">{project.description}</p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.map((tech, idx) => (
+                        <Badge key={idx} variant="outline" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <Button variant="outline" size="sm" asChild>
+                        <a href={project.github}>
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </a>
+                      </Button>
+                      <Button size="sm" asChild>
+                        <a href={project.demo}>
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Demo
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.filter(p => !p.featured).map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-6 hover:shadow-medium transition-all duration-300 group h-full">
+                  <h3 className="text-lg font-semibold mb-2 text-brand-dark">{project.title}</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {project.tech.map((tech, idx) => (
+                      <Badge key={idx} variant="outline" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="sm" asChild>
+                      <a href={project.github}>
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </a>
+                    </Button>
+                    <Button size="sm" asChild>
+                      <a href={project.demo}>
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Demo
+                      </a>
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Badge variant="secondary" className="mb-4">Services</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-dark">
+              How I Can Help You
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              From AI integration to full-stack development, I provide comprehensive solutions for your technical needs.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -242,28 +434,24 @@ const Index = () => {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-4 sm:p-6 h-full hover:shadow-strong transition-all duration-300 group cursor-pointer hover:-translate-y-1">
-                  <div className="inline-flex p-3 rounded-lg bg-primary text-white mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Card className="p-6 h-full hover:shadow-strong transition-all duration-300 group cursor-pointer hover:-translate-y-1">
+                  <div className="inline-flex p-3 rounded-lg bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold mb-3 group-hover:text-primary transition-colors font-poppins">
+                  <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed font-poppins">
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                     {service.description}
                   </p>
                   <ul className="space-y-1">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                        <CheckCircle className="h-3 w-3 text-green-500 mr-2 flex-shrink-0" />
+                        <CheckCircle className="h-3 w-3 text-primary mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button variant="premium-outline" className="w-full mt-4 font-poppins hover:bg-green-500 hover:text-white hover:border-green-500">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
                 </Card>
               </motion.div>
             ))}
@@ -271,153 +459,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Case Studies Carousel */}
-      <section className="py-16 sm:py-20 bg-secondary/20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <Badge variant="secondary" className="mb-4 font-poppins">Success Stories</Badge>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-4 sm:mb-6 font-poppins">
-              Proven Results That Speak
-            </h2>
-            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
-              See how we've helped businesses achieve exceptional growth across different industries.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {caseStudies.map((study, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="overflow-hidden hover:shadow-strong transition-all duration-300 group">
-                  <div className="relative">
-                    <img
-                      src={study.image}
-                      alt={study.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 right-4">
-                      <Badge className="bg-brand-success text-white">
-                        {study.result}
-                      </Badge>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{study.title}</h3>
-                    <p className="text-sm text-primary font-medium mb-3">{study.client}</p>
-                    <p className="text-muted-foreground mb-4">{study.description}</p>
-                    
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      {study.metrics.map((metric, idx) => (
-                        <div key={idx} className="text-center">
-                          <div className="text-lg font-bold text-primary">{metric.value}</div>
-                          <div className="text-xs text-muted-foreground">{metric.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <Button variant="outline" className="w-full group">
-                      View Case Study
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <Button variant="premium" size="lg" asChild>
-              <a href="/case-studies">
-                View All Case Studies
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <Badge variant="secondary" className="mb-4 font-poppins">Client Testimonials</Badge>
-            <h2 className="text-subhead font-bold mb-6 font-poppins">
-              What Our Clients Say
-            </h2>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            <Card className="p-8 md:p-12 text-center">
-              <Quote className="h-12 w-12 text-primary mx-auto mb-6" />
-              
-              <motion.div
-                key={currentTestimonial}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="flex justify-center mb-4">
-                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                
-                <blockquote className="text-xl md:text-2xl font-medium mb-6 leading-relaxed">
-                  "{testimonials[currentTestimonial].content}"
-                </blockquote>
-                
-                <div className="flex items-center justify-center space-x-4">
-                  <img
-                    src={testimonials[currentTestimonial].avatar}
-                    alt={testimonials[currentTestimonial].author}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div className="text-left">
-                    <p className="font-semibold">{testimonials[currentTestimonial].author}</p>
-                    <p className="text-muted-foreground text-sm">{testimonials[currentTestimonial].role}</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <div className="flex justify-center space-x-2 mt-8">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      index === currentTestimonial ? 'bg-primary' : 'bg-muted'
-                    }`}
-                  />
-                ))}
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 bg-brand-charcoal relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-brand-darker relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-mesh opacity-10" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -425,24 +469,57 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center text-white max-w-4xl mx-auto"
           >
-            <h2 className="text-subhead font-bold mb-6 font-poppins">
-              Ready to Fuel Your Growth?
+            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Let's Connect</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Ready to Build Something Amazing?
             </h2>
-            <p className="text-body-lg text-white/90 mb-8 leading-relaxed font-poppins">
-              Join hundreds of successful businesses that have transformed their growth with our expertise.
-              Get your free audit today and discover your growth potential.
+            <p className="text-xl text-white/80 mb-12 leading-relaxed">
+              I'm always interested in discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <motion.a
+                href="mailto:your.email@example.com"
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center p-6 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300"
+              >
+                <Mail className="h-8 w-8 text-primary mb-4" />
+                <h3 className="font-semibold mb-2">Email</h3>
+                <p className="text-white/70 text-sm">your.email@example.com</p>
+              </motion.a>
+              
+              <motion.a
+                href="https://linkedin.com/in/yourprofile"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center p-6 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300"
+              >
+                <Linkedin className="h-8 w-8 text-primary mb-4" />
+                <h3 className="font-semibold mb-2">LinkedIn</h3>
+                <p className="text-white/70 text-sm">Connect with me</p>
+              </motion.a>
+              
+              <motion.a
+                href="https://github.com/yourprofile"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center p-6 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300"
+              >
+                <Github className="h-8 w-8 text-primary mb-4" />
+                <h3 className="font-semibold mb-2">GitHub</h3>
+                <p className="text-white/70 text-sm">See my code</p>
+              </motion.a>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button variant="hero-secondary" size="lg" asChild>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  Get Free Audit Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg">
+                <Mail className="mr-2 h-5 w-5" />
+                Get In Touch
               </Button>
-              <Button variant="hero-secondary" size="lg" asChild>
-                <a href="/contact">
-                  Schedule a Call
-                </a>
+              <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg">
+                Download Resume
               </Button>
             </div>
           </motion.div>
