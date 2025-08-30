@@ -19,12 +19,12 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Case Studies", path: "/case-studies" },
+    { name: "Home", path: "/", section: "home" },
+    { name: "About", path: "/", section: "about" },
+    { name: "Services", path: "/", section: "services" },
+    { name: "Case Studies", path: "/", section: "case-studies" },
     // { name: "Pricing", path: "/pricing" },
-    { name: "Contact", path: "/contact" },
+    { name: "Contact", path: "/", section: "contact" },
   ];
 
   const whatsappNumber = "+923241693025";
@@ -60,14 +60,23 @@ const Navigation = () => {
             <Link
               key={item.path}
               to={item.path}
+              onClick={(e) => {
+                if (item.section && item.path === "/") {
+                  e.preventDefault();
+                  const element = document.getElementById(item.section);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              }}
               className={`text-base font-medium transition-colors duration-200 hover:text-primary relative font-poppins ${
-                location.pathname === item.path
+                location.pathname === item.path && !item.section
                   ? "text-primary"
                   : "text-gray-700"
               }`}
             >
               {item.name}
-              {location.pathname === item.path && (
+              {location.pathname === item.path && !item.section && (
                 <motion.div
                   layoutId="activeTab"
                   className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
@@ -83,14 +92,23 @@ const Navigation = () => {
             <Link
               key={item.path}
               to={item.path}
+              onClick={(e) => {
+                if (item.section && item.path === "/") {
+                  e.preventDefault();
+                  const element = document.getElementById(item.section);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              }}
               className={`text-sm font-medium transition-colors duration-200 hover:text-primary relative font-poppins ${
-                location.pathname === item.path
+                location.pathname === item.path && !item.section
                   ? "text-primary"
                   : "text-gray-700"
               }`}
             >
               {item.name}
-              {location.pathname === item.path && (
+              {location.pathname === item.path && !item.section && (
                 <motion.div
                   layoutId="activeTab"
                   className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
@@ -154,12 +172,21 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
+                  onClick={(e) => {
+                    if (item.section && item.path === "/") {
+                      e.preventDefault();
+                      const element = document.getElementById(item.section);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }
+                    setIsOpen(false);
+                  }}
                   className={`block py-3 text-base font-medium transition-colors font-poppins ${
-                    location.pathname === item.path
+                    location.pathname === item.path && !item.section
                       ? "text-primary"
                       : "text-gray-700 hover:text-primary"
                   }`}
-                  onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </Link>

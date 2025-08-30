@@ -145,6 +145,34 @@ const Contact = () => {
 
   return (
     <Layout>
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 bg-background border-b">
+        <div className="container mx-auto px-4">
+          <nav className="flex items-center justify-between">
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <a href="/" className="hover:text-primary transition-colors">
+                Home
+              </a>
+              <span>/</span>
+              <span className="text-foreground">Contact</span>
+            </div>
+            
+            {/* Quick Navigation Links */}
+            <div className="flex items-center space-x-4">
+              <Button variant="outline" size="sm" asChild>
+                <a href="/#about">About</a>
+              </Button>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/#services">Services</a>
+              </Button>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/#case-studies">Case Studies</a>
+              </Button>
+            </div>
+          </nav>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="py-16 sm:py-20 bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
@@ -161,6 +189,20 @@ const Contact = () => {
               Ready to fuel your business growth? Get in touch and let's discuss 
               how we can help you achieve your goals.
             </p>
+            
+            {/* Navigation Back to Home */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mt-8"
+            >
+              <Button variant="hero-secondary" size="lg" asChild>
+                <a href="/">
+                  ← Back to Home
+                </a>
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -398,19 +440,60 @@ const Contact = () => {
               Have questions about our services, pricing, or process? 
               Don't hesitate to reach out. We're always happy to help.
             </p>
-            <Button variant="premium" size="lg" asChild>
-              <a
-                href="https://wa.me/+923241693025?text=Hi! I have some questions about your services."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MessageCircle className="h-4 w-4 mr-2" />
-                Chat on WhatsApp
-              </a>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="premium" size="lg" asChild>
+                <a
+                  href="https://wa.me/+923241693025?text=Hi! I have some questions about your services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  Chat on WhatsApp
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <a href="/">
+                  ← Back to Home
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
+
+      {/* Floating Navigation Menu */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="fixed bottom-6 right-6 z-40 flex flex-col gap-3"
+      >
+        {/* Back to Home Button */}
+        <Button
+          variant="default"
+          size="lg"
+          className="rounded-full w-14 h-14 p-0 shadow-lg hover:shadow-xl bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white"
+          onClick={() => {
+            window.location.href = '/';
+          }}
+          title="Back to Home"
+        >
+          🏠
+        </Button>
+        
+        {/* Back to Top Button */}
+        <Button
+          variant="default"
+          size="lg"
+          className="rounded-full w-14 h-14 p-0 shadow-lg hover:shadow-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          title="Back to Top"
+        >
+          ↑
+        </Button>
+      </motion.div>
     </Layout>
   );
 };
