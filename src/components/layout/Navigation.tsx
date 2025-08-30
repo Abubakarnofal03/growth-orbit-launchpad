@@ -49,7 +49,7 @@ const Navigation = () => {
             alt="SMARB Technologies Logo" 
             className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 transition-all duration-300"
           />
-          <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-poppins font-bold tracking-wide text-primary group-hover:text-primary/80 transition-all duration-300 ml-2 sm:ml-3">
+          <span className="hidden sm:inline md:hidden lg:inline text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-poppins font-bold tracking-wide text-primary group-hover:text-primary/80 transition-all duration-300 ml-2 sm:ml-3">
             SMARB Technologies
           </span>
         </Link>
