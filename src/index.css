@@ -8,59 +8,58 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Growth Orbit Brand Color Palette - Based on Logo */
-    --background: 0 0% 98%;
-    --foreground: 213 100% 15%;
+    /* Professional Agency Color Palette */
+    --background: 0 0% 100%;
+    --foreground: 220 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 213 100% 15%;
+    --card-foreground: 220 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 213 100% 15%;
+    --popover-foreground: 220 15% 15%;
 
-    /* Navy blue accent from logo */
-    --primary: 213 100% 20%;
+    /* Primary brand color - Professional Navy */
+    --primary: 220 100% 25%;
     --primary-foreground: 0 0% 100%;
 
-    /* Soft panels */
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 213 80% 20%;
+    /* Neutral grays for professional look */
+    --secondary: 210 15% 96%;
+    --secondary-foreground: 220 15% 25%;
 
-    --muted: 210 20% 94%;
-    --muted-foreground: 213 50% 45%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 220 10% 50%;
 
-    --accent: 213 100% 20%;
+    --accent: 220 100% 25%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 213 100% 20%;
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 220 100% 25%;
 
     --radius: 8px;
 
-    /* Growth Orbit Brand Colors from Logo */
-    --brand-primary: 213 100% 20%;
-    --brand-secondary: 213 100% 15%;
-    --brand-accent: 213 100% 20%;
-    --brand-charcoal: 213 100% 15%;
-    --brand-navy: 213 100% 20%;
+    /* Professional Agency Brand Colors */
+    --brand-primary: 220 100% 25%;
+    --brand-secondary: 220 15% 20%;
+    --brand-accent: 220 100% 30%;
+    --brand-gray: 220 10% 50%;
+    --brand-light: 210 15% 96%;
 
-    /* Professional Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(213 100% 20%), hsl(213 100% 15%));
-    --gradient-hero: radial-gradient(ellipse 80% 60% at 50% -20%, hsl(213 100% 45%) 0%, hsl(213 100% 30%) 40%, hsl(213 100% 12%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
-    --gradient-curved: radial-gradient(ellipse 100% 120% at 50% -20%, hsl(213 100% 40%) 0%, hsl(213 100% 25%) 50%, hsl(213 100% 10%) 100%);
+    /* Clean Professional Backgrounds */
+    --gradient-hero: linear-gradient(135deg, hsl(220 100% 25%) 0%, hsl(220 100% 20%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 15% 98%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 15% 98%) 100%);
 
-    /* Refined Shadows */
-    --shadow-soft: 0 1px 3px hsl(213 100% 15% / 0.08);
-    --shadow-medium: 0 4px 16px hsl(213 100% 15% / 0.12);
-    --shadow-strong: 0 8px 32px hsl(213 100% 15% / 0.16);
-    --shadow-glow: 0 0 20px hsl(213 100% 20% / 0.3);
+    /* Professional Shadows */
+    --shadow-soft: 0 1px 3px hsl(220 15% 15% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(220 15% 15% / 0.12);
+    --shadow-strong: 0 8px 32px hsl(220 15% 15% / 0.16);
+    --shadow-card: 0 2px 8px hsl(220 15% 15% / 0.06);
 
-    /* Smooth Animations */
+    /* Smooth Professional Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 
@@ -82,45 +81,45 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark mode with navy palette from logo */
-    --background: 213 100% 8%;
-    --foreground: 210 20% 95%;
+    /* Professional Dark Mode */
+    --background: 220 30% 8%;
+    --foreground: 210 15% 95%;
 
-    --card: 213 100% 10%;
-    --card-foreground: 210 20% 95%;
+    --card: 220 30% 10%;
+    --card-foreground: 210 15% 95%;
 
-    --popover: 213 100% 10%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 220 30% 10%;
+    --popover-foreground: 210 15% 95%;
 
-    --primary: 213 100% 20%;
+    --primary: 220 100% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 213 100% 12%;
-    --secondary-foreground: 210 20% 85%;
+    --secondary: 220 30% 12%;
+    --secondary-foreground: 210 15% 85%;
 
-    --muted: 213 100% 12%;
+    --muted: 220 30% 12%;
     --muted-foreground: 210 15% 60%;
 
-    --accent: 213 100% 20%;
+    --accent: 220 100% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 213 100% 18%;
-    --input: 213 100% 18%;
-    --ring: 213 100% 20%;
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 220 100% 40%;
 
-    /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(213 100% 20%), hsl(213 100% 15%));
-    --gradient-hero: linear-gradient(135deg, hsl(213 100% 10%) 0%, hsl(213 100% 12%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(213 100% 10%) 0%, hsl(213 100% 12%) 100%);
+    /* Professional dark gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 8%) 0%, hsl(220 30% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 30% 10%) 0%, hsl(220 30% 12%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 30% 10%) 100%);
 
-    /* Dark shadows */
+    /* Professional dark shadows */
     --shadow-soft: 0 1px 3px hsl(0 0% 0% / 0.3);
     --shadow-medium: 0 4px 16px hsl(0 0% 0% / 0.4);
     --shadow-strong: 0 8px 32px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 20px hsl(213 100% 20% / 0.4);
+    --shadow-card: 0 2px 8px hsl(0 0% 0% / 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

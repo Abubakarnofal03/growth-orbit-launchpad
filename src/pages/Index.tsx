@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -466,8 +467,8 @@ const Index = () => {
     <Layout>
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -488,7 +489,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-hero font-bold mb-6 sm:mb-8 leading-tight font-poppins px-4 sm:px-0 min-h-[4rem] sm:min-h-[5rem] md:min-h-[6rem] lg:min-h-[7rem]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-hero font-bold mb-6 sm:mb-8 leading-tight font-poppins px-2 sm:px-0 min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] xl:min-h-[7rem]"
             >
               {/* Fallback static heading for accessibility and JS fallback */}
               {/* <span className="sr-only">
@@ -512,7 +513,7 @@ const Index = () => {
                 {currentText || ""}
                 {/* Inline cursor that's always with the text */}
                 <span 
-                  className={`inline-block w-1 h-16 sm:h-20 md:h-24 lg:h-28 bg-gradient-to-b from-primary to-primary/60 ml-1 transition-all duration-200 ${
+                  className={`inline-block w-1 h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28 bg-gradient-to-b from-primary to-primary/60 ml-1 transition-all duration-200 ${
                     isTyping || isDeleting ? 'animate-pulse' : ''
                   }`}
                   style={{ 
@@ -583,7 +584,7 @@ const Index = () => {
       {/* Section Divider */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          <div className="w-full border-t border-border"></div>
         </div>
         <div className="relative flex justify-center">
           <div className="bg-background px-4">
@@ -674,7 +675,7 @@ const Index = () => {
 {/* Section Divider */}
 <div className="relative py-8">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          <div className="w-full border-t border-border"></div>
         </div>
         <div className="relative flex justify-center">
           <div className="bg-background px-4">
@@ -751,7 +752,7 @@ const Index = () => {
       {/* Section Divider */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          <div className="w-full border-t border-border"></div>
         </div>
         <div className="relative flex justify-center">
           <div className="bg-background px-4">
@@ -903,7 +904,7 @@ const Index = () => {
       {/* Section Divider */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          <div className="w-full border-t border-border"></div>
         </div>
         <div className="relative flex justify-center">
           <div className="bg-background px-4">
@@ -978,9 +979,11 @@ const Index = () => {
                       ))}
                     </div>
 
-                    <Button variant="outline" className="w-full group">
-                      View Project
-                      <ArrowUpRight className="h-4 w-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <Button variant="outline" className="w-full group" asChild>
+                      <Link to={`/case-study/${study.id}`}>
+                        View Project
+                        <ArrowUpRight className="h-4 w-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                      </Link>
                     </Button>
                   </div>
                 </Card>
@@ -1071,7 +1074,7 @@ const Index = () => {
       {/* Section Divider */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          <div className="w-full border-t border-border"></div>
         </div>
         <div className="relative flex justify-center">
           <div className="bg-secondary/20 px-4">
@@ -1081,7 +1084,7 @@ const Index = () => {
       </div>
 
       {/* Final CTA */}
-      <section className="py-20 bg-brand-charcoal relative overflow-hidden">
+      <section className="py-20 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -1117,10 +1120,10 @@ const Index = () => {
       {/* Section Divider */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          <div className="w-full border-t border-border"></div>
         </div>
         <div className="relative flex justify-center">
-          <div className="bg-brand-charcoal px-4">
+          <div className="bg-background px-4">
             <div className="w-3 h-3 bg-primary rounded-full"></div>
           </div>
         </div>
@@ -1156,7 +1159,7 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-6 text-center hover:shadow-medium transition-all duration-300 group">
-                  <div className="inline-flex p-3 bg-gradient-primary rounded-full text-white mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="inline-flex p-3 bg-primary rounded-full text-primary-foreground mb-4 group-hover:scale-110 transition-transform duration-300">
                     {method.icon}
                   </div>
                   <h3 className="text-lg sm:text-xl font-semibold mb-2">{method.title}</h3>
@@ -1180,8 +1183,8 @@ const Index = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="mb-6 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
-                <p className="text-sm text-blue-800">
+              <div className="mb-6 p-4 bg-primary/5 border-l-4 border-primary rounded-r-lg">
+                <p className="text-sm text-primary">
                   <strong>Headquartered in UAE, serving clients worldwide.</strong> Our team is available 24/7 to support your technology needs.
                 </p>
               </div>
@@ -1314,7 +1317,7 @@ const Index = () => {
               </Card>
 
               {/* Quick Response Guarantee */}
-              <Card className="p-6 bg-gradient-primary text-white">
+              <Card className="p-6 bg-primary text-primary-foreground">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-8 w-8 flex-shrink-0" />
                   <div>
