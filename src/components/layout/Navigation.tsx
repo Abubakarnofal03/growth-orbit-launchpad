@@ -40,7 +40,7 @@ const Navigation = () => {
     { name: "Contact", path: "/", section: "contact" },
   ];
 
-  const whatsappNumber = "+971 50 594 0132";
+  const whatsappNumber = "971505940132";
   const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -54,7 +54,7 @@ const Navigation = () => {
           : "bg-white"
       }`}
     >
-      <div className="flex items-center justify-between h-16 lg:h-20 px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between h-16 lg:h-20 px-2 sm:px-4 lg:px-8">
         {/* Logo - Left Corner */}
         <Link to="/" className="flex items-center group flex-shrink-0">
           <img 
@@ -62,12 +62,9 @@ const Navigation = () => {
             alt="SMARB Technologies Logo" 
             className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 transition-all duration-300"
           />
-<span className="hidden sm:inline md:hidden lg:inline 
-  text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 
-  font-poppins font-bold tracking-wide text-primary 
-  group-hover:text-primary/80 transition-all duration-300 ml-0.5 sm:ml-0.5">
-  SMARB Technologies
-</span>
+          <span className="hidden sm:inline md:hidden lg:inline text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-poppins font-bold tracking-wide text-primary group-hover:text-primary/80 transition-all duration-300 ml-0.5">
+            SMARB Technologies
+          </span>
         </Link>
 
         {/* Desktop Navigation - Centered */}
@@ -135,7 +132,7 @@ const Navigation = () => {
         </div>
 
         {/* Right Corner - Contact Button and Mobile Menu */}
-        <div className="flex items-center space-x-3 sm:space-x-4">
+        <div className="flex items-center space-x-1 sm:space-x-3">
           {/* Large Screen Contact Button */}
           <div className="hidden lg:flex">
             <Button 
@@ -166,10 +163,10 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-all duration-300 bg-secondary/50 shadow-soft"
+            className="md:hidden p-1.5 rounded-lg hover:bg-secondary transition-all duration-300 bg-secondary/50 shadow-soft"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
+            {isOpen ? <X className="h-5 w-5 text-foreground" /> : <Menu className="h-5 w-5 text-foreground" />}
           </button>
         </div>
       </div>
