@@ -54,7 +54,7 @@ const Navigation = () => {
           : "bg-white"
       }`}
     >
-      <div className="flex items-center justify-between h-12 xs:h-14 sm:h-16 lg:h-20 px-2 xs:px-3 sm:px-4 lg:px-8 max-w-full">
+      <div className="flex items-center justify-between h-12 xs:h-14 sm:h-16 lg:h-20 px-2 xs:px-3 sm:px-4 lg:px-8 max-w-full w-full">
         {/* Logo - Left Corner */}
         <Link to="/" className="flex items-center group min-w-0 flex-shrink-0 max-w-[60%] sm:max-w-[40%] md:max-w-none">
           <img 

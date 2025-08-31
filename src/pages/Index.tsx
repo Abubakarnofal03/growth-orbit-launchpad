@@ -553,9 +553,9 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
+      <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative w-full">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-10 max-w-7xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -683,8 +683,8 @@ const Index = () => {
       </div>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section id="about" className="py-20 bg-background w-full">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 max-w-7xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -868,8 +868,8 @@ const Index = () => {
       </div>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-secondary/20">
-        <div className="container mx-auto px-4">
+      <section id="services" className="py-20 bg-secondary/20 w-full">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 max-w-7xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1020,8 +1020,8 @@ const Index = () => {
       </div>
 
       {/* Case Studies Section */}
-      <section id="case-studies" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section id="case-studies" className="py-20 bg-background w-full">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 max-w-7xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1182,9 +1182,9 @@ const Index = () => {
       </div>
 
       {/* Final CTA */}
-      <section className="py-20 bg-primary relative overflow-hidden">
+      <section className="py-20 bg-primary relative w-full">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 max-w-7xl w-full relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1228,8 +1228,8 @@ const Index = () => {
       </div>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section id="contact" className="py-20 bg-background w-full">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 max-w-7xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1451,8 +1451,8 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 sm:py-20 bg-secondary/20">
-        <div className="container mx-auto px-4">
+      <section className="py-16 sm:py-20 bg-secondary/20 w-full">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 max-w-7xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
