@@ -54,15 +54,15 @@ const Navigation = () => {
           : "bg-white"
       }`}
     >
-      <div className="flex items-center justify-between h-12 xs:h-14 sm:h-16 lg:h-20 px-2 xs:px-3 sm:px-4 lg:px-8 max-w-full w-full">
+      <div className="flex items-center justify-between h-16 xs:h-18 sm:h-20 lg:h-24 px-3 xs:px-4 sm:px-6 lg:px-8 max-w-full w-full">
         {/* Logo - Left Corner */}
-        <Link to="/" className="flex items-center group min-w-0 flex-shrink-0 max-w-[60%] sm:max-w-[40%] md:max-w-none">
+        <Link to="/" className="flex items-center group min-w-0 flex-shrink-0 max-w-[65%] sm:max-w-[45%] md:max-w-none">
           <img 
             src="/lovable-uploads/logo.png" 
             alt="SMARB Technologies Logo" 
-            className="h-4 w-auto xs:h-5 sm:h-6 md:h-8 lg:h-10 xl:h-12 transition-all duration-300 flex-shrink-0"
+            className="h-10 w-auto xs:h-11 sm:h-12 md:h-14 lg:h-16 xl:h-18 transition-all duration-300 flex-shrink-0"
           />
-          <span className="text-[8px] xs:text-[9px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-poppins font-bold text-foreground group-hover:text-primary transition-all duration-300 ml-1 sm:ml-2 truncate min-w-0">
+          <span className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-poppins font-bold text-foreground group-hover:text-primary transition-all duration-300 ml-2 sm:ml-3 truncate min-w-0">
             <span className="inline sm:hidden lg:inline">SMARB</span>
             <span className="hidden sm:inline lg:hidden xl:inline"> Technologies</span>
           </span>
@@ -164,10 +164,10 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-1 xs:p-1.5 rounded-md hover:bg-secondary transition-all duration-300 bg-secondary/30 flex-shrink-0"
+            className="md:hidden p-2 xs:p-2.5 rounded-lg hover:bg-secondary transition-all duration-300 bg-secondary/30 flex-shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-4 w-4 xs:h-5 xs:w-5 text-foreground" /> : <Menu className="h-4 w-4 xs:h-5 xs:w-5 text-foreground" />}
+            {isOpen ? <X className="h-6 w-6 xs:h-7 xs:w-7 text-foreground" /> : <Menu className="h-6 w-6 xs:h-7 xs:w-7 text-foreground" />}
           </button>
         </div>
       </div>
