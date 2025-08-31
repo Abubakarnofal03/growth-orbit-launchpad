@@ -9,15 +9,17 @@ const StickyBottomBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 500;
+      const scrolled = window.scrollY > 0;
       setIsVisible(scrolled && !isDismissed);
     };
+
+    setIsVisible(!isDismissed);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isDismissed]);
 
-  const whatsappNumber = "+923241693025";
+  const whatsappNumber = "+971505940132";
   const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -33,7 +35,7 @@ const StickyBottomBar = () => {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-40 bg-gradient-primary text-white shadow-strong"
+          className="fixed bottom-0 left-0 right-0 z-40 bg-blue-900 text-white shadow-strong"
         >
           <div className="container mx-auto px-4 sm:px-6 py-3">
             <div className="flex items-center justify-between gap-2 sm:gap-4">

@@ -103,16 +103,16 @@ const Contact = () => {
       icon: <MessageCircle className="h-6 w-6" />,
       title: "WhatsApp",
       description: "Quick chat on WhatsApp",
-      value: "+92 324 169 3025",
-      action: "https://wa.me/+923241693025?text=Hi! I'd like to discuss my project with you.",
+      value: "+971 50 594 0132",
+      action: "https://wa.me/+971505940132?text=Hi! I'd like to discuss my project with you.",
       actionText: "Chat Now"
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Call Us",
       description: "Speak directly with our team",
-      value: "+92 300 169 3025",
-      action: "tel:+923241693025",
+      value: "+971 50 594 0132",
+      action: "tel:+971505940132",
       actionText: "Call Now"
     }
   ];
@@ -443,7 +443,7 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="premium" size="lg" asChild>
                 <a
-                  href="https://wa.me/+923241693025?text=Hi! I have some questions about your services."
+                  href="https://wa.me/+971505940132?text=Hi! I have some questions about your services."
                   target="_blank"
                   rel="noopener noreferrer"
                 >

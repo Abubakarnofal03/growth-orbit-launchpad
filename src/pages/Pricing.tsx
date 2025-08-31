@@ -129,7 +129,7 @@ const Pricing = () => {
     }
   ];
 
-  const whatsappNumber = "+923241693025";
+  const whatsappNumber = "+971505940132";
   const getWhatsappUrl = (planName: string) => {
     const message = `Hi! I'm interested in the ${planName} plan. Can you provide more details?`;
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;

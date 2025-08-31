@@ -18,6 +18,19 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle hash navigation on page load
+  useEffect(() => {
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   const navItems = [
     { name: "Home", path: "/", section: "home" },
     { name: "About", path: "/", section: "about" },
@@ -27,7 +40,7 @@ const Navigation = () => {
     { name: "Contact", path: "/", section: "contact" },
   ];
 
-  const whatsappNumber = "+923241693025";
+  const whatsappNumber = "+971 50 594 0132";
   const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -49,9 +62,12 @@ const Navigation = () => {
             alt="SMARB Technologies Logo" 
             className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 transition-all duration-300"
           />
-          <span className="hidden sm:inline md:hidden lg:inline text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-poppins font-bold tracking-wide text-primary group-hover:text-primary/80 transition-all duration-300 ml-2 sm:ml-3">
-            SMARB Technologies
-          </span>
+<span className="hidden sm:inline md:hidden lg:inline 
+  text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 
+  font-poppins font-bold tracking-wide text-primary 
+  group-hover:text-primary/80 transition-all duration-300 ml-0.5 sm:ml-0.5">
+  SMARB Technologies
+</span>
         </Link>
 
         {/* Desktop Navigation - Centered */}
@@ -173,14 +189,22 @@ const Navigation = () => {
                   key={item.path}
                   to={item.path}
                   onClick={(e) => {
+                    setIsOpen(false);
                     if (item.section && item.path === "/") {
                       e.preventDefault();
-                      const element = document.getElementById(item.section);
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                      }
+                      // Small delay to allow menu to close first
+                      setTimeout(() => {
+                        if (location.pathname !== "/") {
+                          // Navigate to home page first, then scroll
+                          window.location.href = `/#${item.section}`;
+                        } else {
+                          const element = document.getElementById(item.section);
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }
+                      }, 100);
                     }
-                    setIsOpen(false);
                   }}
                   className={`block py-3 text-base font-medium transition-colors font-poppins ${
                     location.pathname === item.path && !item.section

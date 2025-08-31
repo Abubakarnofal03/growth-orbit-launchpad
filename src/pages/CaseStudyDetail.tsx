@@ -168,7 +168,7 @@ const CaseStudyDetail = () => {
     );
   }
 
-  const whatsappNumber = "+923241693025";
+  const whatsappNumber = "+971505940132";
   const whatsappMessage = `Hi! I'm interested in learning more about the ${study.title} project.`;
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 

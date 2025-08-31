@@ -10,7 +10,6 @@ const Footer = () => {
       { name: "About Us", path: "/about" },
       { name: "Services", path: "/services" },
       { name: "Case Studies", path: "/case-studies" },
-      { name: "Pricing", path: "/pricing" },
     ],
     services: [
       { name: "Digital Marketing", path: "/services#marketing" },
@@ -21,29 +20,28 @@ const Footer = () => {
     contact: [
       {
         icon: <MapPin className="h-4 w-4" />,
-        text: "Lahore, Pakistan",
+        text: "United Arab Emirates",
       },
       {
         icon: <Mail className="h-4 w-4" />,
-        text: "hello@growthorbit.com",
-        link: "mailto:hello@growthorbit.com",
+        text: "info.smarb@gmail.com",
+        link: "mailto:info.smarb@gmail.com",
       },
       {
         icon: <Phone className="h-4 w-4" />,
-        text: "+92 324 169 3025",
-        link: "tel:+923241693025",
+        text: "+971 50 594 0132",
+        link: "tel:+971505940132",
       },
     ],
   };
 
   const socialLinks = [
-    { icon: <Linkedin className="h-5 w-5" />, href: "https://linkedin.com/company/growthorbit", label: "LinkedIn" },
-    { icon: <Twitter className="h-5 w-5" />, href: "https://twitter.com/growthorbit", label: "Twitter" },
+    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/company/108614278/", label: "LinkedIn" },
     { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com/growthorbit", label: "Instagram" },
     { icon: <Facebook className="h-5 w-5" />, href: "https://facebook.com/growthorbit", label: "Facebook" },
   ];
 
-  const whatsappNumber = "+923241693025";
+  const whatsappNumber = "+971 50 594 0132";
   const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -59,12 +57,12 @@ const Footer = () => {
                 <Rocket className="h-6 w-6 text-white" />
               </div>
               <span className="text-lg sm:text-xl font-bold text-foreground">
-                Growth Orbit
+                SMARB Technologies
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Fuel your growth journey with expert marketing, branding, and business development services. 
-              Based in Pakistan, serving clients worldwide.
+            Leading Technology Solutions for Global Businesses.
+              Based in UAE, serving clients worldwide.
             </p>
             <Button variant="premium" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">

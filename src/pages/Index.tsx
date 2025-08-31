@@ -36,9 +36,16 @@ import {
   MessageCircle,
   Phone,
   Clock,
-  Send
+  Send,
+  X
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { useTypewriter } from "@/hooks/use-typewriter";
 
 const Index = () => {
@@ -51,6 +58,8 @@ const Index = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState(null);
+  const [isCaseStudyModalOpen, setIsCaseStudyModalOpen] = useState(false);
 
   // Typewriter animation configuration
   const typewriterWords = [
@@ -85,9 +94,9 @@ const Index = () => {
     },
     {
       icon: <Globe className="h-8 w-8" />,
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure, integrations, and DevOps solutions for modern enterprise needs.",
-      features: ["Cloud Architecture", "DevOps", "API Integrations", "Scalability"],
+      title: "Business Development & Marketing",
+      description: "Strategies and digital campaigns that drive growth, build brand presence, and generate measurable results for your business.",
+      features: ["Digital Marketing", "Brand Strategy", "Lead Generation", "Growth Consulting"],
       color: "from-green-500 to-teal-600"
     },
     {
@@ -98,6 +107,7 @@ const Index = () => {
       color: "from-orange-500 to-red-600"
     }
   ];
+  
 
   const detailedServices = [
     {
@@ -143,26 +153,27 @@ const Index = () => {
       timeline: "6-12 weeks"
     },
     {
-      id: "cloud",
+      id: "business",
       icon: <Globe className="h-12 w-12 text-primary" />,
-      title: "Cloud Solutions & Integrations",
-      description: "Scalable cloud infrastructure, DevOps solutions, and seamless integrations for modern enterprise needs.",
+      title: "Business Development & Marketing",
+      description: "End-to-end strategies to expand your business reach, build brand authority, and generate measurable growth through digital channels.",
       features: [
-        "Cloud Architecture Design",
-        "DevOps & CI/CD Implementation",
-        "API Integration & Management",
-        "Scalability & Performance",
-        "Security & Compliance",
-        "Monitoring & Analytics"
+        "Brand Positioning & Strategy",
+        "Digital Marketing Campaigns",
+        "SEO & Content Marketing",
+        "Social Media Growth",
+        "Lead Generation Funnels",
+        "Market Research & Analytics"
       ],
       deliverables: [
-        "Cloud Infrastructure Setup",
-        "DevOps Pipeline",
-        "Integration Documentation",
-        "Performance Monitoring"
+        "Comprehensive Marketing Strategy",
+        "Campaign Assets & Content",
+        "SEO Optimization Report",
+        "Growth Analytics Dashboard"
       ],
-      timeline: "4-10 weeks"
+      timeline: "3-8 weeks"
     },
+    
     {
       id: "ecommerce",
       icon: <Palette className="h-12 w-12 text-primary" />,
@@ -222,8 +233,46 @@ const Index = () => {
   const caseStudies = [
     {
       id: 1,
+      title: "O’TRADE AI Chatbot – Multilingual Wholesale Assistant",
+      client: "O’Trade",
+      industry: "Chatbots",
+      image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&h=600&fit=crop", 
+      challenge: "O’Trade needed a multilingual AI chatbot to streamline wholesale product inquiries, handle customer requests, and automate receipt generation across Webchat and WhatsApp. The existing manual workflow slowed down response time, led to errors, and limited scalability.",
+      solution: "Developed an AI-powered chatbot using Botpress and GPT-4o, integrated with WooCommerce REST API for product data. The bot supports natural product queries, multilingual conversations (English, French, Arabic), PDF receipt generation, and escalation to human agents. Future integration planned for real-time shipping estimates and currency conversions.",
+      results: [
+        { metric: "Response Speed", value: "Instant", icon: <TrendingUp className="h-5 w-5" /> },
+        { metric: "User Engagement", value: "+60%", icon: <Users className="h-5 w-5" /> },
+        { metric: "Error Reduction", value: "-80%", icon: <Target className="h-5 w-5" /> },
+        { metric: "Automation Coverage", value: "70% of queries", icon: <BarChart3 className="h-5 w-5" /> }
+      ],
+      timeline: "4 weeks (Phase 1), ongoing updates",
+      tags: ["AI Chatbot", "Botpress", "GPT-4o", "WooCommerce API", "Multilingual Support", "PDF Automation", "WhatsApp Business API"],
+      testimonial: "The O’TRADE AI Chatbot transformed our customer interactions. Clients can now inquire in their own language, get product details instantly, and even receive receipts in PDF format — all without waiting for a sales rep.",
+      clientRole: "Head of Digital Transformation, O’Trade"
+    },
+    {
+      id: 2,
+      title: "Shopify E-Commerce Store Development for Omnifits",
+      client: "Omnifits",
+      industry: "E-Commerce / Fitness Apparel",
+      image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=600&fit=crop",
+      challenge: "Omnifits needed a modern, mobile-first e-commerce solution for their premium fitness apparel brand with optimized checkout flow and seamless product management for 100+ SKUs.",
+      solution: "Developed a custom Shopify-based e-commerce platform with tailored fitness niche theme, optimized product pages, integrated payment gateways, shipping automation, and SEO-friendly structure.",
+      results: [
+        { metric: "Uptime", value: "99.9%", icon: <CheckCircle className="h-5 w-5" /> },
+        { metric: "User Engagement", value: "+45%", icon: <TrendingUp className="h-5 w-5" /> },
+        { metric: "Checkout Conversion", value: "+25%", icon: <Target className="h-5 w-5" /> },
+        { metric: "Product SKUs Managed", value: "100+", icon: <ShoppingCart className="h-5 w-5" /> }
+      ],
+      timeline: "4-6 weeks",
+      tags: ["Shopify", "WordPress", "E-commerce", "UX Design", "Omnifits", "Performance Optimization"],
+      testimonial: "The new Shopify store exceeded our expectations with seamless performance and significantly improved user engagement and conversion rates.",
+      clientRole: "Founder, Omnifits"
+    },
+    {
+      id: 3,
       title: "VisaMate: AI-Powered Visa Application System",
-      client: "Global Immigration Services",
+      client: "FAST NUCES",
       industry: "Government Services",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
       challenge: "Complex visa application processes causing delays, errors, and poor user experience for applicants and immigration officers.",
@@ -235,14 +284,14 @@ const Index = () => {
         { metric: "Efficiency Gain", value: "300%", icon: <BarChart3 className="h-5 w-5" /> }
       ],
       timeline: "8 months",
-      tags: ["AI Automation", "Government Services", "Document Processing", "System Integration"],
+      tags: ["AI Automation", ,"Consultancy", "Document Processing", "System Integration"],
       testimonial: "VisaMate revolutionized our visa processing operations. The AI automation and streamlined workflow have dramatically improved efficiency.",
       clientRole: "CTO, Global Immigration Services"
     },
     {
-      id: 2,
+      id: 4,
       title: "SkillMap: AI-Driven Team Formation Platform",
-      client: "TechCorp Solutions",
+      client: "SMARB Technologies",
       industry: "Technology",
       image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
       challenge: "Large technology company struggling with optimal team formation, skill matching, and project resource allocation.",
@@ -259,7 +308,7 @@ const Index = () => {
       clientRole: "VP Engineering, TechCorp Solutions"
     },
     {
-      id: 3,
+      id: 5,
       title: "PDF_QA with RAG: Intelligent Document System",
       client: "LegalTech Innovations",
       industry: "Legal Services",
@@ -276,28 +325,49 @@ const Index = () => {
       tags: ["RAG Systems", "Legal Tech", "Document AI", "Natural Language Processing"],
       testimonial: "The RAG system has transformed our legal research capabilities. We can now provide clients with instant, accurate answers from our document library.",
       clientRole: "Managing Partner, LegalTech Innovations"
-    }
-  ];
+    },
+    {
+      id: 6,
+      title: "Motion Study & Impact Analysis of RoboCup Robot",
+      client: "RoboCup SSL Research Project",
+      industry: "Mechanical Engineering / Robotics",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop",
+      challenge: "In RoboCup Small Size League (SSL), precision ball control is critical. This project involved designing a compact, lightweight, and durable robot body with an efficient dribbler system capable of withstanding repeated high-speed impacts while maintaining grip and stability.",
+      solution: "Developed a comprehensive CAD design using Fusion 360 with motion studies and ANSYS Workbench analysis for dribbler impact optimization at multiple RPMs, focusing on roller material elasticity and wear resistance.",
+      results: [
+        { metric: "CAD Design & Assembly", value: "2 weeks", icon: <Target className="h-5 w-5" /> },
+        { metric: "Motion Simulation", value: "4 days", icon: <TrendingUp className="h-5 w-5" /> },
+        { metric: "FEA Impact Analysis", value: "1 week", icon: <BarChart3 className="h-5 w-5" /> },
+        { metric: "Error Rate Deviation", value: "<5%", icon: <CheckCircle className="h-5 w-5" /> }
+      ],
+      timeline: "6 weeks",
+      tags: ["Mechanical", "Fusion 360", "ANSYS Workbench", "RoboCup SSL", "CAD Design", "Dribbler Analysis", "Robotics"],
+      testimonial: "The comprehensive design and analysis approach resulted in a 30% faster ball handling response with optimized durability and performance.",
+      clientRole: "Research Team Lead, RoboCup SSL Project"
+    },
+      
+    ];
+    
 
   const testimonials = [
     {
       content: "SMARB Technologies delivered an exceptional AI-powered visa management system that revolutionized our operations. The automation and efficiency gains are remarkable.",
-      author: "Ahmed Al Mansouri",
-      role: "CTO, Global Immigration Services",
+      author: "Sohaib Ul Haq",
+      role: "Student committee head, GIKI",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face"
     },
     {
       content: "Their AI and machine learning expertise helped us build a sophisticated team formation platform. The results exceeded our expectations in every way.",
-      author: "Michael Chen",
-      role: "VP Engineering, TechCorp Solutions",
+      author: "Abubakar Nofal",
+      role: "AI Engineer, FAST NUCES",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
     },
     {
-      content: "The RAG-based document system transformed our legal research capabilities. We can now provide clients with instant, accurate answers from our document library.",
-      author: "Sarah Rodriguez",
-      role: "Managing Partner, LegalTech Innovations",
+      content: "The RAG-based document system transformed our legal research capabilities. We can now provide students with instant, accurate answers from our document library.",
+      author: "Muhammad Fayyaz",
+      role: "HOD, Computer science department, FAST NUCES",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
     }
@@ -333,36 +403,38 @@ const Index = () => {
 
   const team = [
     {
-      name: "Ahmed Al Mansouri",
-      role: "CEO & Founder",
-      bio: "15+ years in software engineering and AI solutions. Former technology leader at major UAE enterprises.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      name: "M.Arslan Zia",
+      role: "Founder, Marketing & Business Development Lead",
+      bio: [
+        "Marketing strategist with client experience across UAE and USA markets, delivering measurable business growth.",
+        "Successfully marketed Apple products for enterprise clients in UAE with proven sales impact and retention.",
+        "Directed real estate listing campaigns for American clients, managing ads, leads, and digital growth results.",
+        "Expert in Meta Ads, Google Ads, Facebook Marketplace, and TikTok advertising with conversion optimization.",
+        "Focused on product marketing strategies, digital sales funnels, and lead generation techniques for scaling."
+      ],
+      image: "/lovable-uploads/arslan.jpeg",
       social: {
-        linkedin: "https://linkedin.com/in/ahmedalmansouri",
-        twitter: "https://twitter.com/ahmedalmansouri",
+        linkedin: "www.linkedin.com/in/muhammad-arslan-zia-00b2522b8",
       },
     },
     {
-      name: "Sarah Al Hashimi",
-      role: "CTO & AI Lead",
-      bio: "Expert in machine learning and AI systems with 12+ years experience. PhD in Computer Science from MIT.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+      name: "M.Abubakar Nofal",
+      role: "Co-Founder, CTO & AI Engineering Lead",
+      bio: [
+        "Full-stack software engineer and AI specialist with strong technical expertise and broad project experience.",
+        "Developed machine learning algorithms and intelligent automation pipelines for enterprise-grade deployments.",
+        "Built advanced AI chatbots, RAG-based document search systems, and custom data-driven enterprise platforms.",
+        "Experienced across legal tech, e-commerce platforms, and enterprise solution development for global clients.",
+        "Passionate about building scalable software, cloud-driven AI systems, and innovative digital transformation."
+      ],
+      image: "/lovable-uploads/abubakar.jpeg",
       social: {
-        linkedin: "https://linkedin.com/in/sarahalhashimi",
-        twitter: "https://twitter.com/sarahalhashimi",
-      },
-    },
-    {
-      name: "Michael Chen",
-      role: "Head of Engineering",
-      bio: "Full-stack architect and cloud specialist. Led development teams at Fortune 500 companies.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-      social: {
-        linkedin: "https://linkedin.com/in/michaelchen",
-        twitter: "https://twitter.com/michaelchen",
+        linkedin: "www.linkedin.com/in/m-abubakar-nofal-b652512b8",
       },
     },
   ];
+  
+  
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -371,7 +443,7 @@ const Index = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const whatsappNumber = "+923241693025";
+  const whatsappNumber = "+971505940132";
   const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -381,25 +453,40 @@ const Index = () => {
       icon: <Mail className="h-6 w-6" />,
       title: "Email Us",
       description: "Get in touch via email",
-      value: "info@smarb.tech",
-      action: "mailto:info@smarb.tech",
+      value: "info.smarb@gmail.com",
+      action: "mailto:info.smarb@gmail.com",
       actionText: "Send Email"
     },
     {
       icon: <MessageCircle className="h-6 w-6" />,
       title: "WhatsApp",
       description: "Quick chat on WhatsApp",
-      value: "+971 50 123 4567",
-      action: "https://wa.me/+971501234567?text=Hi! I'd like to discuss my technology project with you.",
+      value: "+971 50 594 0132",
+      action: "https://wa.me/+971505940132?text=Hi! I'd like to discuss my technology project with you.",
       actionText: "Chat Now"
     },
     {
-      icon: <Phone className="h-6 w-6" />,
-      title: "Call Us",
-      description: "Speak directly with our team",
-      value: "+971 2 123 4567",
-      action: "tel:+97121234567",
-      actionText: "Call Now"
+      icon: <Users className="h-6 w-6" />,
+      title: "Follow Us",
+      description: "Connect on social media",
+      value: "LinkedIn • Instagram • Facebook",
+      socialLinks: [
+        {
+          name: "LinkedIn",
+          url: "https://www.linkedin.com/company/108614278/",
+          icon: <Linkedin className="h-4 w-4" />
+        },
+        {
+          name: "Instagram", 
+          url: "https://www.instagram.com/smarb.technologies?igsh=MWFudmtrYTE2cWU1MQ==",
+          icon: <Users className="h-4 w-4" />
+        },
+        {
+          name: "Facebook",
+          url: "https://www.facebook.com/share/1YUYds45fv/",
+          icon: <Users className="h-4 w-4" />
+        }
+      ]
     }
   ];
 
@@ -480,7 +567,7 @@ const Index = () => {
               transition={{ delay: 0.2 }}
               className="mb-8"
             >
-              <Badge className="bg-white/10 text-white border-white/20 backdrop-blur-sm mb-6 font-poppins text-base px-4 py-2">
+              <Badge className="bg-blue-900 text-white font-bold border-blue-800 backdrop-blur-sm mb-6 font-poppins text-sm sm:text-base md:text-lg px-4 sm:px-6 py-2 sm:py-3">
                 Headquartered in UAE • Global Operations
               </Badge>
             </motion.div>
@@ -602,7 +689,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4 font-poppins">About Us</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">About Us</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
               About SMARB Technologies
             </h2>
@@ -640,7 +727,7 @@ const Index = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Badge variant="secondary" className="mb-4">Our Mission</Badge>
+              <Badge className="bg-blue-900 text-white font-bold mb-4 text-base px-4 py-2">Our Mission</Badge>
               <h3 className="text-3xl md:text-4xl font-bold mb-6">
                 Driving Digital Innovation
               </h3>
@@ -692,55 +779,72 @@ const Index = () => {
             className="text-center mb-16"
           >
 
-            <Badge variant="secondary" className="mb-4">Our Team</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 text-base px-4 py-2">Our Team</Badge>
             <h3 className="text-3xl md:text-4xl font-bold mb-6">
               Meet the Technology Experts
             </h3>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our diverse team brings together expertise in software engineering, AI/ML, cloud computing, 
-              and business strategy, united by a common goal: your digital success.
+              Meet the founders who combine technical expertise with business acumen to deliver 
+              innovative solutions that drive real results for our clients worldwide.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {team.map((member, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 text-center hover:shadow-medium transition-all duration-300 group">
-                  <div className="relative mb-6">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto object-cover ring-4 ring-primary/10 group-hover:ring-primary/20 transition-all"
-                    />
-                  </div>
-                  <h4 className="text-xl font-semibold mb-1">{member.name}</h4>
-                  <p className="text-primary font-medium mb-3">{member.role}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    {member.bio}
-                  </p>
-                  <div className="flex justify-center space-x-3">
-                    <a
-                      href={member.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <Linkedin className="h-5 w-5" />
-                    </a>
-                    <a
-                      href={member.social.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <Twitter className="h-5 w-5" />
-                    </a>
+                <Card className="p-4 sm:p-6 md:p-8 hover:shadow-strong transition-all duration-300 group relative overflow-hidden">
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative z-10">
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                      <div className="relative">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-32 h-32 rounded-2xl object-cover ring-4 ring-primary/20 group-hover:ring-primary/40 transition-all duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Star className="h-4 w-4 text-white" />
+                        </div>
+                      </div>
+                      
+                      <div className="flex-1 text-center md:text-left">
+                        <h4 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{member.name}</h4>
+                        <p className="text-primary font-semibold mb-4 text-base sm:text-lg">{member.role}</p>
+                        
+                        <div className="space-y-2 mb-6">
+                          {member.bio.map((point, pointIndex) => (
+                            <div key={pointIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-justify">{point}</span>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="group/btn hover:bg-primary hover:text-white transition-all duration-300" 
+                          asChild
+                        >
+                          <a
+                            href={`https://${member.social.linkedin}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Linkedin className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                            Connect on LinkedIn
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
@@ -770,13 +874,13 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4 font-poppins">Our Services</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">Our Services</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
               Enterprise Technology Solutions
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
-              From custom software development to AI solutions and cloud infrastructure, 
-              we provide comprehensive technology services for modern enterprises.
+            From custom software development to AI-powered solutions, 
+            we provide comprehensive technology services for modern enterprises.
             </p>
           </motion.div>
 
@@ -857,7 +961,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4">Additional Services</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 text-base px-4 py-2">Additional Services</Badge>
             <h3 className="text-3xl md:text-4xl font-bold mb-6">
               Specialized Solutions
             </h3>
@@ -922,7 +1026,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4 font-poppins">Success Stories</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">Success Stories</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
               Technology Solutions That Deliver Results
             </h2>
@@ -949,7 +1053,7 @@ const Index = () => {
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4">
-                      <Badge variant="secondary" className="bg-white/90 text-foreground">
+                      <Badge className="bg-blue-900 text-white font-bold text-sm px-3 py-1">
                         {study.industry}
                       </Badge>
                     </div>
@@ -973,17 +1077,22 @@ const Index = () => {
 
                     <div className="flex flex-wrap gap-1 mb-4">
                       {study.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="outline" className="text-xs">
+                        <Badge key={tag} className="bg-blue-900 text-white font-bold text-sm px-3 py-1">
                           {tag}
                         </Badge>
                       ))}
                     </div>
 
-                    <Button variant="outline" className="w-full group" asChild>
-                      <Link to={`/case-study/${study.id}`}>
-                        View Project
-                        <ArrowUpRight className="h-4 w-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                      </Link>
+                    <Button 
+                      variant="outline" 
+                      className="w-full group" 
+                      onClick={() => {
+                        setSelectedCaseStudy(study);
+                        setIsCaseStudyModalOpen(true);
+                      }}
+                    >
+                      View Project
+                      <ArrowUpRight className="h-4 w-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </Button>
                   </div>
                 </Card>
@@ -991,23 +1100,10 @@ const Index = () => {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <Button variant="premium" size="lg" asChild>
-              <a href="/case-studies">
-                View All Case Studies
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-          </motion.div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials
       <section className="py-20 bg-secondary/20">
         <div className="container mx-auto px-4">
           <motion.div
@@ -1016,7 +1112,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4 font-poppins">Client Testimonials</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">Client Testimonials</Badge>
             <h2 className="text-subhead font-bold mb-6 font-poppins">
               What Our Clients Say
             </h2>
@@ -1069,7 +1165,7 @@ const Index = () => {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Section Divider */}
       <div className="relative py-8">
@@ -1138,7 +1234,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="secondary" className="mb-4 font-poppins">Get In Touch</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">Get In Touch</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
               Let's Start Your Digital Transformation
             </h2>
@@ -1165,11 +1261,30 @@ const Index = () => {
                   <h3 className="text-lg sm:text-xl font-semibold mb-2">{method.title}</h3>
                   <p className="text-muted-foreground text-sm mb-4">{method.description}</p>
                   <p className="font-medium mb-4">{method.value}</p>
-                  <Button variant="outline" asChild className="group-hover:border-primary group-hover:text-primary">
-                    <a href={method.action} target="_blank" rel="noopener noreferrer">
-                      {method.actionText}
-                    </a>
-                  </Button>
+                  {method.socialLinks ? (
+                    <div className="flex gap-2 justify-center">
+                      {method.socialLinks.map((social, socialIndex) => (
+                        <Button 
+                          key={socialIndex}
+                          variant="outline" 
+                          size="sm"
+                          asChild 
+                          className="group-hover:border-primary group-hover:text-primary flex-1"
+                        >
+                          <a href={social.url} target="_blank" rel="noopener noreferrer">
+                            {social.icon}
+                            <span className="ml-1 text-xs">{social.name}</span>
+                          </a>
+                        </Button>
+                      ))}
+                    </div>
+                  ) : (
+                    <Button variant="outline" asChild className="group-hover:border-primary group-hover:text-primary">
+                      <a href={method.action} target="_blank" rel="noopener noreferrer">
+                        {method.actionText}
+                      </a>
+                    </Button>
+                  )}
                 </Card>
               </motion.div>
             ))}
@@ -1342,7 +1457,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
-            <Badge variant="secondary" className="mb-4">Still Have Questions?</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 text-base px-4 py-2">Still Have Questions?</Badge>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
               We're Here to Help
             </h2>
@@ -1352,7 +1467,7 @@ const Index = () => {
             </p>
             <Button variant="premium" size="lg" asChild>
               <a
-                href="https://wa.me/+971501234567?text=Hi! I have some questions about your technology solutions."
+                href="https://wa.me/+971505940132?text=Hi! I have some questions about your technology solutions."
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -1363,6 +1478,124 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Case Study Modal */}
+      <Dialog open={isCaseStudyModalOpen} onOpenChange={setIsCaseStudyModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          {selectedCaseStudy && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold mb-2">
+                  {selectedCaseStudy.title}
+                </DialogTitle>
+                <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                  <span>{selectedCaseStudy.client}</span>
+                  <span>•</span>
+                  <span>{selectedCaseStudy.industry}</span>
+                  <span>•</span>
+                  <span>{selectedCaseStudy.timeline}</span>
+                </div>
+              </DialogHeader>
+
+              <div className="space-y-6">
+                {/* Hero Image */}
+                <div className="relative h-64 rounded-lg overflow-hidden">
+                  <img
+                    src={selectedCaseStudy.image}
+                    alt={selectedCaseStudy.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+
+                {/* Challenge Section */}
+                <div>
+                  <h3 className="text-xl font-semibold mb-3 flex items-center">
+                    <Target className="h-5 w-5 mr-2 text-red-500" />
+                    Challenge
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {selectedCaseStudy.challenge}
+                  </p>
+                </div>
+
+                {/* Solution Section */}
+                <div>
+                  <h3 className="text-xl font-semibold mb-3 flex items-center">
+                    <CheckCircle className="h-5 w-5 mr-2 text-green-500" />
+                    Solution
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {selectedCaseStudy.solution}
+                  </p>
+                </div>
+
+                {/* Results Section */}
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 flex items-center">
+                    <BarChart3 className="h-5 w-5 mr-2 text-blue-500" />
+                    Results & Impact
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {selectedCaseStudy.results.map((result, index) => (
+                      <Card key={index} className="p-4 text-center">
+                        <div className="flex justify-center mb-2">
+                          {result.icon}
+                        </div>
+                        <div className="text-2xl font-bold text-primary mb-1">
+                          {result.value}
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          {result.metric}
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Technologies/Tags */}
+                <div>
+                  <h3 className="text-xl font-semibold mb-3 flex items-center">
+                    <Code className="h-5 w-5 mr-2 text-purple-500" />
+                    Technologies Used
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedCaseStudy.tags.map((tag, index) => (
+                      <Badge key={index} className="bg-blue-900 text-white font-bold text-sm px-3 py-1">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Client Testimonial */}
+                <div className="bg-secondary/20 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold mb-3 flex items-center">
+                    <Quote className="h-5 w-5 mr-2 text-primary" />
+                    Client Testimonial
+                  </h3>
+                  <blockquote className="text-lg italic mb-4 leading-relaxed">
+                    "{selectedCaseStudy.testimonial}"
+                  </blockquote>
+                  <div className="text-sm text-muted-foreground">
+                    — {selectedCaseStudy.clientRole}
+                  </div>
+                </div>
+
+                {/* Call to Action */}
+                <div className="flex justify-center pt-4">
+                  <Button className="w-full sm:w-auto" asChild>
+                    <a href="#contact">
+                      Start Your Project
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };
