@@ -54,16 +54,17 @@ const Navigation = () => {
           : "bg-white"
       }`}
     >
-      <div className="flex items-center justify-between h-16 lg:h-20 px-2 sm:px-4 lg:px-8">
+      <div className="flex items-center justify-between h-12 xs:h-14 sm:h-16 lg:h-20 px-2 xs:px-3 sm:px-4 lg:px-8 w-full overflow-hidden">
         {/* Logo - Left Corner */}
-        <Link to="/" className="flex items-center group flex-shrink-0">
+        <Link to="/" className="flex items-center group flex-shrink min-w-0 max-w-[70%] sm:max-w-none overflow-hidden">
           <img 
             src="/lovable-uploads/logo.png" 
             alt="SMARB Technologies Logo" 
-            className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 transition-all duration-300"
+            className="h-4 w-auto xs:h-5 sm:h-7 md:h-9 lg:h-11 xl:h-13 transition-all duration-300 flex-shrink-0"
           />
-          <span className="hidden sm:inline md:hidden lg:inline text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-poppins font-bold tracking-wide text-primary group-hover:text-primary/80 transition-all duration-300 ml-0.5">
-            SMARB Technologies
+          <span className="text-[8px] xs:text-[9px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-poppins font-bold text-primary group-hover:text-primary/80 transition-all duration-300 ml-0.5 xs:ml-1 truncate overflow-hidden whitespace-nowrap">
+            <span className="inline sm:hidden">SMARB</span>
+            <span className="hidden sm:inline">SMARB Technologies</span>
           </span>
         </Link>
 
@@ -132,7 +133,7 @@ const Navigation = () => {
         </div>
 
         {/* Right Corner - Contact Button and Mobile Menu */}
-        <div className="flex items-center space-x-1 sm:space-x-3">
+        <div className="flex items-center space-x-1 xs:space-x-2 sm:space-x-3 flex-shrink-0">
           {/* Large Screen Contact Button */}
           <div className="hidden lg:flex">
             <Button 
@@ -163,10 +164,10 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-1.5 rounded-lg hover:bg-secondary transition-all duration-300 bg-secondary/50 shadow-soft"
+            className="md:hidden p-1 xs:p-1.5 rounded-md hover:bg-secondary transition-all duration-300 bg-secondary/30 flex-shrink-0"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-5 w-5 text-foreground" /> : <Menu className="h-5 w-5 text-foreground" />}
+            {isOpen ? <X className="h-4 w-4 xs:h-5 xs:w-5 text-foreground" /> : <Menu className="h-4 w-4 xs:h-5 xs:w-5 text-foreground" />}
           </button>
         </div>
       </div>
