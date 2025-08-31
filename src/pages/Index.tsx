@@ -555,11 +555,11 @@ const Index = () => {
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center text-white max-w-5xl mx-auto"
+            className="text-center text-white max-w-5xl mx-auto px-2 sm:px-4"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -567,8 +567,9 @@ const Index = () => {
               transition={{ delay: 0.2 }}
               className="mb-8"
             >
-              <Badge className="bg-blue-900 text-white font-bold border-blue-800 backdrop-blur-sm mb-6 font-poppins text-sm sm:text-base md:text-lg px-4 sm:px-6 py-2 sm:py-3">
-                Headquartered in UAE • Global Operations
+              <Badge className="bg-blue-900 text-white font-bold border-blue-800 backdrop-blur-sm mb-4 sm:mb-6 font-poppins text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 max-w-max mx-auto">
+                <span className="hidden sm:inline">Headquartered in UAE • Global Operations</span>
+                <span className="inline sm:hidden">UAE • Global</span>
               </Badge>
             </motion.div>
             
@@ -576,7 +577,8 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-hero font-bold mb-6 sm:mb-8 leading-tight font-poppins px-2 sm:px-0 min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] xl:min-h-[7rem]"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-hero font-bold mb-4 sm:mb-6 md:mb-8 leading-tight font-poppins px-2 sm:px-0 min-h-[2.5rem] xs:min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] xl:min-h-[7rem] break-words hyphens-auto"
+              style={{ wordBreak: 'break-word' }}
             >
               {/* Fallback static heading for accessibility and JS fallback */}
               {/* <span className="sr-only">

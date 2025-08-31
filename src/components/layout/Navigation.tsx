@@ -54,22 +54,22 @@ const Navigation = () => {
           : "bg-white"
       }`}
     >
-      <div className="flex items-center justify-between h-12 xs:h-14 sm:h-16 lg:h-20 px-2 xs:px-3 sm:px-4 lg:px-8 w-full overflow-hidden">
+      <div className="flex items-center justify-between h-12 xs:h-14 sm:h-16 lg:h-20 px-2 xs:px-3 sm:px-4 lg:px-8 max-w-full">
         {/* Logo - Left Corner */}
-        <Link to="/" className="flex items-center group flex-shrink min-w-0 max-w-[70%] sm:max-w-none overflow-hidden">
+        <Link to="/" className="flex items-center group min-w-0 flex-shrink-0 max-w-[60%] sm:max-w-[40%] md:max-w-none">
           <img 
             src="/lovable-uploads/logo.png" 
             alt="SMARB Technologies Logo" 
-            className="h-4 w-auto xs:h-5 sm:h-7 md:h-9 lg:h-11 xl:h-13 transition-all duration-300 flex-shrink-0"
+            className="h-4 w-auto xs:h-5 sm:h-6 md:h-8 lg:h-10 xl:h-12 transition-all duration-300 flex-shrink-0"
           />
-          <span className="text-[8px] xs:text-[9px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-poppins font-bold text-primary group-hover:text-primary/80 transition-all duration-300 ml-0.5 xs:ml-1 truncate overflow-hidden whitespace-nowrap">
-            <span className="inline sm:hidden">SMARB</span>
-            <span className="hidden sm:inline">SMARB Technologies</span>
+          <span className="text-[8px] xs:text-[9px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-poppins font-bold text-foreground group-hover:text-primary transition-all duration-300 ml-1 sm:ml-2 truncate min-w-0">
+            <span className="inline sm:hidden lg:inline">SMARB</span>
+            <span className="hidden sm:inline lg:hidden xl:inline"> Technologies</span>
           </span>
         </Link>
 
         {/* Desktop Navigation - Centered */}
-        <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-8">
+        <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-6 xl:space-x-8">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -101,7 +101,7 @@ const Navigation = () => {
         </div>
 
         {/* Medium Screen Navigation - Centered */}
-        <div className="hidden md:flex lg:hidden absolute left-1/2 transform -translate-x-1/2 items-center space-x-4">
+        <div className="hidden md:flex lg:hidden absolute left-1/2 transform -translate-x-1/2 items-center space-x-3">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -133,13 +133,13 @@ const Navigation = () => {
         </div>
 
         {/* Right Corner - Contact Button and Mobile Menu */}
-        <div className="flex items-center space-x-1 xs:space-x-2 sm:space-x-3 flex-shrink-0">
+        <div className="flex items-center space-x-1 xs:space-x-2 sm:space-x-3 flex-shrink-0 min-w-0">
           {/* Large Screen Contact Button */}
           <div className="hidden lg:flex">
             <Button 
               variant="default" 
               size="lg" 
-              className="px-6 py-2.5 text-sm font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-medium hover:shadow-strong transform hover:scale-105 transition-all duration-300"
+              className="px-4 xl:px-6 py-2.5 text-sm font-semibold whitespace-nowrap"
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -153,11 +153,11 @@ const Navigation = () => {
             <Button 
               variant="default" 
               size="default" 
-              className="px-4 py-2 text-sm font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-medium hover:shadow-strong transform hover:scale-105 transition-all duration-300"
+              className="px-3 py-2 text-sm font-semibold whitespace-nowrap"
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                Contact Us
+                Contact
               </a>
             </Button>
           </div>

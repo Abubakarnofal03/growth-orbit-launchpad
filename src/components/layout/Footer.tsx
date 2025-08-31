@@ -47,9 +47,9 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-b from-background to-secondary/20 border-t border-border">
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-7xl">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8 overflow-hidden">
           {/* Brand Section */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center space-x-2">
