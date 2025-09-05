@@ -7,15 +7,15 @@ const Footer = () => {
 
   const footerLinks = {
     company: [
-      { name: "About Us", path: "/about" },
-      { name: "Services", path: "/services" },
-      { name: "Case Studies", path: "/case-studies" },
+      { name: "About Us", path: "/", section: "about" },
+      { name: "Services", path: "/", section: "services" },
+      { name: "Case Studies", path: "/", section: "case-studies" },
     ],
     services: [
-      { name: "Digital Marketing", path: "/services#marketing" },
-      { name: "Brand Strategy", path: "/services#branding" },
-      { name: "Business Development", path: "/services#business" },
-      { name: "Web & Software", path: "/services#development" },
+      { name: "Digital Marketing", path: "/", section: "services" },
+      { name: "Brand Strategy", path: "/", section: "services" },
+      { name: "Business Development", path: "/", section: "services" },
+      { name: "Web & Software", path: "/", section: "services" },
     ],
     contact: [
       {
@@ -79,6 +79,15 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
+                    onClick={(e) => {
+                      if (link.section && link.path === "/") {
+                        e.preventDefault();
+                        const element = document.getElementById(link.section);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }
+                    }}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
@@ -96,6 +105,15 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
+                    onClick={(e) => {
+                      if (link.section && link.path === "/") {
+                        e.preventDefault();
+                        const element = document.getElementById(link.section);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }
+                    }}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
@@ -131,7 +149,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-border pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} Growth Orbit. All rights reserved.
+            © {currentYear} SMARB Technologies. All rights reserved.
           </p>
           
           {/* Social Links */}

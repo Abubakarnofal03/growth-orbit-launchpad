@@ -47,6 +47,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useTypewriter } from "@/hooks/use-typewriter";
+import { sendContactEmail, initializeEmailJS, ContactFormData } from "@/lib/email";
 
 const Index = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -60,6 +61,11 @@ const Index = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedCaseStudy, setSelectedCaseStudy] = useState(null);
   const [isCaseStudyModalOpen, setIsCaseStudyModalOpen] = useState(false);
+
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    initializeEmailJS();
+  }, []);
 
   // Typewriter animation configuration
   const typewriterWords = [
@@ -524,13 +530,23 @@ const Index = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Basic form validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      alert('Please fill in all required fields (Name, Email, and Message).');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert('Please enter a valid email address.');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      // For now, just show a success message
-      // In a real implementation, you would send the form data to your backend
-      console.log('Form submitted:', formData);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await sendContactEmail(formData as ContactFormData);
       
       // Reset form
       setFormData({
@@ -541,10 +557,11 @@ const Index = () => {
         message: ""
       });
       
-      // Show success message (you can implement toast notifications here)
+      // Show success message
       alert('Message sent successfully! We\'ll get back to you within 24 hours.');
     } catch (error) {
-      alert('Something went wrong. Please try again.');
+      console.error('Email sending failed:', error);
+      alert('Something went wrong. Please try again or contact us directly at info.smarb@gmail.com');
     } finally {
       setIsSubmitting(false);
     }
@@ -587,7 +604,7 @@ const Index = () => {
               
               {/* Dynamic typewriter heading with inline cursor */}
               <span 
-                className="text-white transition-all duration-500 relative"
+                className="text-blue-300 transition-all duration-500 relative bg-gradient-to-r from-blue-300 via-white to-blue-400 bg-clip-text text-transparent animate-shine"
                 style={{ 
                   opacity: currentText ? 1.5 : 0.8,
                   textShadow: isTyping 
