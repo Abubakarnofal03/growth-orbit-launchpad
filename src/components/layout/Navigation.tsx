@@ -56,16 +56,17 @@ const Navigation = () => {
     >
       <div className="flex items-center justify-between h-16 xs:h-18 sm:h-20 lg:h-24 px-3 xs:px-4 sm:px-6 lg:px-8 max-w-full w-full">
         {/* Logo - Left Corner */}
-        <Link to="/" className="flex items-center group min-w-0 flex-shrink-0 max-w-[65%] sm:max-w-[45%] md:max-w-none">
+        <Link to="/" className="flex items-center group min-w-0 flex-shrink-0">
           <img 
             src="/lovable-uploads/logo.png" 
             alt="SMARB Technologies Logo" 
-            className="h-10 w-auto xs:h-11 sm:h-12 md:h-14 lg:h-16 xl:h-18 transition-all duration-300 flex-shrink-0"
+            className="h-6 w-auto xs:h-7 sm:h-8 md:h-9 lg:h-10 xl:h-12 transition-all duration-300 flex-shrink-0"
           />
-          <span className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-poppins font-bold text-foreground group-hover:text-primary transition-all duration-300 ml-2 sm:ml-3 truncate min-w-0">
-            <span className="inline sm:hidden lg:inline">SMARB</span>
-            <span className="hidden sm:inline lg:hidden xl:inline"> Technologies</span>
+          <span className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-poppins font-bold text-foreground group-hover:text-primary transition-all duration-300 sm:ml-1">
+            <span className="inline xl:hidden">SMARB</span>
+            <span className="hidden xl:inline">SMARB Technologies</span>
           </span>
+
         </Link>
 
         {/* Desktop Navigation - Centered */}
