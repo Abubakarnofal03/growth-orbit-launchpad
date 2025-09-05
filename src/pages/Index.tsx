@@ -590,7 +590,16 @@ const Index = () => {
               className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-hero font-bold mb-4 sm:mb-6 md:mb-8 leading-tight font-poppins px-2 sm:px-0 min-h-[2.5rem] xs:min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] xl:min-h-[7rem] break-words hyphens-auto"
               style={{ wordBreak: 'break-word' }}
             >
-              SMARB Technologies - <span className="text-primary">Leading AI Solutions & Software Development</span> Company
+              <span className="sr-only">SMARB Technologies - Leading AI Solutions and Software Development</span>
+              <span className="inline-block text-white">
+                SMARB Technologies – <span className="text-primary">{currentText}</span>
+                <span
+                  className={`inline-block w-1 align-top bg-primary ml-1 ${
+                    isTyping || isDeleting ? 'animate-pulse' : ''
+                  }`}
+                  style={{ height: '1em' }}
+                />
+              </span>
             </motion.h1>
             
             {/* Typewriter indicator */}
