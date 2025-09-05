@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
+import SEOHead from "@/components/SEOHead";
+import AnalyticsSetup from "@/components/AnalyticsSetup";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -568,7 +570,15 @@ const Index = () => {
   };
 
   return (
-    <Layout>
+    <>
+      <SEOHead 
+        title="SMARB Technologies | Leading AI Solutions, Software Development & Digital Marketing Company"
+        description="Transform your business with SMARB Technologies - UAE's premier AI solutions and software development company. Expert services in machine learning, custom software, business automation, and digital marketing for global enterprises."
+        keywords="SMARB Technologies, Smarb Technologies, AI Solutions, Machine Learning, Software Development, Digital Marketing, Business Automation, RAG Systems, NLP, Computer Vision, Custom Software, API Development, Web Development, Mobile Apps, IT Consulting, UAE Technology Company"
+        canonicalUrl="https://www.smarbtechnologies.com/"
+      />
+      <AnalyticsSetup />
+      <Layout>
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative w-full">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
@@ -622,14 +632,7 @@ const Index = () => {
                   className={`inline-block w-1 h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28 bg-gradient-to-b from-primary to-primary/60 ml-1 transition-all duration-200 ${
                     isTyping || isDeleting ? 'animate-pulse' : ''
                   }`}
-                  style={{ 
-                    animationDuration: '1s',
-                    boxShadow: isTyping || isDeleting 
-                      ? '0 0 10px rgba(59, 130, 246, 0.5)' 
-                      : 'none',
-                    opacity: 1,
-                    verticalAlign: 'top'
-                  }}
+                  style={{ height: '1em' }}
                 />
               </span>
             </motion.h1>
@@ -710,11 +713,13 @@ const Index = () => {
           >
             <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">About Us</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
-              About SMARB Technologies
+              About SMARB Technologies - Your Premier AI Solutions Partner
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
-              We're a UAE-based technology company delivering innovative software, AI, and business solutions 
-              to enterprises worldwide, with expertise in digital transformation and cutting-edge technologies.
+              SMARB Technologies is a leading UAE-based technology company specializing in AI solutions, 
+              custom software development, and digital marketing automation. We deliver innovative 
+              enterprise solutions that drive digital transformation for businesses worldwide, 
+              combining cutting-edge AI technologies with proven software engineering excellence.
             </p>
           </motion.div>
 
@@ -895,11 +900,14 @@ const Index = () => {
           >
             <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">Our Services</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
-              Enterprise Technology Solutions
+              SMARB Technologies Enterprise Solutions - AI, Software & Digital Marketing
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
-            From custom software development to AI-powered solutions, 
-            we provide comprehensive technology services for modern enterprises.
+            From custom software development and AI solutions to business automation and digital marketing, 
+            SMARB Technologies provides comprehensive technology services for modern enterprises seeking digital transformation.
+            <br/><br/>
+            Explore our <Link to="/blog" className="text-primary hover:underline">latest insights</Link> or 
+            view our <a href="#case-studies" className="text-primary hover:underline">successful case studies</a> to see how we help businesses grow.
             </p>
           </motion.div>
 
@@ -1615,7 +1623,8 @@ const Index = () => {
           )}
         </DialogContent>
       </Dialog>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

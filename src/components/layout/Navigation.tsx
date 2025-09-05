@@ -36,7 +36,7 @@ const Navigation = () => {
     { name: "About", path: "/", section: "about" },
     { name: "Services", path: "/", section: "services" },
     { name: "Case Studies", path: "/", section: "case-studies" },
-    // { name: "Pricing", path: "/pricing" },
+    { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/", section: "contact" },
   ];
 
@@ -72,7 +72,7 @@ const Navigation = () => {
         <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-6 xl:space-x-8">
           {navItems.map((item) => (
             <Link
-              key={item.path}
+              key={item.name}
               to={item.path}
               onClick={(e) => {
                 if (item.section && item.path === "/") {
@@ -104,7 +104,7 @@ const Navigation = () => {
         <div className="hidden md:flex lg:hidden absolute left-1/2 transform -translate-x-1/2 items-center space-x-3">
           {navItems.map((item) => (
             <Link
-              key={item.path}
+              key={item.name}
               to={item.path}
               onClick={(e) => {
                 if (item.section && item.path === "/") {
@@ -184,7 +184,7 @@ const Navigation = () => {
             <div className="px-4 py-4 space-y-4">
               {navItems.map((item) => (
                 <Link
-                  key={item.path}
+                  key={item.name}
                   to={item.path}
                   onClick={(e) => {
                     setIsOpen(false);

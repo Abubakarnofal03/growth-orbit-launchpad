@@ -1,8 +1,21 @@
+# SMARB Technologies - Robots.txt
+# Allow all web crawlers to access the website
+
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +23,17 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
 User-agent: *
 Allow: /
+Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://www.smarbtechnologies.com/sitemap.xml
+
+# Disallow access to admin or sensitive areas (if any in the future)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/
