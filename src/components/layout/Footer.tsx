@@ -76,7 +76,7 @@ const Footer = () => {
             <h3 className="font-semibold text-foreground mb-4">Company</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
-                <li key={link.path}>
+                <li key={`company-${link.name}`}>
                   <Link
                     to={link.path}
                     onClick={(e) => {
@@ -102,7 +102,7 @@ const Footer = () => {
             <h3 className="font-semibold text-foreground mb-4">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
-                <li key={link.path}>
+                <li key={`services-${link.name}`}>
                   <Link
                     to={link.path}
                     onClick={(e) => {
