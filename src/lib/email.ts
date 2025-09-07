@@ -13,6 +13,7 @@ export interface ContactFormData {
   company: string;
   budget: string;
   message: string;
+  page?: string;
 }
 
 // Initialize EmailJS with public key
@@ -45,6 +46,7 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<void>
       from_email: formData.email,
       company: formData.company || 'Not specified',
       budget: formData.budget || 'Not specified',
+      page: formData.page || window.location.pathname,
       message: formData.message,
       to_name: 'SMARB Technologies',
       reply_to: formData.email,
