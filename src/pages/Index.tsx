@@ -57,7 +57,6 @@ const Index = () => {
     name: "",
     email: "",
     company: "",
-    budget: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -555,7 +554,6 @@ const Index = () => {
         name: "",
         email: "",
         company: "",
-        budget: "",
         message: ""
       });
       
@@ -1380,21 +1378,6 @@ const Index = () => {
                         placeholder="Your company name"
                         className="w-full"
                       />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="budget">Budget Range</Label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-input bg-background rounded-md text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                      >
-                        <option value="">Select budget range</option>
-                        {budgetRanges.map((range, index) => (
-                          <option key={index} value={range}>{range}</option>
-                        ))}
-                      </select>
                     </div>
                   </div>
 

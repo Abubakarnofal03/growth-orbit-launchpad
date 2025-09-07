@@ -25,7 +25,6 @@ const Contact = () => {
     name: "",
     email: "",
     company: "",
-    budget: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,7 +53,6 @@ const Contact = () => {
         from_name: formData.name,
         from_email: formData.email,
         company: formData.company || "—",
-        budget: formData.budget || "—",
         message: formData.message,
         to_name: "SMARB Technologies",
         reply_to: formData.email,
@@ -76,7 +74,6 @@ const Contact = () => {
         name: "",
         email: "",
         company: "",
-        budget: "",
         message: ""
       });
     } catch (error) {
@@ -301,33 +298,16 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="company">Company Name</Label>
-                      <Input
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        placeholder="Your Company"
-                        className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="budget">Project Budget</Label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground transition-all duration-200 focus:ring-2 focus:ring-primary/20 focus:outline-none"
-                      >
-                        <option value="">Select budget range</option>
-                        {budgetRanges.map((range) => (
-                          <option key={range} value={range}>{range}</option>
-                        ))}
-                      </select>
-                    </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="company">Company Name</Label>
+                    <Input
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      placeholder="Your Company"
+                      className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+                    />
                   </div>
 
                   <div className="space-y-2">

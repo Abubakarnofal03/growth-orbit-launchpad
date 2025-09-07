@@ -153,14 +153,15 @@ const Footer = () => {
           </p>
           
           {/* Social Links */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            <span className="text-sm text-muted-foreground hidden sm:inline">Follow us:</span>
             {socialLinks.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-accent rounded-lg"
+                className="text-muted-foreground hover:text-primary transition-all duration-200 p-2 hover:bg-accent/50 rounded-lg hover:scale-110"
                 aria-label={social.label}
               >
                 {social.icon}

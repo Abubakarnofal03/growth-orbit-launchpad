@@ -11,7 +11,6 @@ export interface ContactFormData {
   name: string;
   email: string;
   company: string;
-  budget: string;
   message: string;
   page?: string;
 }
@@ -45,7 +44,6 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<void>
       from_name: formData.name,
       from_email: formData.email,
       company: formData.company || 'Not specified',
-      budget: formData.budget || 'Not specified',
       page: formData.page || window.location.pathname,
       message: formData.message,
       to_name: 'SMARB Technologies',
