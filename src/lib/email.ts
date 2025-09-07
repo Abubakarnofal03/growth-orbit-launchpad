@@ -10,9 +10,14 @@ export const EMAIL_CONFIG = {
 export interface ContactFormData {
   name: string;
   email: string;
+<<<<<<< HEAD
   company?: string;
   budget?: string;
+=======
+  company: string;
+>>>>>>> bba0578311fb4471f5f6373d6c832ef1fe229429
   message: string;
+  page?: string;
 }
 
 // Initialize EmailJS once
@@ -42,6 +47,30 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<void>
   };
 
   try {
+<<<<<<< HEAD
+=======
+    // Initialize EmailJS if not already done
+    if (EMAIL_CONFIG.publicKey && EMAIL_CONFIG.publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY') {
+      emailjs.init(EMAIL_CONFIG.publicKey);
+    }
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      company: formData.company || 'Not specified',
+      page: formData.page || window.location.pathname,
+      message: formData.message,
+      to_name: 'SMARB Technologies',
+      reply_to: formData.email,
+    };
+
+    console.log('Sending email with params:', templateParams);
+    console.log('Using service config:', {
+      serviceId: EMAIL_CONFIG.serviceId,
+      templateId: EMAIL_CONFIG.templateId
+    });
+
+>>>>>>> bba0578311fb4471f5f6373d6c832ef1fe229429
     const response = await emailjs.send(
       EMAIL_CONFIG.serviceId,
       EMAIL_CONFIG.templateId,

@@ -59,7 +59,6 @@ const Index = () => {
     name: "",
     email: "",
     company: "",
-    budget: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -595,7 +594,6 @@ const Index = () => {
         name: "",
         email: "",
         company: "",
-        budget: "",
         message: ""
       });
       
@@ -1329,18 +1327,18 @@ const Index = () => {
                   <p className="text-muted-foreground text-sm mb-4">{method.description}</p>
                   <p className="font-medium mb-4">{method.value}</p>
                   {method.socialLinks ? (
-                    <div className="flex gap-2 justify-center">
+                    <div className="flex flex-wrap gap-2 justify-center max-w-full">
                       {method.socialLinks.map((social, socialIndex) => (
                         <Button 
                           key={socialIndex}
                           variant="outline" 
                           size="sm"
                           asChild 
-                          className="group-hover:border-primary group-hover:text-primary flex-1"
+                          className="group-hover:border-primary group-hover:text-primary min-w-0 flex-shrink-0"
                         >
-                          <a href={social.url} target="_blank" rel="noopener noreferrer">
-                            {social.icon}
-                            <span className="ml-1 text-xs">{social.name}</span>
+                          <a href={social.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center px-2 py-1">
+                            <span className="flex-shrink-0">{social.icon}</span>
+                            <span className="ml-1 text-xs truncate max-w-[60px] sm:max-w-none">{social.name}</span>
                           </a>
                         </Button>
                       ))}
@@ -1447,21 +1445,6 @@ const Index = () => {
                         placeholder="Your company name"
                         className="w-full"
                       />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="budget">Budget Range</Label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-input bg-background rounded-md text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                      >
-                        <option value="">Select budget range</option>
-                        {budgetRanges.map((range, index) => (
-                          <option key={index} value={range}>{range}</option>
-                        ))}
-                      </select>
                     </div>
                   </div>
 
