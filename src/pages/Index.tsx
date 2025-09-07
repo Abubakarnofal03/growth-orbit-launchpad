@@ -1,8 +1,11 @@
+import { useState, useEffect } from 'react';
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
+import { sendContactEmail, initializeEmailJS, ContactFormData } from "@/lib/email";
+import { useToast } from "@/components/ui/use-toast";
 import SEOHead from "@/components/SEOHead";
 import AnalyticsSetup from "@/components/AnalyticsSetup";
 import { Badge } from "@/components/ui/badge";
@@ -41,7 +44,6 @@ import {
   Send,
   X
 } from "lucide-react";
-import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -49,11 +51,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useTypewriter } from "@/hooks/use-typewriter";
-import { sendContactEmail, initializeEmailJS, ContactFormData } from "@/lib/email";
 
 const Index = () => {
+  const { toast } = useToast();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     company: "",
@@ -241,6 +243,44 @@ const Index = () => {
   const caseStudies = [
     {
       id: 1,
+      title: "Engineering Design & Simulation Platform",
+      client: "Engineering Research Lab",
+      industry: "Engineering Software / Simulation",
+      image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&h=600&fit=crop",
+      challenge: "Need for comprehensive modeling, simulation, and optimization capabilities across multiple engineering design software platforms for robotics and mechanical systems.",
+      solution: "Developed an integrated platform leveraging ANSYS Workbench, Fusion 360, SOLIDWORKS, and related tools for advanced engineering analysis and optimization.",
+      results: [
+        { metric: "Software Integration", value: "8+ platforms", icon: <Code className="h-5 w-5" /> },
+        { metric: "Simulation Accuracy", value: "98%", icon: <Target className="h-5 w-5" /> },
+        { metric: "Design Time Reduction", value: "-40%", icon: <Clock className="h-5 w-5" /> },
+        { metric: "Resource Efficiency", value: "+65%", icon: <BarChart3 className="h-5 w-5" /> }
+      ],
+      timeline: "12 months",
+      tags: ["ANSYS", "Fusion 360", "SOLIDWORKS", "MATLAB", "CAD", "FEA", "CFD", "Optimization"],
+      testimonial: "This platform revolutionized our engineering workflow by seamlessly integrating multiple design and simulation tools, significantly improving our development efficiency.",
+      clientRole: "Lead Research Engineer"
+    },
+    {
+      id: 2,
+      title: "Bio-Inspired Quadruped Robot with Hybrid Actuation",
+      client: "Robotics Research Institute",
+      industry: "Robotics / Research",
+      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=600&fit=crop",
+      challenge: "Traditional quadruped robots lack adaptability and energy efficiency due to rigid motor-only actuation systems, limiting their performance in real-world applications.",
+      solution: "Developed a hybrid-actuated quadruped robot combining artificial nematic muscles with traditional motors and a continuum spine for enhanced mobility and efficiency.",
+      results: [
+        { metric: "Energy Efficiency", value: "+25%", icon: <Zap className="h-5 w-5" /> },
+        { metric: "Terrain Adaptation", value: "+35%", icon: <Target className="h-5 w-5" /> },
+        { metric: "Actuator Accuracy", value: "93%", icon: <CheckCircle className="h-5 w-5" /> },
+        { metric: "Project Timeline", value: "12 weeks", icon: <Calendar className="h-5 w-5" /> }
+      ],
+      timeline: "3 months",
+      tags: ["H. Actuation", "Bio-Inspired", "ANSYS", "MATLAB", "Control Systems"],
+      testimonial: "This quadruped robot demonstrates how hybrid actuation and soft robotics principles can enhance mobility beyond traditional rigid systems.",
+      clientRole: "Academic Supervisor"
+    },
+    {
+      id: 3,
       title: "O’TRADE AI Chatbot – Multilingual Wholesale Assistant",
       client: "O’Trade",
       industry: "Chatbots",
@@ -311,7 +351,7 @@ const Index = () => {
         { metric: "Cost Savings", value: "35%", icon: <BarChart3 className="h-5 w-5" /> }
       ],
       timeline: "6 months",
-      tags: ["AI/ML", "Team Management", "Skill Matching", "Resource Optimization"],
+      tags: ["AI/ML", "Team", "Skill Matching", "Resource Optimization"],
       testimonial: "SkillMap transformed how we build teams. The AI recommendations are incredibly accurate and have improved our project outcomes significantly.",
       clientRole: "VP Engineering, TechCorp Solutions"
     },
@@ -1338,7 +1378,34 @@ const Index = () => {
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <form onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+                    e.preventDefault();
+                    setIsSubmitting(true);
+
+                    try {
+                      await sendContactEmail(formData);
+                      toast({
+                        title: "Message sent successfully!",
+                        description: "We'll get back to you as soon as possible.",
+                      });
+
+                      setFormData({
+                        name: '',
+                        email: '',
+                        company: '',
+                        budget: '',
+                        message: ''
+                      });
+                    } catch (error) {
+                      toast({
+                        title: "Error sending message",
+                        description: error instanceof Error ? error.message : "Please try again or contact us through other means.",
+                        variant: "destructive",
+                      });
+                    } finally {
+                      setIsSubmitting(false);
+                    }
+                  }} className="space-y-4 sm:space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name *</Label>

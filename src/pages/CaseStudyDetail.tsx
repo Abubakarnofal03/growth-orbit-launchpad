@@ -12,8 +12,12 @@ import {
   BarChart3,
   Calendar,
   CheckCircle,
-  Quote
+  Quote,
+  Code,
+  Clock,
+  Zap
 } from "lucide-react";
+
 
 const CaseStudyDetail = () => {
   const { id } = useParams();
@@ -21,6 +25,124 @@ const CaseStudyDetail = () => {
   const caseStudies = [
     {
       id: 1,
+      title: "Engineering Design & Simulation Platform",
+      client: "Engineering Research Lab",
+      industry: "Engineering Software / Simulation",
+      image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1200&h=600&fit=crop",
+      challenge: "Need for comprehensive modeling, simulation, and optimization capabilities across multiple engineering design software platforms for robotics and mechanical systems.",
+      solution: "Developed an integrated platform leveraging ANSYS Workbench, Fusion 360, SOLIDWORKS, and related tools for advanced engineering analysis and optimization.",
+      results: [
+        { metric: "Software Integration", value: "8+ platforms", icon: <Code className="h-5 w-5" /> },
+        { metric: "Simulation Accuracy", value: "98%", icon: <Target className="h-5 w-5" /> },
+        { metric: "Design Time Reduction", value: "-40%", icon: <Clock className="h-5 w-5" /> },
+        { metric: "Resource Efficiency", value: "+65%", icon: <BarChart3 className="h-5 w-5" /> }
+      ],
+      timeline: "12 months",
+      tags: ["ANSYS", "Fusion 360", "SOLIDWORKS", "MATLAB", "CAD", "FEA", "CFD", "Optimization"],
+      testimonial: "This platform revolutionized our engineering workflow by seamlessly integrating multiple design and simulation tools, significantly improving our development efficiency.",
+      clientRole: "Lead Research Engineer",
+      detailedDescription: "Our Engineering Design & Simulation Platform represents a comprehensive solution for modern engineering challenges, integrating multiple industry-standard tools into a cohesive workflow. The platform enables seamless transitions between different phases of engineering design, from initial concept to final optimization.",
+      keyFeatures: [
+        "3D CAD modeling with Fusion 360, SOLIDWORKS, and CATIA",
+        "Finite Element Analysis (FEA) using ANSYS Workbench",
+        "Computational Fluid Dynamics (CFD) with ANSYS Fluent",
+        "Multibody dynamics simulation with ADAMS",
+        "Control system optimization via MATLAB/Simulink",
+        "Cloud-based collaboration and version control"
+      ],
+      technicalStack: [
+        "ANSYS Workbench for structural and thermal analysis",
+        "Fusion 360 for CAD and generative design",
+        "SOLIDWORKS for mechanical design",
+        "MATLAB/Simulink for control systems",
+        "COMSOL Multiphysics for coupled physics simulation",
+        "Custom Python scripts for automation and data processing"
+      ],
+      additionalDetails: {
+        modelingCapabilities: [
+          "Parametric & surface modeling",
+          "Sheet metal & weldment design",
+          "Assembly modeling & kinematics",
+          "Generative design & topology optimization",
+          "Reverse engineering from point cloud data"
+        ],
+        simulationTypes: [
+          "Structural analysis (static & dynamic)",
+          "Thermal analysis",
+          "Flow simulation (CFD)",
+          "Motion analysis",
+          "Electromagnetic analysis"
+        ],
+        optimizationFeatures: [
+          "Topology optimization",
+          "Multi-objective design optimization",
+          "Parametric optimization",
+          "Shape & size optimization",
+          "Multi-physics optimization"
+        ]
+      }
+    },
+    {
+      id: 2,
+      title: "Bio-Inspired Quadruped Robot with Hybrid Actuation",
+      client: "Robotics Research Institute",
+      industry: "Robotics / Research",
+      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=600&fit=crop",
+      challenge: "Traditional quadruped robots lack adaptability and energy efficiency due to rigid motor-only actuation systems, limiting their performance in real-world applications.",
+      solution: "Developed a hybrid-actuated quadruped robot combining artificial nematic muscles with traditional motors and a continuum spine for enhanced mobility and efficiency.",
+      results: [
+        { metric: "Energy Efficiency", value: "+25%", icon: <Zap className="h-5 w-5" /> },
+        { metric: "Terrain Adaptation", value: "+35%", icon: <Target className="h-5 w-5" /> },
+        { metric: "Actuator Accuracy", value: "93%", icon: <CheckCircle className="h-5 w-5" /> },
+        { metric: "Project Timeline", value: "12 weeks", icon: <Calendar className="h-5 w-5" /> }
+      ],
+      timeline: "3 months",
+      tags: ["Robotics", "Hybrid Actuation", "Bio-Inspired", "ANSYS", "MATLAB", "Control Systems"],
+      testimonial: "This quadruped robot demonstrates how hybrid actuation and soft robotics principles can enhance mobility beyond traditional rigid systems.",
+      clientRole: "Academic Supervisor",
+      detailedDescription: "Our bio-inspired quadruped robot project pushes the boundaries of robotics by combining traditional motors with artificial nematic muscles and a innovative continuum spine design. This hybrid approach enables more natural movement patterns and improved energy efficiency.",
+      keyFeatures: [
+        "Hybrid actuation system (nematic muscles + motors)",
+        "Bio-inspired continuum spine design",
+        "Advanced control system integration",
+        "Terrain adaptation capabilities",
+        "Energy-efficient gait patterns",
+        "Integrated sensor feedback system"
+      ],
+      technicalStack: [
+        "ANSYS for structural and thermal analysis",
+        "MATLAB/Simulink for control systems",
+        "Fusion 360 for mechanical design",
+        "Custom embedded control software",
+        "ROS2 for system integration",
+        "Python for data processing and analysis"
+      ],
+      additionalDetails: {
+        designFeatures: [
+          "Artificial nematic muscle actuators",
+          "Flexible continuum spine structure",
+          "Integrated sensor array",
+          "Advanced gait control system",
+          "Energy recovery mechanisms"
+        ],
+        performanceMetrics: [
+          "25% improvement in energy efficiency",
+          "35% reduction in terrain slippage",
+          "93% actuator response accuracy",
+          "5° max spine bending error",
+          "70% shock absorption improvement"
+        ],
+        developmentPhases: [
+          "CAD design and modeling",
+          "Actuator system development",
+          "Control system integration",
+          "Prototype assembly and testing",
+          "Performance optimization"
+        ]
+      }
+    },
+    {
+      id: 3,
       title: "VisaMate: AI-Powered Visa Application System",
       client: "Global Immigration Services",
       industry: "Government Services",
