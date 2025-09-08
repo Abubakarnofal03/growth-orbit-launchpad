@@ -8,6 +8,8 @@ import { sendContactEmail, initializeEmailJS, ContactFormData } from "@/lib/emai
 import { useToast } from "@/components/ui/use-toast";
 import SEOHead from "@/components/SEOHead";
 import AnalyticsSetup from "@/components/AnalyticsSetup";
+import AlternativeNamesSchema from "@/components/AlternativeNamesSchema";
+import FAQSchema from "@/components/FAQ-schema";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -612,10 +614,12 @@ const Index = () => {
       <SEOHead 
         title="SMARB Technologies | Leading AI Solutions, Software Development & Digital Marketing Company"
         description="Transform your business with SMARB Technologies - UAE's premier AI solutions and software development company. Expert services in machine learning, custom software, business automation, and digital marketing for global enterprises."
-        keywords="SMARB Technologies, Smarb Technologies, AI Solutions, Machine Learning, Software Development, Digital Marketing, Business Automation, RAG Systems, NLP, Computer Vision, Custom Software, API Development, Web Development, Mobile Apps, IT Consulting, UAE Technology Company"
+        keywords="SMARB Technologies, Smarb Technologies, Smart Technologies, Smartb Technologies, Smarb Tech, Smart Tech, Smab Technologies, AI Solutions, Machine Learning, Software Development, Digital Marketing, Business Automation, RAG Systems, NLP, Computer Vision, Custom Software, API Development, Web Development, Mobile Apps, IT Consulting, UAE Technology Company, Pakistan Tech Company"
         canonicalUrl="https://www.smarbtechnologies.com/"
       />
       <AnalyticsSetup />
+      <AlternativeNamesSchema />
+      <FAQSchema />
       <Layout>
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative w-full">

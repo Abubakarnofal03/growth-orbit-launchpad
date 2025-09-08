@@ -13,7 +13,7 @@ interface SEOHeadProps {
 const SEOHead = ({
   title = "SMARB Technologies | AI Solutions, Software Development & Digital Marketing",
   description = "Leading technology company specializing in AI solutions, custom software development, and digital marketing. Transform your business with SMARB Technologies - serving globally from Pakistan.",
-  keywords = "Smarb Technologies, SMARB Technologies, AI Solutions, Software Development, Machine Learning, Digital Marketing, Business Automation, IT Consulting, Web Development, Mobile Apps, RAG Systems, NLP, Computer Vision, Shopify Development, WordPress, Custom Software, API Development",
+  keywords = "Smarb Technologies, SMARB Technologies, Smart Technologies, Smartb Technologies, Smarb Tech, Smart Tech, Smab Technologies, Smarb Tecnologies, SMARB Tech, AI Solutions, Artificial Intelligence, Machine Learning, Software Development, Custom Software, Web Development, Mobile App Development, Digital Marketing, Business Automation, IT Consulting, Technology Company, Tech Solutions, RAG Systems, NLP, Computer Vision, Shopify Development, WordPress Development, API Development, Cloud Solutions, Data Analytics, Business Intelligence, E-commerce Development, CRM Development, ERP Solutions, Automation Services, Pakistan Technology Company, UAE Tech Services, Global Software Solutions",
   canonicalUrl = "https://www.smarbtechnologies.com",
   ogImage = "https://www.smarbtechnologies.com/lovable-uploads/logo.png",
   noindex = false,
