@@ -53,6 +53,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useTypewriter } from "@/hooks/use-typewriter";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const Index = () => {
   const { toast } = useToast();
@@ -664,11 +665,12 @@ const Index = () => {
                     : '0 2px 4px rgba(0, 0, 0, 0.3)',
                   transform: isTyping ? 'scale(1.02)' : 'scale(1)',
                   filter: isDeleting ? 'blur(0.5px)' : 'blur(0px)',
-                  minHeight: '1.2em',
-                  display: 'inline-block'
+                  minHeight: '4rem', // Reserve space to prevent layout shift
+                  display: 'inline-block',
+                  width: '100%'
                 }}
               >
-                {currentText || ""}
+                {currentText || "Leading Technology Solutions for Global Businesses"}
                 {/* Inline cursor that's always with the text */}
                 <span 
                   className={`inline-block w-1 h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28 bg-gradient-to-b from-primary to-primary/60 ml-1 transition-all duration-200 ${
@@ -871,9 +873,12 @@ const Index = () => {
                   <div className="relative z-10">
                     <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
                       <div className="relative">
-                        <img
+                        <OptimizedImage
                           src={member.image}
-                          alt={member.name}
+                          alt={`${member.name} - ${member.role} at SMARB Technologies`}
+                          width={128}
+                          height={128}
+                          sizes="128px"
                           className="w-32 h-32 rounded-2xl object-cover ring-4 ring-primary/20 group-hover:ring-primary/40 transition-all duration-300 group-hover:scale-105"
                         />
                         <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -994,7 +999,7 @@ const Index = () => {
 
                       <Button variant="premium" asChild>
                         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                          Learn More
+                          Get {service.title} Quote
                         </a>
                       </Button>
                     </div>

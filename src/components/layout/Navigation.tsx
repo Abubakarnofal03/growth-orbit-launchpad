@@ -59,7 +59,10 @@ const Navigation = () => {
         <Link to="/" className="flex items-center group min-w-0 flex-shrink-0">
           <img 
             src="/lovable-uploads/logo.png" 
-            alt="SMARB Technologies Logo" 
+            alt="SMARB Technologies - AI Solutions & Software Development Company Logo" 
+            width="48"
+            height="48"
+            loading="eager"
             className="h-6 w-auto xs:h-7 sm:h-8 md:h-9 lg:h-10 xl:h-12 transition-all duration-300 flex-shrink-0"
           />
           <span className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-poppins font-bold text-foreground group-hover:text-primary transition-all duration-300 sm:ml-1">
