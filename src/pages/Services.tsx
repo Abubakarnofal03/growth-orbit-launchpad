@@ -223,7 +223,7 @@ const Services = () => {
 
                       <Button variant="premium" asChild>
                         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                          Get {service.title} Quote
+                          Learn More
                         </a>
                       </Button>
                     </div>
