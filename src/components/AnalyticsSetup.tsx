@@ -3,8 +3,8 @@ import { Helmet } from "react-helmet-async";
 // Google Analytics Setup Component
 // Replace GA_MEASUREMENT_ID with your actual Google Analytics 4 tracking ID
 const AnalyticsSetup = () => {
-  // In production, replace this with your actual GA4 measurement ID
-  const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // Replace with your actual ID
+  // Google Analytics 4 measurement ID
+  const GA_MEASUREMENT_ID = "G-HSQ1JWX6FK";
   
   return (
     <Helmet>
