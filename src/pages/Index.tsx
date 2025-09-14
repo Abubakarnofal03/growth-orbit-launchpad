@@ -670,7 +670,7 @@ const Index = () => {
                   width: '100%'
                 }}
               >
-                {currentText || "Leading Technology Solutions for Global Businesses"}
+                {currentText || ""}
                 {/* Inline cursor that's always with the text */}
                 <span 
                   className={`inline-block w-1 h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28 bg-gradient-to-b from-primary to-primary/60 ml-1 transition-all duration-200 ${
