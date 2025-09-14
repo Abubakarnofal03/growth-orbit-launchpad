@@ -83,10 +83,10 @@ const Index = () => {
 
   const { currentText, isTyping, isDeleting, currentWordIndex } = useTypewriter({
     words: typewriterWords,
-    typeSpeed: 60,
-    deleteSpeed: 40,
-    delayBetweenWords: 800,
-    holdTime: 1500
+    typeSpeed: 60,  // Faster typing
+    deleteSpeed: 35,  // Faster deletion
+    delayBetweenWords: 1200,  // Slightly shorter pause
+    holdTime: 1800  // Slightly shorter hold
   });
 
   const services = [
@@ -657,26 +657,28 @@ const Index = () => {
               
               {/* Dynamic typewriter heading with inline cursor */}
               <span 
-                className="text-blue-300 transition-all duration-500 relative bg-gradient-to-r from-blue-300 via-white to-blue-400 bg-clip-text text-transparent animate-shine"
+                className="relative bg-gradient-to-r from-blue-300 via-white to-blue-400 bg-clip-text text-transparent"
                 style={{ 
-                  opacity: currentText ? 1.5 : 0.8,
-                  textShadow: isTyping 
-                    ? '0 2px 8px rgba(59, 130, 246, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3)' 
-                    : '0 2px 4px rgba(0, 0, 0, 0.3)',
-                  transform: isTyping ? 'scale(1.02)' : 'scale(1)',
-                  filter: isDeleting ? 'blur(0.5px)' : 'blur(0px)',
-                  minHeight: '4rem', // Reserve space to prevent layout shift
+                  minHeight: '4rem',
                   display: 'inline-block',
-                  width: '100%'
+                  width: '100%',
+                  willChange: 'transform',
+                  textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+                  transition: 'filter 300ms ease-out',
+                  filter: isDeleting ? 'blur(0.3px)' : 'none'
                 }}
               >
-                {currentText || ""}
-                {/* Inline cursor that's always with the text */}
+                {currentText.trim()}
                 <span 
-                  className={`inline-block w-1 h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28 bg-gradient-to-b from-primary to-primary/60 ml-1 transition-all duration-200 ${
-                    isTyping || isDeleting ? 'animate-pulse' : ''
+                  className={`inline-block w-1 bg-gradient-to-b from-primary to-primary/60 ml-1 ${
+                    isTyping || isDeleting ? 'animate-blink' : ''
                   }`}
-                  style={{ height: '1em' }}
+                  style={{ 
+                    height: '1.2em',
+                    marginTop: '0.1em',
+                    verticalAlign: 'top',
+                    opacity: 0.9
+                  }}
                 />
               </span>
             </motion.h1>
