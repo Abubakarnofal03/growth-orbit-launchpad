@@ -974,37 +974,54 @@ const Index = () => {
               <Card className="p-4 sm:p-6 md:p-8 hover:shadow-strong transition-all duration-300 group">
                 <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div className="w-full">
-                  <div className="mb-6 flex justify-center lg:justify-start group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+                  <div className="mb-4 flex justify-center lg:justify-start group-hover:scale-110 transition-transform duration-300">
+                    {service.icon}
                   </div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-center lg:text-left">
-                  {service.title}
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center lg:text-left">
+                    {service.title}
                   </h3>
-                  <p className="text-base sm:text-lg text-muted-foreground mb-6 leading-relaxed text-center lg:text-left">
-                  {service.description}
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed text-center lg:text-left">
+                    {service.description}
                   </p>
                   
-                  <div className="mb-6">
-                  <h4 className="font-semibold mb-3 flex items-center justify-center lg:justify-start">
-                    <Shield className="h-4 w-4 mr-2 text-primary" />
-                    What's Included
-                  </h4>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {service.features.map((feature, idx) => (
-                    <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                      <Zap className="h-3 w-3 mr-2 text-primary flex-shrink-0" />
-                      {feature}
-                    </li>
-                    ))}
-                  </ul>
+                  <div className="mb-4">
+                    <h4 className="font-semibold mb-2 flex items-center justify-center lg:justify-start text-sm">
+                      <Shield className="h-3 w-3 mr-2 text-primary" />
+                      What's Included
+                    </h4>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-1">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="text-xs text-muted-foreground flex items-center">
+                          <Zap className="h-3 w-3 mr-2 text-primary flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="flex justify-center lg:justify-start">
-                  <Button variant="premium" asChild>
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    Get {service.title} Quote
-                    </a>
-                  </Button>
+                  <div className="flex justify-center lg:justify-start w-full">
+                    <Button
+                      variant="premium"
+                      asChild
+                      className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs px-4 py-2 text-xs font-semibold rounded-lg"
+                    >
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full text-center"
+                      >
+                        <span className="block sm:hidden">
+                          Get Quote
+                        </span>
+                        <span className="hidden sm:block md:hidden">
+                          Get {service.title.split(" ")[0]} Quote
+                        </span>
+                        <span className="hidden md:block">
+                          Get {service.title} Quote
+                        </span>
+                      </a>
+                    </Button>
                   </div>
                 </div>
 
