@@ -960,75 +960,77 @@ const Index = () => {
             </p>
           </motion.div>
 
-          {/* Main Services */}
-          <div className="space-y-20 mb-20">
+            {/* Main Services */}
+            <div className="space-y-20 mb-20">
             {detailedServices.map((service, index) => (
               <motion.div
-                key={service.id}
-                id={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
+              key={service.id}
+              id={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
               >
-                <Card className="p-6 sm:p-8 md:p-12 hover:shadow-strong transition-all duration-300 group">
-                  <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-                    <div>
-                      <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
-                        {service.icon}
-                      </div>
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-                        {service.title}
-                      </h3>
-                      <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                        {service.description}
-                      </p>
-                      
-                      <div className="mb-6">
-                        <h4 className="font-semibold mb-3 flex items-center">
-                          <Shield className="h-4 w-4 mr-2 text-primary" />
-                          What's Included
-                        </h4>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                          {service.features.map((feature, idx) => (
-                            <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                              <Zap className="h-3 w-3 mr-2 text-primary flex-shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <Button variant="premium" asChild>
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                          Get {service.title} Quote
-                        </a>
-                      </Button>
-                    </div>
-
-                    <div className="space-y-6">
-                      <div className="bg-gradient-card p-6 rounded-xl">
-                        <h4 className="font-semibold mb-3 text-primary">Deliverables</h4>
-                        <ul className="space-y-2">
-                          {service.deliverables.map((deliverable, idx) => (
-                            <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                              <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" />
-                              {deliverable}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="bg-gradient-card p-6 rounded-xl">
-                        <h4 className="font-semibold mb-3 text-primary">Timeline</h4>
-                        <p className="text-sm text-muted-foreground">{service.timeline}</p>
-                      </div>
-                    </div>
+              <Card className="p-4 sm:p-6 md:p-8 hover:shadow-strong transition-all duration-300 group">
+                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div className="w-full">
+                  <div className="mb-6 flex justify-center lg:justify-start group-hover:scale-110 transition-transform duration-300">
+                  {service.icon}
                   </div>
-                </Card>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-center lg:text-left">
+                  {service.title}
+                  </h3>
+                  <p className="text-base sm:text-lg text-muted-foreground mb-6 leading-relaxed text-center lg:text-left">
+                  {service.description}
+                  </p>
+                  
+                  <div className="mb-6">
+                  <h4 className="font-semibold mb-3 flex items-center justify-center lg:justify-start">
+                    <Shield className="h-4 w-4 mr-2 text-primary" />
+                    What's Included
+                  </h4>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {service.features.map((feature, idx) => (
+                    <li key={idx} className="text-sm text-muted-foreground flex items-center">
+                      <Zap className="h-3 w-3 mr-2 text-primary flex-shrink-0" />
+                      {feature}
+                    </li>
+                    ))}
+                  </ul>
+                  </div>
+
+                  <div className="flex justify-center lg:justify-start">
+                  <Button variant="premium" asChild>
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    Get {service.title} Quote
+                    </a>
+                  </Button>
+                  </div>
+                </div>
+
+                <div className="w-full space-y-6 mt-8 lg:mt-0">
+                  <div className="bg-gradient-card p-4 sm:p-6 rounded-xl">
+                  <h4 className="font-semibold mb-3 text-primary">Deliverables</h4>
+                  <ul className="space-y-2">
+                    {service.deliverables.map((deliverable, idx) => (
+                    <li key={idx} className="text-sm text-muted-foreground flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" />
+                      {deliverable}
+                    </li>
+                    ))}
+                  </ul>
+                  </div>
+
+                  <div className="bg-gradient-card p-4 sm:p-6 rounded-xl">
+                  <h4 className="font-semibold mb-3 text-primary">Timeline</h4>
+                  <p className="text-sm text-muted-foreground">{service.timeline}</p>
+                  </div>
+                </div>
+                </div>
+              </Card>
               </motion.div>
             ))}
-          </div>
+            </div>
 
           {/* Additional Services */}
           <motion.div
