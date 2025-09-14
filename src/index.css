@@ -18,8 +18,8 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 15%;
 
-    /* Primary brand color - Professional Navy #0C3C7C */
-    --primary: 220 85% 27%;
+    /* Primary brand color - Professional Navy */
+    --primary: 220 100% 25%;
     --primary-foreground: 0 0% 100%;
 
     /* Neutral grays for professional look */
@@ -29,8 +29,7 @@ All colors MUST be HSL.
     --muted: 210 15% 95%;
     --muted-foreground: 220 10% 50%;
 
-    /* Teal accent color #1E88E5 */
-    --accent: 207 90% 54%;
+    --accent: 220 100% 25%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
@@ -42,15 +41,15 @@ All colors MUST be HSL.
 
     --radius: 8px;
 
-    /* Professional Corporate Brand Colors */
-    --brand-primary: 220 85% 27%;
+    /* Professional Agency Brand Colors */
+    --brand-primary: 220 100% 25%;
     --brand-secondary: 220 15% 20%;
-    --brand-accent: 207 90% 54%;
+    --brand-accent: 220 100% 30%;
     --brand-gray: 220 10% 50%;
     --brand-light: 210 15% 96%;
 
-    /* Corporate Professional Backgrounds */
-    --gradient-hero: linear-gradient(135deg, hsl(220 85% 27%) 0%, hsl(207 90% 54%) 100%);
+    /* Clean Professional Backgrounds */
+    --gradient-hero: linear-gradient(135deg, hsl(220 100% 25%) 0%, hsl(220 100% 20%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 15% 98%) 100%);
     --gradient-section: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 15% 98%) 100%);
 

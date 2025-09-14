@@ -16,7 +16,7 @@ export const useTypewriter = ({
   holdTime = 2000
 }: UseTypewriterOptions) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
+  const [currentText, setCurrentText] = useState(words[0] || ''); // Start with first word to prevent layout shift
   const [isTyping, setIsTyping] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -25,11 +25,12 @@ export const useTypewriter = ({
     setIsTyping(true);
     setIsDeleting(false);
     
-    // Start with empty text
-    setCurrentText('');
+    // Start with the current displayed text (to prevent layout shift)
+    const startText = currentText;
     
-    // Type out the word character by character
-    for (let i = 0; i <= word.length; i++) {
+    // Type out the word character by character from current state
+    const startLength = startText.length;
+    for (let i = startLength; i <= word.length; i++) {
       await new Promise(resolve => setTimeout(resolve, typeSpeed));
       setCurrentText(word.slice(0, i));
     }
