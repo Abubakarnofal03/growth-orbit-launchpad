@@ -151,4 +151,21 @@ All colors MUST be HSL.
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  /* Responsive text for German translations */
+  .text-responsive {
+    @apply text-sm sm:text-base lg:text-lg;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  .text-responsive-small {
+    @apply text-xs sm:text-sm lg:text-base;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Responsive containers for longer German text */
+  .container-responsive {
+    @apply max-w-full overflow-hidden px-2 sm:px-4 lg:px-6;
+  }
 }

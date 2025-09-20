@@ -241,7 +241,7 @@ const Navigation = () => {
                   className="w-full py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 transition-all duration-200"
                 >
                   <Languages className="h-4 w-4 mr-2" />
-                  Switch to {language === 'en' ? 'Deutsch' : 'English'}
+                  {t('language.switchTo')} {language === 'en' ? t('language.german') : t('language.english')}
                 </Button>
                 
                 <Button 

@@ -94,30 +94,30 @@ const Index = () => {
   const services = [
     {
       icon: <Code className="h-8 w-8" />,
-      title: "Custom Software Development",
-      description: "Enterprise-grade applications built with Django, Angular, React, and Node.js for scalable business solutions.",
-      features: ["Full-Stack Development", "API Development", "Database Design", "System Architecture"],
+      title: t('services.software.title'),
+      description: t('services.software.description'),
+      features: [t('services.software.feature1'), t('services.software.feature2'), t('services.software.feature3'), t('services.software.feature4')],
       color: "from-blue-500 to-purple-600"
     },
     {
       icon: <TrendingUp className="h-8 w-8" />,
-      title: "AI & Machine Learning",
-      description: "Intelligent solutions including NLP, RAG systems, and computer vision to automate and optimize business processes.",
-      features: ["Natural Language Processing", "RAG Systems", "Computer Vision", "Predictive Analytics"],
+      title: t('services.ai.title'),
+      description: t('services.ai.description'),
+      features: [t('services.ai.feature1'), t('services.ai.feature2'), t('services.ai.feature3'), t('services.ai.feature4')],
       color: "from-purple-500 to-pink-600"
     },
     {
       icon: <Globe className="h-8 w-8" />,
-      title: "Business Development & Marketing",
-      description: "Strategies and digital campaigns that drive growth, build brand presence, and generate measurable results for your business.",
-      features: ["Digital Marketing", "Brand Strategy", "Lead Generation", "Growth Consulting"],
+      title: t('services.business.title'),
+      description: t('services.business.description'),
+      features: [t('services.business.feature1'), t('services.business.feature2'), t('services.business.feature3'), t('services.business.feature4')],
       color: "from-green-500 to-teal-600"
     },
     {
       icon: <Palette className="h-8 w-8" />,
-      title: "E-commerce Development",
-      description: "Professional Shopify and WordPress solutions with custom functionality and optimization.",
-      features: ["Shopify Development", "WordPress Customization", "E-commerce Strategy", "Performance Optimization"],
+      title: t('services.ecommerce.title'),
+      description: t('services.ecommerce.description'),
+      features: [t('services.ecommerce.feature1'), t('services.ecommerce.feature2'), t('services.ecommerce.feature3'), t('services.ecommerce.feature4')],
       color: "from-orange-500 to-red-600"
     }
   ];
@@ -127,120 +127,120 @@ const Index = () => {
     {
       id: "software",
       icon: <Code className="h-12 w-12 text-primary" />,
-      title: "Custom Software Development",
-      description: "Enterprise-grade applications built with modern technologies including Django, Angular, React, and Node.js for scalable business solutions.",
+      title: t('services.software.title'),
+      description: t('services.software.description'),
       features: [
-        "Full-Stack Web Applications",
-        "API Development & Integration",
-        "Database Design & Optimization",
-        "System Architecture & Design",
-        "Performance Optimization",
-        "Security Implementation"
+        t('services.software.feature1'),
+        t('services.software.feature2'),
+        t('services.software.feature3'),
+        t('services.software.feature4'),
+        t('services.software.feature5'),
+        t('services.software.feature6')
       ],
       deliverables: [
-        "Technical Specification Document",
-        "Fully Functional Application",
-        "Source Code & Documentation",
-        "Deployment & Training"
+        t('services.software.deliverable1'),
+        t('services.software.deliverable2'),
+        t('services.software.deliverable3'),
+        t('services.software.deliverable4')
       ],
-      timeline: "8-16 weeks"
+      timeline: t('services.software.timeline')
     },
     {
       id: "ai-ml",
       icon: <TrendingUp className="h-12 w-12 text-primary" />,
-      title: "AI & Machine Learning Solutions",
-      description: "Intelligent solutions including NLP, RAG systems, and computer vision to automate and optimize business processes.",
+      title: t('services.ai.title'),
+      description: t('services.ai.description'),
       features: [
-        "Natural Language Processing (NLP)",
-        "Retrieval-Augmented Generation (RAG)",
-        "Computer Vision & Image Recognition",
-        "Predictive Analytics & Modeling",
-        "Machine Learning Model Development",
-        "AI Integration & Deployment"
+        t('services.ai.feature1'),
+        t('services.ai.feature2'),
+        t('services.ai.feature3'),
+        t('services.ai.feature4'),
+        t('services.ai.feature5'),
+        t('services.ai.feature6')
       ],
       deliverables: [
-        "AI Solution Architecture",
-        "Trained ML Models",
-        "Integration Documentation",
-        "Performance Reports"
+        t('services.ai.deliverable1'),
+        t('services.ai.deliverable2'),
+        t('services.ai.deliverable3'),
+        t('services.ai.deliverable4')
       ],
-      timeline: "6-12 weeks"
+      timeline: t('services.ai.timeline')
     },
     {
       id: "business",
       icon: <Globe className="h-12 w-12 text-primary" />,
-      title: "Business Development & Marketing",
-      description: "End-to-end strategies to expand your business reach, build brand authority, and generate measurable growth through digital channels.",
+      title: t('services.business.title'),
+      description: t('services.business.description'),
       features: [
-        "Brand Positioning & Strategy",
-        "Digital Marketing Campaigns",
-        "SEO & Content Marketing",
-        "Social Media Growth",
-        "Lead Generation Funnels",
-        "Market Research & Analytics"
+        t('services.business.feature1'),
+        t('services.business.feature2'),
+        t('services.business.feature3'),
+        t('services.business.feature4'),
+        t('services.business.feature5'),
+        t('services.business.feature6')
       ],
       deliverables: [
-        "Comprehensive Marketing Strategy",
-        "Campaign Assets & Content",
-        "SEO Optimization Report",
-        "Growth Analytics Dashboard"
+        t('services.business.deliverable1'),
+        t('services.business.deliverable2'),
+        t('services.business.deliverable3'),
+        t('services.business.deliverable4')
       ],
-      timeline: "3-8 weeks"
+      timeline: t('services.business.timeline')
     },
     
     {
       id: "ecommerce",
       icon: <Palette className="h-12 w-12 text-primary" />,
-      title: "Shopify & WordPress Development",
-      description: "Professional e-commerce solutions with custom functionality, optimization, and strategic implementation.",
+      title: t('services.ecommerce.title'),
+      description: t('services.ecommerce.description'),
       features: [
-        "Custom Shopify Development",
-        "WordPress Customization",
-        "E-commerce Strategy",
-        "Performance Optimization",
-        "Payment Integration",
-        "Analytics & Reporting"
+        t('services.ecommerce.feature1'),
+        t('services.ecommerce.feature2'),
+        t('services.ecommerce.feature3'),
+        t('services.ecommerce.feature4'),
+        t('services.ecommerce.feature5'),
+        t('services.ecommerce.feature6')
       ],
       deliverables: [
-        "Custom E-commerce Platform",
-        "Performance Optimization",
-        "Integration Setup",
-        "Training & Documentation"
+        t('services.ecommerce.deliverable1'),
+        t('services.ecommerce.deliverable2'),
+        t('services.ecommerce.deliverable3'),
+        t('services.ecommerce.deliverable4')
       ],
-      timeline: "3-8 weeks"
+      timeline: t('services.ecommerce.timeline')
     }
   ];
 
   const additionalServices = [
     {
       icon: <Target className="h-6 w-6" />,
-      title: "Business Strategy Consulting",
-      description: "Strategic guidance for digital transformation and growth"
+      title: t('services.additional.strategy.title'),
+      description: t('services.additional.strategy.description')
     },
     {
       icon: <Search className="h-6 w-6" />,
-      title: "Technical Architecture",
-      description: "Scalable system design and technology roadmaps"
+      title: t('services.additional.architecture.title'),
+      description: t('services.additional.architecture.description')
     },
     {
       icon: <Mail className="h-6 w-6" />,
-      title: "API Development",
-      description: "Custom API design and third-party integrations"
+      title: t('services.additional.api.title'),
+      description: t('services.additional.api.description')
     },
     {
       icon: <BarChart className="h-6 w-6" />,
-      title: "Data Analytics",
-      description: "Business intelligence and performance insights"
+      title: t('services.additional.analytics.title'),
+      description: t('services.additional.analytics.description')
     },
     {
       icon: <Smartphone className="h-6 w-6" />,
-      title: "Mobile App Development",
-      description: "Cross-platform mobile solutions for iOS and Android"
+      title: t('services.additional.mobile.title'),
+      description: t('services.additional.mobile.description')
     },
     {
       icon: <Globe className="h-6 w-6" />,
-      title: "Global Deployment",
-      description: "Multi-region infrastructure and localization"
+      title: t('services.additional.global.title'),
+      description: t('services.additional.global.description')
     }
   ];
 
@@ -426,43 +426,43 @@ const Index = () => {
   ];
 
   const stats = [
-    { number: "98%", label: "Client Satisfaction" },
-    { number: "300%", label: "Avg. Efficiency Gain" },
+    { number: "50+", label: t('about.metrics.clients') },
+    { number: "5+", label: t('about.metrics.experience') },
   ];
 
   const values = [
     {
       icon: <Target className="h-8 w-8 text-primary" />,
-      title: "Innovation-First",
-      description: "We leverage cutting-edge technologies to deliver breakthrough solutions.",
+      title: t('values.innovation.title'),
+      description: t('values.innovation.description'),
     },
     {
       icon: <Users className="h-8 w-8 text-primary" />,
-      title: "Client-Centric",
-      description: "Your success is our priority. We build long-term partnerships based on trust.",
+      title: t('values.results.title'),
+      description: t('values.results.description'),
     },
     {
       icon: <Globe className="h-8 w-8 text-primary" />,
-      title: "Global Excellence",
-      description: "Headquartered in UAE, we serve enterprises worldwide with world-class technology.",
+      title: t('values.global.title'),
+      description: t('values.global.description'),
     },
     {
       icon: <Award className="h-8 w-8 text-primary" />,
-      title: "Quality Assured",
-      description: "We maintain the highest standards in software development and AI solutions.",
+      title: t('values.quality.title'),
+      description: t('values.quality.description'),
     },
   ];
 
   const team = [
     {
       name: "M.Arslan Zia",
-      role: "Founder, Marketing & Business Development Lead",
+      role: t('team.arslan.role'),
       bio: [
-        "Marketing strategist with client experience across UAE and USA markets, delivering measurable business growth.",
-        "Successfully marketed Apple products for enterprise clients in UAE with proven sales impact and retention.",
-        "Directed real estate listing campaigns for American clients, managing ads, leads, and digital growth results.",
-        "Expert in Meta Ads, Google Ads, Facebook Marketplace, and TikTok advertising with conversion optimization.",
-        "Focused on product marketing strategies, digital sales funnels, and lead generation techniques for scaling."
+        t('team.arslan.bio1'),
+        t('team.arslan.bio2'),
+        t('team.arslan.bio3'),
+        t('team.arslan.bio4'),
+        t('team.arslan.bio5')
       ],
       image: "/lovable-uploads/arslan.jpeg",
       social: {
@@ -471,13 +471,13 @@ const Index = () => {
     },
     {
       name: "M.Abubakar Nofal",
-      role: "Co-Founder, CTO & AI Engineering Lead",
+      role: t('team.abubakar.role'),
       bio: [
-        "Full-stack software engineer and AI specialist with strong technical expertise and broad project experience.",
-        "Developed machine learning algorithms and intelligent automation pipelines for enterprise-grade deployments.",
-        "Built advanced AI chatbots, RAG-based document search systems, and custom data-driven enterprise platforms.",
-        "Experienced across legal tech, e-commerce platforms, and enterprise solution development for global clients.",
-        "Passionate about building scalable software, cloud-driven AI systems, and innovative digital transformation."
+        t('team.abubakar.bio1'),
+        t('team.abubakar.bio2'),
+        t('team.abubakar.bio3'),
+        t('team.abubakar.bio4'),
+        t('team.abubakar.bio5')
       ],
       image: "/lovable-uploads/abubakar.jpeg",
       social: {
@@ -640,8 +640,8 @@ const Index = () => {
               className="mb-8"
             >
               <Badge className="bg-blue-900 text-white font-bold border-blue-800 backdrop-blur-sm mb-4 sm:mb-6 font-poppins text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 max-w-max mx-auto">
-                <span className="hidden sm:inline">Headquartered in UAE • Global Operations</span>
-                <span className="inline sm:hidden">UAE • Global</span>
+                <span className="hidden sm:inline">{t('hero.badge')}</span>
+                <span className="inline sm:hidden">{t('hero.badgeMobile')}</span>
               </Badge>
             </motion.div>
             
@@ -723,13 +723,13 @@ const Index = () => {
             >
               <Button variant="hero" size="lg" asChild>
                 <a href="#contact">
-                  {t('hero.cta1')}
+                  {t('hero.getInTouch')}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
               <Button variant="hero-secondary" size="lg" asChild>
                 <a href="#case-studies">
-                  {t('hero.cta2')}
+                  {t('hero.viewOurWork')}
                 </a>
               </Button>
             </motion.div>
@@ -914,7 +914,7 @@ const Index = () => {
                             rel="noopener noreferrer"
                           >
                             <Linkedin className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
-                            Connect on LinkedIn
+                            {t('team.connectLinkedIn')}
                           </a>
                         </Button>
                       </div>
@@ -1024,7 +1024,7 @@ const Index = () => {
 
                 <div className="w-full space-y-6 mt-8 lg:mt-0">
                   <div className="bg-gradient-card p-4 sm:p-6 rounded-xl">
-                  <h4 className="font-semibold mb-3 text-primary">Deliverables</h4>
+                  <h4 className="font-semibold mb-3 text-primary">{t('services.deliverables')}</h4>
                   <ul className="space-y-2">
                     {service.deliverables.map((deliverable, idx) => (
                     <li key={idx} className="text-sm text-muted-foreground flex items-center">
@@ -1036,7 +1036,7 @@ const Index = () => {
                   </div>
 
                   <div className="bg-gradient-card p-4 sm:p-6 rounded-xl">
-                  <h4 className="font-semibold mb-3 text-primary">Timeline</h4>
+                  <h4 className="font-semibold mb-3 text-primary">{t('services.timeline')}</h4>
                   <p className="text-sm text-muted-foreground">{service.timeline}</p>
                   </div>
                 </div>
@@ -1183,7 +1183,7 @@ const Index = () => {
                         setIsCaseStudyModalOpen(true);
                       }}
                     >
-                      View Project
+                      {t('caseStudies.viewProject')}
                       <ArrowUpRight className="h-4 w-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </Button>
                   </div>
