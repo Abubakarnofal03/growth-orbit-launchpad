@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,17 +34,20 @@ const Navigation = () => {
   }, [location]);
 
   const navItems = [
-    { name: "Home", path: "/", section: "home" },
-    { name: "About", path: "/", section: "about" },
-    { name: "Services", path: "/", section: "services" },
-    { name: "Case Studies", path: "/", section: "case-studies" },
-    // { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/", section: "contact" },
+    { name: t('nav.home'), path: "/", section: "home" },
+    { name: t('nav.about'), path: "/", section: "about" },
+    { name: t('nav.services'), path: "/", section: "services" },
+    { name: t('nav.caseStudies'), path: "/", section: "case-studies" },
+    { name: t('nav.contact'), path: "/", section: "contact" },
   ];
 
   const whatsappNumber = "971505940132";
-  const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
+  const whatsappMessage = t('whatsapp.message');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'de' : 'en');
+  };
 
   return (
     <motion.nav
@@ -136,8 +141,19 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Right Corner - Contact Button and Mobile Menu */}
+        {/* Right Corner - Language Toggle, Contact Button and Mobile Menu */}
         <div className="flex items-center space-x-1 xs:space-x-2 sm:space-x-3 flex-shrink-0 min-w-0">
+          {/* Language Toggle Button */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={toggleLanguage}
+            className="px-2 py-1.5 text-xs font-medium border border-gray-300 hover:bg-gray-50 transition-all duration-200"
+          >
+            <Languages className="h-4 w-4 mr-1" />
+            {language.toUpperCase()}
+          </Button>
+
           {/* Large Screen Contact Button */}
           <div className="hidden lg:flex">
             <Button 
@@ -147,7 +163,7 @@ const Navigation = () => {
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                Contact Us
+                {t('nav.contactUs')}
               </a>
             </Button>
           </div>
@@ -161,7 +177,7 @@ const Navigation = () => {
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                Contact
+                {t('nav.contact')}
               </a>
             </Button>
           </div>
@@ -217,15 +233,27 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button 
-                variant="default" 
-                className="w-full mt-6 py-3 text-base font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-medium hover:shadow-strong transform hover:scale-105 transition-all duration-300" 
-                asChild
-              >
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  Contact Us
-                </a>
-              </Button>
+              <div className="flex flex-col space-y-3 mt-6">
+                {/* Language Toggle in Mobile Menu */}
+                <Button
+                  variant="outline"
+                  onClick={toggleLanguage}
+                  className="w-full py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 transition-all duration-200"
+                >
+                  <Languages className="h-4 w-4 mr-2" />
+                  Switch to {language === 'en' ? 'Deutsch' : 'English'}
+                </Button>
+                
+                <Button 
+                  variant="default" 
+                  className="w-full py-3 text-base font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-medium hover:shadow-strong transform hover:scale-105 transition-all duration-300" 
+                  asChild
+                >
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    {t('nav.contactUs')}
+                  </a>
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}

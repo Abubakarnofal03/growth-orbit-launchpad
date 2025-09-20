@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { sendContactEmail, initializeEmailJS, ContactFormData } from "@/lib/email";
 import { useToast } from "@/components/ui/use-toast";
 import SEOHead from "@/components/SEOHead";
@@ -57,6 +58,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 
 const Index = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -75,10 +77,10 @@ const Index = () => {
 
   // Typewriter animation configuration
   const typewriterWords = [
-    "Leading Technology Solutions for Global Businesses",
-    "Innovating Digital Experiences That Scale",
-    "Empowering Startups and Enterprises Worldwide",
-    "Transforming Ideas Into Scalable Reality"
+    t('hero.typewriter1'),
+    t('hero.typewriter2'),
+    t('hero.typewriter3'),
+    t('hero.typewriter4')
   ];
 
   const { currentText, isTyping, isDeleting, currentWordIndex } = useTypewriter({
@@ -494,7 +496,7 @@ const Index = () => {
   }, []);
 
   const whatsappNumber = "+971505940132";
-  const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
+  const whatsappMessage = t('whatsapp.message');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   // Contact form data structures
@@ -710,8 +712,7 @@ const Index = () => {
               transition={{ delay: 0.6 }}
               className="text-base sm:text-lg md:text-xl lg:text-body-lg text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto font-poppins px-4 sm:px-0"
             >
-              Headquartered in UAE, we deliver cutting-edge software, AI, and business solutions 
-              that drive digital transformation and innovation across industries worldwide.
+              {t('hero.subheadline')}
             </motion.p>
             
             <motion.div
@@ -722,13 +723,13 @@ const Index = () => {
             >
               <Button variant="hero" size="lg" asChild>
                 <a href="#contact">
-                  Get in Touch
+                  {t('hero.cta1')}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
               <Button variant="hero-secondary" size="lg" asChild>
                 <a href="#case-studies">
-                  View Our Work
+                  {t('hero.cta2')}
                 </a>
               </Button>
             </motion.div>
@@ -757,15 +758,15 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">About Us</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('about.title')}</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
-              About SMARB Technologies - Your Premier AI Solutions Partner
+              {t('about.title')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
-              SMARB Technologies is a leading UAE-based technology company specializing in AI solutions, 
-              custom software development, and digital marketing automation. We deliver innovative 
-              enterprise solutions that drive digital transformation for businesses worldwide, 
-              combining cutting-edge AI technologies with proven software engineering excellence.
+              {t('about.description')}
+            </p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins mt-4">
+              {t('about.trust')}
             </p>
           </motion.div>
 
@@ -947,16 +948,12 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">Our Services</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('services.title')}</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
-              SMARB Technologies Enterprise Solutions - AI, Software & Digital Marketing
+              {t('services.title')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
-            From custom software development and AI solutions to business automation and digital marketing, 
-            SMARB Technologies provides comprehensive technology services for modern enterprises seeking digital transformation.
-            <br/><br/>
-            Explore our <Link to="/blog" className="text-primary hover:underline">latest insights</Link> or 
-            view our <a href="#case-studies" className="text-primary hover:underline">successful case studies</a> to see how we help businesses grow.
+              {t('services.subtitle')}
             </p>
           </motion.div>
 
@@ -1012,13 +1009,13 @@ const Index = () => {
                         className="block w-full text-center"
                       >
                         <span className="block sm:hidden">
-                          Get Quote
+                          {t('services.getQuote')}
                         </span>
                         <span className="hidden sm:block md:hidden">
-                          Get {service.title.split(" ")[0]} Quote
+                          {t('services.getFullQuote').replace('{service}', service.title.split(" ")[0])}
                         </span>
                         <span className="hidden md:block">
-                          Get {service.title} Quote
+                          {t('services.getFullQuote').replace('{service}', service.title)}
                         </span>
                       </a>
                     </Button>
@@ -1121,7 +1118,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">Success Stories</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('caseStudies.title')}</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
               Technology Solutions That Deliver Results
             </h2>
@@ -1329,13 +1326,12 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">Get In Touch</Badge>
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('contact.title')}</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
-              Let's Start Your Digital Transformation
+              {t('contact.title')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
-              Ready to revolutionize your business with cutting-edge technology? Get in touch and let's discuss 
-              how we can help you achieve your digital goals.
+              {t('contact.subtitle')}
             </p>
           </motion.div>
 
@@ -1436,7 +1432,7 @@ const Index = () => {
                   }} className="space-y-4 sm:space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name *</Label>
+                      <Label htmlFor="name">{t('contact.form.name')} *</Label>
                       <Input
                         id="name"
                         name="name"
@@ -1449,7 +1445,7 @@ const Index = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
+                      <Label htmlFor="email">{t('contact.form.email')} *</Label>
                       <Input
                         id="email"
                         name="email"
@@ -1465,7 +1461,7 @@ const Index = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="company">Company</Label>
+                      <Label htmlFor="company">{t('contact.form.company')}</Label>
                       <Input
                         id="company"
                         name="company"
@@ -1479,7 +1475,7 @@ const Index = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message *</Label>
+                    <Label htmlFor="message">{t('contact.form.message')} *</Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -1502,12 +1498,12 @@ const Index = () => {
                     {isSubmitting ? (
                       <>
                         <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                        Sending Message...
+                        {t('contact.form.sending')}
                       </>
                     ) : (
                       <>
                         <Send className="mr-2 h-4 w-4" />
-                        Send Message
+                        {t('contact.form.send')}
                       </>
                     )}
                   </Button>

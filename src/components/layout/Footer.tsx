@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Rocket, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   const footerLinks = {
     company: [
-      { name: "About Us", path: "/", section: "about" },
-      { name: "Services", path: "/", section: "services" },
-      { name: "Case Studies", path: "/", section: "case-studies" },
+      { name: t('nav.about'), path: "/", section: "about" },
+      { name: t('nav.services'), path: "/", section: "services" },
+      { name: t('nav.caseStudies'), path: "/", section: "case-studies" },
     ],
     services: [
       { name: "Digital Marketing", path: "/", section: "services" },
@@ -42,7 +44,7 @@ const Footer = () => {
   ];
 
   const whatsappNumber = "+971 50 594 0132";
-  const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
+  const whatsappMessage = t('whatsapp.message');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
@@ -61,8 +63,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
-            Leading Technology Solutions for Global Businesses.
-              Based in UAE, serving clients worldwide.
+              {t('footer.description')}
             </p>
             <Button variant="premium" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -73,7 +74,7 @@ const Footer = () => {
 
           {/* Company Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Company</h3>
+            <h3 className="font-semibold text-foreground mb-4">{t('footer.company')}</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={`company-${link.name}`}>
@@ -99,7 +100,7 @@ const Footer = () => {
 
           {/* Services Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Services</h3>
+            <h3 className="font-semibold text-foreground mb-4">{t('footer.services')}</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={`services-${link.name}`}>
@@ -125,7 +126,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Contact</h3>
+            <h3 className="font-semibold text-foreground mb-4">{t('nav.contact')}</h3>
             <ul className="space-y-3">
               {footerLinks.contact.map((item, index) => (
                 <li key={index} className="flex items-center space-x-2">
@@ -149,7 +150,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-border pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} SMARB Technologies. All rights reserved.
+            © {currentYear} SMARB Technologies. {t('footer.rights')}
           </p>
           
           {/* Social Links */}
