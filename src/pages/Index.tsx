@@ -1287,6 +1287,127 @@ const Index = () => {
         </div>
       </div>
 
+      {/* Our Ventures Section */}
+      <section id="ventures" className="py-20 bg-background w-full">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 max-w-7xl w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('ventures.title')}</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins break-words">
+              {t('ventures.title')}
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto font-poppins break-words">
+              {t('ventures.subtitle')}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* VisaMate */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-8 hover:shadow-strong transition-all duration-300 group h-full">
+                <div className="flex items-center justify-center mb-6">
+                  <img 
+                    src="/visamate-logo.png" 
+                    alt="VisaMate - AI-Powered Visa Application Services by SMARB Technologies" 
+                    className="h-16 w-auto"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-center group-hover:text-primary transition-colors">
+                  VisaMate
+                </h3>
+                <p className="text-muted-foreground mb-6 text-center leading-relaxed">
+                  {t('ventures.visamate.description')}
+                </p>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span className="text-sm">{t('ventures.visamate.feature1')}</span>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span className="text-sm">{t('ventures.visamate.feature2')}</span>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span className="text-sm">{t('ventures.visamate.feature3')}</span>
+                  </div>
+                </div>
+                <Button variant="outline" className="w-full" asChild>
+                  <a href="https://visamate.pro" target="_blank" rel="noopener noreferrer">
+                    {t('ventures.visitWebsite')}
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </Card>
+            </motion.div>
+
+            {/* Yellow Bee Marketing */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-8 hover:shadow-strong transition-all duration-300 group h-full">
+                <div className="flex items-center justify-center mb-6">
+                  <img 
+                    src="/yellowbee-logo.png" 
+                    alt="Yellow Bee Marketing - Digital Marketing Agency by SMARB Technologies" 
+                    className="h-16 w-auto"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-center group-hover:text-primary transition-colors">
+                  Yellow Bee Marketing
+                </h3>
+                <p className="text-muted-foreground mb-6 text-center leading-relaxed">
+                  {t('ventures.yellowbee.description')}
+                </p>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span className="text-sm">{t('ventures.yellowbee.feature1')}</span>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span className="text-sm">{t('ventures.yellowbee.feature2')}</span>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span className="text-sm">{t('ventures.yellowbee.feature3')}</span>
+                  </div>
+                </div>
+                <Button variant="outline" className="w-full" asChild>
+                  <a href="#contact">
+                    {t('ventures.learnMore')}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Divider */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-border"></div>
+        </div>
+        <div className="relative flex justify-center">
+          <div className="bg-background px-4">
+            <div className="w-3 h-3 bg-primary rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
       {/* Final CTA */}
       <section className="py-20 bg-primary relative w-full">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />

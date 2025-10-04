@@ -28,6 +28,20 @@ const translations = {
     'nav.contact': 'Contact',
     'nav.contactUs': 'Contact Us',
     
+    // Ventures Section
+    'ventures.title': 'Our Ventures',
+    'ventures.subtitle': 'Innovative products and services developed by SMARB Technologies to solve real-world business challenges.',
+    'ventures.visitWebsite': 'Visit Website',
+    'ventures.learnMore': 'Learn More',
+    'ventures.visamate.description': 'AI-powered visa application and immigration services platform that streamlines the entire visa process, reducing processing time by 70% and errors by 85%.',
+    'ventures.visamate.feature1': 'Automated document processing and validation',
+    'ventures.visamate.feature2': 'Real-time application status tracking',
+    'ventures.visamate.feature3': 'AI-powered error detection and guidance',
+    'ventures.yellowbee.description': 'Full-service digital marketing agency specializing in growth strategies, brand development, and performance marketing across multiple channels.',
+    'ventures.yellowbee.feature1': 'Strategic brand positioning and development',
+    'ventures.yellowbee.feature2': 'Multi-channel performance marketing campaigns',
+    'ventures.yellowbee.feature3': 'Data-driven growth optimization',
+    
     // Language Toggle
     'language.switchTo': 'Switch to',
     'language.german': 'Deutsch',
@@ -185,20 +199,6 @@ const translations = {
     'caseStudies.testimonial': 'Testimonial',
     'caseStudies.tags': 'Technologies',
     
-    // Ventures Section
-    'ventures.title': 'Our Ventures',
-    'ventures.subtitle': 'Smarb Technologies powers innovative ventures in software, AI, and marketing — building tools that redefine automation and digital growth.',
-    'ventures.visamate.title': 'VisaMate',
-    'ventures.visamate.description': 'A SaaS platform for visa & immigration automation.',
-    'ventures.visamate.cta': 'Visit Site',
-    'ventures.yellowbee.title': 'Yellow Bee Marketing',
-    'ventures.yellowbee.description': 'Digital marketing division of Smarb Technologies.',
-    'ventures.yellowbee.cta': 'Visit Page',
-    'ventures.skillmap.title': 'SkillMap',
-    'ventures.skillmap.description': 'An AI-powered task automation & project management platform, soon launching to compete with global PM tools.',
-    'ventures.skillmap.cta': 'Coming Soon',
-    'ventures.comingSoon': 'Coming Soon',
-    
     // CTA Section
     'cta.title': 'Ready to Automate Your Business & Scale Growth?',
     'cta.button': 'Chat With Us on WhatsApp',
@@ -264,6 +264,20 @@ const translations = {
     'nav.caseStudies': 'Fallstudien',
     'nav.contact': 'Kontakt',
     'nav.contactUs': 'Kontakt aufnehmen',
+    
+    // Ventures Section
+    'ventures.title': 'Unsere Unternehmen',
+    'ventures.subtitle': 'Innovative Produkte und Dienstleistungen von SMARB Technologies zur Lösung realer Geschäftsprobleme entwickelt.',
+    'ventures.visitWebsite': 'Website besuchen',
+    'ventures.learnMore': 'Mehr erfahren',
+    'ventures.visamate.description': 'KI-gestützte Plattform für Visumanträge und Einwanderungsdienste, die den gesamten Visumprozess rationalisiert und die Bearbeitungszeit um 70% und Fehler um 85% reduziert.',
+    'ventures.visamate.feature1': 'Automatisierte Dokumentenverarbeitung und -validierung',
+    'ventures.visamate.feature2': 'Echtzeitverfolgung des Antragsstatus',
+    'ventures.visamate.feature3': 'KI-gestützte Fehlererkennung und Anleitung',
+    'ventures.yellowbee.description': 'Full-Service-Digital-Marketing-Agentur spezialisiert auf Wachstumsstrategien, Markenentwicklung und Performance-Marketing über mehrere Kanäle.',
+    'ventures.yellowbee.feature1': 'Strategische Markenpositionierung und -entwicklung',
+    'ventures.yellowbee.feature2': 'Multi-Kanal-Performance-Marketing-Kampagnen',
+    'ventures.yellowbee.feature3': 'Datengesteuerte Wachstumsoptimierung',
     
     // Language Toggle
     'language.switchTo': 'Wechseln zu',
@@ -420,20 +434,6 @@ const translations = {
     'caseStudies.timeline': 'Zeitrahmen',
     'caseStudies.testimonial': 'Kundenstimme',
     'caseStudies.tags': 'Technologien',
-    
-    // Ventures Section
-    'ventures.title': 'Unsere Unternehmen',
-    'ventures.subtitle': 'Smarb Technologies treibt innovative Unternehmen in Software, KI und Marketing voran — wir entwickeln Tools, die Automatisierung und digitales Wachstum neu definieren.',
-    'ventures.visamate.title': 'VisaMate',
-    'ventures.visamate.description': 'Eine SaaS-Plattform für Visa- und Einwanderungsautomatisierung.',
-    'ventures.visamate.cta': 'Website besuchen',
-    'ventures.yellowbee.title': 'Yellow Bee Marketing',
-    'ventures.yellowbee.description': 'Digitalmarketing-Abteilung von Smarb Technologies.',
-    'ventures.yellowbee.cta': 'Seite besuchen',
-    'ventures.skillmap.title': 'SkillMap',
-    'ventures.skillmap.description': 'Eine KI-gestützte Aufgabenautomatisierungs- und Projektmanagementplattform, die bald startet, um mit globalen PM-Tools zu konkurrieren.',
-    'ventures.skillmap.cta': 'Demnächst verfügbar',
-    'ventures.comingSoon': 'Demnächst verfügbar',
     
     // CTA Section
     'cta.title': 'Bereit, Ihr Unternehmen zu automatisieren & Wachstum zu skalieren?',

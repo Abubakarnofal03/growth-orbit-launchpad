@@ -143,16 +143,16 @@ const Navigation = () => {
         </div>
 
         {/* Right Corner - Language Toggle, Contact Button and Mobile Menu */}
-        <div className="flex items-center space-x-1 xs:space-x-2 sm:space-x-3 flex-shrink-0 min-w-0">
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 flex-nowrap">
           {/* Language Toggle Button */}
           <Button
             variant="outline"
             size="sm"
             onClick={toggleLanguage}
-            className="px-2 py-1.5 text-xs font-medium border border-gray-300 hover:bg-gray-50 transition-all duration-200"
+            className="px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium border border-gray-300 hover:bg-gray-50 transition-all duration-200 flex-shrink-0 whitespace-nowrap"
           >
-            <Languages className="h-4 w-4 mr-1" />
-            {language.toUpperCase()}
+            <Languages className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1" />
+            <span className="hidden xs:inline">{language.toUpperCase()}</span>
           </Button>
 
           {/* Large Screen Contact Button */}
@@ -160,7 +160,7 @@ const Navigation = () => {
             <Button 
               variant="default" 
               size="lg" 
-              className="px-4 xl:px-6 py-2.5 text-sm font-semibold whitespace-nowrap"
+              className="px-4 xl:px-6 py-2.5 text-sm font-semibold whitespace-nowrap flex-shrink-0"
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -174,7 +174,7 @@ const Navigation = () => {
             <Button 
               variant="default" 
               size="default" 
-              className="px-3 py-2 text-sm font-semibold whitespace-nowrap"
+              className="px-3 py-2 text-xs sm:text-sm font-semibold whitespace-nowrap flex-shrink-0"
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -185,10 +185,11 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 xs:p-2.5 rounded-lg hover:bg-secondary transition-all duration-300 bg-secondary/30 flex-shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-all duration-300 bg-secondary/30 flex-shrink-0 min-w-[40px] min-h-[40px] flex items-center justify-center"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X className="h-6 w-6 xs:h-7 xs:w-7 text-foreground" /> : <Menu className="h-6 w-6 xs:h-7 xs:w-7 text-foreground" />}
+            {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6 text-foreground" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6 text-foreground" />}
           </button>
         </div>
       </div>

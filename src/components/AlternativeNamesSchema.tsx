@@ -25,7 +25,23 @@ const AlternativeNamesSchema = () => {
       "Mobile App Development",
       "Cloud Solutions",
       "Data Analytics",
-      "E-commerce Development"
+      "E-commerce Development",
+      "Visa Application Services",
+      "Immigration Technology",
+      "Marketing Agency Services"
+    ],
+    "owns": [
+      {
+        "@type": "Product",
+        "name": "VisaMate",
+        "url": "https://visamate.pro",
+        "description": "AI-powered visa application and immigration services platform"
+      },
+      {
+        "@type": "Organization",
+        "name": "Yellow Bee Marketing",
+        "description": "Full-service digital marketing agency specializing in growth strategies"
+      }
     ],
     "serviceArea": {
       "@type": "Place",
