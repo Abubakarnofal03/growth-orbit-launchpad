@@ -45,7 +45,8 @@ import {
   Phone,
   Clock,
   Send,
-  X
+  X,
+  ExternalLink
 } from "lucide-react";
 import {
   Dialog,
@@ -551,7 +552,7 @@ const Index = () => {
     {
       icon: <Globe className="h-5 w-5" />,
       label: "Headquarters",
-      value: "UAE"
+      value: "Pakistan"
     }
   ];
 
@@ -616,8 +617,8 @@ const Index = () => {
     <>
       <SEOHead 
         title="SMARB Technologies | Leading AI Solutions, Software Development & Digital Marketing Company"
-        description="Transform your business with SMARB Technologies - UAE's premier AI solutions and software development company. Expert services in machine learning, custom software, business automation, and digital marketing for global enterprises."
-        keywords="SMARB Technologies, Smarb Technologies, Smart Technologies, Smartb Technologies, Smarb Tech, Smart Tech, Smab Technologies, AI Solutions, Machine Learning, Software Development, Digital Marketing, Business Automation, RAG Systems, NLP, Computer Vision, Custom Software, API Development, Web Development, Mobile Apps, IT Consulting, UAE Technology Company, Pakistan Tech Company"
+        description="Transform your business with SMARB Technologies - Pakistan's premier AI solutions and software development company. Expert services in machine learning, custom software, business automation, and digital marketing for global enterprises."
+        keywords="SMARB Technologies, Smarb Technologies, Smart Technologies, Smartb Technologies, Smarb Tech, Smart Tech, Smab Technologies, AI Solutions, Machine Learning, Software Development, Digital Marketing, Business Automation, RAG Systems, NLP, Computer Vision, Custom Software, API Development, Web Development, Mobile Apps, IT Consulting, Technology Company, Pakistan Tech Company"
         canonicalUrl="https://www.smarbtechnologies.com/"
       />
       <AnalyticsSetup />
@@ -625,9 +626,25 @@ const Index = () => {
       <FAQSchema />
       <Layout>
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative w-full">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-10 max-w-7xl w-full">
+      <section id="home" className="min-h-screen flex items-center justify-center relative w-full overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/banner.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Black tint overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        
+        {/* Gradient overlay for additional depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60 z-20" />
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-30 max-w-7xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -649,7 +666,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-hero font-bold mb-4 sm:mb-6 md:mb-8 leading-tight font-poppins px-2 sm:px-0 min-h-[2.5rem] xs:min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] xl:min-h-[7rem] break-words hyphens-auto"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-hero font-bold mb-4 sm:mb-6 md:mb-8 leading-tight font-poppins px-2 sm:px-0 min-h-[2.5rem] xs:min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] xl:min-h-[7rem] break-words hyphens-auto overflow-hidden"
               style={{ wordBreak: 'break-word' }}
             >
               {/* Fallback static heading for accessibility and JS fallback */}
@@ -759,13 +776,13 @@ const Index = () => {
             className="text-center mb-16"
           >
             <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('about.title')}</Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins break-words">
               {t('about.title')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto font-poppins break-words">
               {t('about.description')}
             </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins mt-4">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto font-poppins mt-4 break-words">
               {t('about.trust')}
             </p>
           </motion.div>
@@ -808,7 +825,7 @@ const Index = () => {
                 access to world-class technology expertise.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Headquartered in UAE, we combine regional expertise with global technology standards 
+                Headquartered in Pakistan, we combine regional expertise with global technology standards 
                 to deliver solutions that drive real business impact. Our team is passionate about helping 
                 enterprises thrive in the digital age.
               </p>
@@ -949,10 +966,10 @@ const Index = () => {
             className="text-center mb-16"
           >
             <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('services.title')}</Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins break-words">
               {t('services.title')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto font-poppins break-words">
               {t('services.subtitle')}
             </p>
           </motion.div>
@@ -974,10 +991,10 @@ const Index = () => {
                   <div className="mb-4 flex justify-center lg:justify-start group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center lg:text-left">
+                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 text-center lg:text-left break-words">
                     {service.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed text-center lg:text-left">
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed text-center lg:text-left break-words">
                     {service.description}
                   </p>
                   
@@ -1075,8 +1092,8 @@ const Index = () => {
                   <div className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
                   </div>
-                  <h4 className="font-semibold mb-2">{service.title}</h4>
-                  <p className="text-sm text-muted-foreground">{service.description}</p>
+                  <h4 className="font-semibold mb-2 break-words">{service.title}</h4>
+                  <p className="text-sm text-muted-foreground break-words">{service.description}</p>
                 </Card>
               </motion.div>
             ))}
@@ -1119,12 +1136,11 @@ const Index = () => {
             className="text-center mb-16"
           >
             <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('caseStudies.title')}</Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
-              Technology Solutions That Deliver Results
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins break-words">
+              {t('caseStudies.title')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
-              From government services to enterprise technology, see how our AI and software solutions 
-              drive measurable impact and transformation.
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto font-poppins break-words">
+              {t('caseStudies.subtitle')}
             </p>
           </motion.div>
 
@@ -1291,17 +1307,165 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button variant="hero-secondary" size="lg" asChild>
                 <a href="#contact">
-                  Get in Touch
+                  {t('hero.getInTouch')}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
               <Button variant="hero-secondary" size="lg" asChild>
                 <a href="#case-studies">
-                  View Our Work
+                  {t('hero.viewOurWork')}
                 </a>
               </Button>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Section Divider */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-border"></div>
+        </div>
+        <div className="relative flex justify-center">
+          <div className="bg-background px-4">
+            <div className="w-3 h-3 bg-primary rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Our Ventures Section */}
+      <section id="ventures" className="py-20 bg-background w-full">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 max-w-7xl w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('ventures.title')}</Badge>
+            <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
+              {t('ventures.title')}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
+              {t('ventures.subtitle')}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* VisaMate Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full p-6 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
+                <div className="text-center">
+                  <div className="mb-6">
+                    <img
+                      src="/visamate-logo.png"
+                      alt="VisaMate Logo"
+                      className="h-16 w-auto mx-auto object-contain"
+                    />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 font-poppins break-words">{t('ventures.visamate.title')}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed break-words">
+                    {t('ventures.visamate.description')}
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    className="w-full group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+                    asChild
+                  >
+                    <a 
+                      href="https://visamate.pro" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      aria-label="Visit VisaMate website"
+                    >
+                      {t('ventures.visamate.cta')}
+                      <ExternalLink className="h-4 w-4 ml-2" />
+                    </a>
+                  </Button>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Yellow Bee Marketing Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full p-6 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
+                <div className="text-center">
+                  <div className="mb-6">
+                    <img
+                      src="/yellowbee-logo.png"
+                      alt="Yellow Bee Marketing Logo"
+                      className="h-16 w-auto mx-auto object-contain"
+                    />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 font-poppins break-words">{t('ventures.yellowbee.title')}<sup className="text-xs text-yellow-500 ml-1">TM</sup></h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed break-words">
+                    {t('ventures.yellowbee.description')}
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    className="w-full group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+                    asChild
+                  >
+                    <a 
+                      href="https://www.facebook.com/share/1aYGh3P21D/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      aria-label="Visit Yellow Bee Marketing Facebook page"
+                    >
+                      {t('ventures.yellowbee.cta')}
+                      <ExternalLink className="h-4 w-4 ml-2" />
+                    </a>
+                  </Button>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* SkillMap Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full p-6 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 group cursor-pointer relative">
+                <div className="absolute top-4 right-4">
+                  <Badge className="bg-orange-500 text-white font-bold text-xs px-2 py-1">
+                    {t('ventures.comingSoon')}
+                  </Badge>
+                </div>
+                <div className="text-center">
+                  <div className="mb-6">
+                    <img
+                      src="/lovable-uploads/logo.png"
+                      alt="SkillMap Logo"
+                      className="h-16 w-auto mx-auto object-contain"
+                    />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 font-poppins break-words">{t('ventures.skillmap.title')}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed break-words">
+                    {t('ventures.skillmap.description')}
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    className="w-full opacity-50 cursor-not-allowed"
+                    disabled
+                  >
+                    {t('ventures.skillmap.cta')}
+                  </Button>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1327,10 +1491,10 @@ const Index = () => {
             className="text-center mb-16"
           >
             <Badge className="bg-blue-900 text-white font-bold mb-4 font-poppins text-base px-4 py-2">{t('contact.title')}</Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-subhead font-bold mb-6 font-poppins break-words">
               {t('contact.title')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-poppins">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto font-poppins break-words">
               {t('contact.subtitle')}
             </p>
           </motion.div>
@@ -1391,7 +1555,7 @@ const Index = () => {
             >
               <div className="mb-6 p-4 bg-primary/5 border-l-4 border-primary rounded-r-lg">
                 <p className="text-sm text-primary">
-                  <strong>Headquartered in UAE, serving clients worldwide.</strong> Our team is available 24/7 to support your technology needs.
+                  <strong>Headquartered in Pakistan, serving clients worldwide.</strong> Our team is available 24/7 to support your technology needs.
                 </p>
               </div>
               <Card className="p-6 sm:p-8">
@@ -1689,7 +1853,7 @@ const Index = () => {
                 <div className="flex justify-center pt-4">
                   <Button className="w-full sm:w-auto" asChild>
                     <a href="#contact">
-                      Start Your Project
+                      {t('contact.form.submit')}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>

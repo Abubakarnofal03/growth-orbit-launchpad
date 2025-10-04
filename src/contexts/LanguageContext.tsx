@@ -34,12 +34,12 @@ const translations = {
     'language.english': 'English',
     
     // Hero Section
-    'hero.badge': 'Headquartered in UAE • Global Operations',
-    'hero.badgeMobile': 'UAE • Global',
+    'hero.badge': 'Global Operations',
+    'hero.badgeMobile': 'Global',
     'hero.headline': 'AI-Powered Solutions & Digital Marketing for Global Businesses',
-    'hero.subheadline': 'From Chatbots to Shopify Stores, we deliver scalable technology that drives ROI.',
-    'hero.description': 'Headquartered in UAE, we deliver cutting-edge software, AI, and business solutions that drive digital transformation and innovation across industries worldwide.',
-    'hero.cta1': '🚀 Get Your Free Demo Today',
+    'hero.subheadline': 'From Chatbots to Enterprise Systems, we develop technology that drives performance.',
+    'hero.description': 'Headquartered in Pakistan, we deliver cutting-edge software, AI, and business solutions that drive digital transformation and innovation across industries worldwide.',
+    'hero.cta1': 'Get Your Free Demo Today',
     'hero.cta2': 'View Our Portfolio',
     'hero.getInTouch': 'Get in Touch',
     'hero.viewOurWork': 'View Our Work',
@@ -51,8 +51,8 @@ const translations = {
     // About Section
     'about.badge': 'About Us',
     'about.title': 'About SMARB Technologies - Your Premier AI Solutions Partner',
-    'about.description': 'SMARB Technologies is a leading UAE-based technology company specializing in AI solutions, custom software development, and digital marketing automation. We deliver innovative enterprise solutions that drive digital transformation for businesses worldwide, combining cutting-edge AI technologies with proven software engineering excellence.',
-    'about.trust': 'Serving clients in UAE, UK, USA, and beyond.',
+    'about.description': 'SMARB Technologies is a leading Pakistan-based technology company specializing in AI solutions, custom software development, and digital marketing automation. We deliver innovative enterprise solutions that drive digital transformation for businesses worldwide, combining cutting-edge AI technologies with proven software engineering excellence.',
+    'about.trust': 'Serving clients in Pakistan, UAE, UK, USA, and beyond.',
     'about.metrics.projects': '10+ Projects Delivered',
     'about.metrics.countries': '4+ Countries Served',
     'about.metrics.clients': '50+ Happy Clients',
@@ -61,7 +61,7 @@ const translations = {
     'about.mission.badge': 'Our Mission',
     'about.mission.title': 'Driving Digital Innovation',
     'about.mission.description1': 'Our mission is to empower businesses worldwide through cutting-edge technology solutions, AI innovation, and strategic digital transformation. We believe every organization deserves access to world-class technology expertise.',
-    'about.mission.description2': 'Headquartered in UAE, we combine regional expertise with global technology standards to deliver solutions that drive real business impact. Our team is passionate about helping enterprises thrive in the digital age.',
+    'about.mission.description2': 'Headquartered in Pakistan, we combine regional expertise with global technology standards to deliver solutions that drive real business impact. Our team is passionate about helping enterprises thrive in the digital age.',
     
     // Values
     'values.innovation.title': 'Innovation First',
@@ -75,19 +75,20 @@ const translations = {
     
     // Team Section
     'team.connectLinkedIn': 'Connect on LinkedIn',
-    'team.arslan.role': 'Founder, Marketing & Business Development Lead',
-    'team.arslan.bio1': 'Marketing strategist with client experience across UAE and USA markets, delivering measurable business growth.',
-    'team.arslan.bio2': 'Successfully marketed Apple products for enterprise clients in UAE with proven sales impact and retention.',
-    'team.arslan.bio3': 'Directed real estate listing campaigns for American clients, managing ads, leads, and digital growth results.',
-    'team.arslan.bio4': 'Expert in Meta Ads, Google Ads, Facebook Marketplace, and TikTok advertising with conversion optimization.',
-    'team.arslan.bio5': 'Focused on product marketing strategies, digital sales funnels, and lead generation techniques for scaling.',
-    'team.abubakar.role': 'Co-Founder, CTO & AI Engineering Lead',
-    'team.abubakar.bio1': 'Full-stack software engineer and AI specialist with strong technical expertise and broad project experience.',
-    'team.abubakar.bio2': 'Developed machine learning algorithms and intelligent automation pipelines for enterprise-grade deployments.',
-    'team.abubakar.bio3': 'Built advanced AI chatbots, RAG-based document search systems, and custom data-driven enterprise platforms.',
-    'team.abubakar.bio4': 'Experienced across legal tech, e-commerce platforms, and enterprise solution development for global clients.',
-    'team.abubakar.bio5': 'Passionate about building scalable software, cloud-driven AI systems, and innovative digital transformation.',
     
+    'team.arslan.role': 'Founder, Marketing & Business Lead',
+    'team.arslan.bio1': 'Marketing strategist across UAE & USA markets.',
+    'team.arslan.bio2': 'Led Apple enterprise marketing in UAE.',
+    'team.arslan.bio3': 'Managed US real estate ad campaigns.',
+    'team.arslan.bio4': 'Expert in Meta, Google & TikTok Ads.',
+    'team.arslan.bio5': 'Focus on funnels, growth & lead gen.',
+    
+    'team.abubakar.role': 'Co-Founder, CTO & AI Lead',
+    'team.abubakar.bio1': 'Full-stack engineer & SaaS solutions and AI specialist.',
+    'team.abubakar.bio2': 'Built ML models & automation systems.',
+    'team.abubakar.bio3': 'Created AI chatbots & data platforms.',
+    'team.abubakar.bio4': 'Worked in legal tech & e-commerce.',
+    'team.abubakar.bio5': 'Passionate about scalable AI software.',
     // Services Section
     'services.badge': 'Our Services',
     'services.title': 'SMARB Technologies Enterprise Solutions - AI, Software & Digital Marketing',
@@ -184,6 +185,20 @@ const translations = {
     'caseStudies.testimonial': 'Testimonial',
     'caseStudies.tags': 'Technologies',
     
+    // Ventures Section
+    'ventures.title': 'Our Ventures',
+    'ventures.subtitle': 'Smarb Technologies powers innovative ventures in software, AI, and marketing — building tools that redefine automation and digital growth.',
+    'ventures.visamate.title': 'VisaMate',
+    'ventures.visamate.description': 'A SaaS platform for visa & immigration automation.',
+    'ventures.visamate.cta': 'Visit Site',
+    'ventures.yellowbee.title': 'Yellow Bee Marketing',
+    'ventures.yellowbee.description': 'Digital marketing division of Smarb Technologies.',
+    'ventures.yellowbee.cta': 'Visit Page',
+    'ventures.skillmap.title': 'SkillMap',
+    'ventures.skillmap.description': 'An AI-powered task automation & project management platform, soon launching to compete with global PM tools.',
+    'ventures.skillmap.cta': 'Coming Soon',
+    'ventures.comingSoon': 'Coming Soon',
+    
     // CTA Section
     'cta.title': 'Ready to Automate Your Business & Scale Growth?',
     'cta.button': 'Chat With Us on WhatsApp',
@@ -209,14 +224,14 @@ const translations = {
     'contact.office.hours': 'Business Hours',
     'contact.office.hoursValue': 'Always Open',
     'contact.office.headquarters': 'Headquarters',
-    'contact.office.headquartersValue': 'UAE',
+    'contact.office.headquartersValue': 'Pakistan',
     'contact.success.title': 'Message Sent Successfully!',
     'contact.success.description': 'We\'ll get back to you within 24 hours.',
     'contact.error.title': 'Something went wrong',
     'contact.error.description': 'Please try again or contact us directly at info.smarb@gmail.com',
     
     // Footer
-    'footer.description': 'Leading Technology Solutions for Global Businesses. Based in UAE, serving clients worldwide.',
+    'footer.description': 'Leading Technology Solutions for Global Businesses. Based in Pakistan, serving clients worldwide.',
     'footer.services': 'Services',
     'footer.company': 'Company',
     'footer.legal': 'Legal',
@@ -256,12 +271,12 @@ const translations = {
     'language.english': 'English',
     
     // Hero Section
-    'hero.badge': 'Hauptsitz in den VAE • Globale Operationen',
-    'hero.badgeMobile': 'VAE • Global',
+    'hero.badge': 'Globale Operationen',
+    'hero.badgeMobile': 'Global',
     'hero.headline': 'KI-gestützte Lösungen & Digitales Marketing für globale Unternehmen',
-    'hero.subheadline': 'Von Chatbots bis Shopify-Stores liefern wir skalierbare Technologie, die ROI generiert.',
-    'hero.description': 'Mit Hauptsitz in den VAE liefern wir modernste Software-, KI- und Geschäftslösungen, die digitale Transformation und Innovation branchenübergreifend weltweit vorantreiben.',
-    'hero.cta1': '🚀 Holen Sie sich heute Ihre kostenlose Demo',
+    'hero.subheadline': 'Von Chatbots bis Enterprise-Systemen entwickeln wir Technologie, die Leistung vorantreibt.',
+    'hero.description': 'Mit Hauptsitz in Pakistan liefern wir modernste Software-, KI- und Geschäftslösungen, die digitale Transformation und Innovation branchenübergreifend weltweit vorantreiben.',
+    'hero.cta1': 'Holen Sie sich heute Ihre kostenlose Demo',
     'hero.cta2': 'Unser Portfolio ansehen',
     'hero.getInTouch': 'Kontakt aufnehmen',
     'hero.viewOurWork': 'Unsere Arbeit ansehen',
@@ -273,17 +288,17 @@ const translations = {
     // About Section
     'about.badge': 'Über uns',
     'about.title': 'Über SMARB Technologies - Ihr führender Partner für KI-Lösungen',
-    'about.description': 'SMARB Technologies ist ein führendes, in den VAE ansässiges Technologieunternehmen, das sich auf KI-Lösungen, maßgeschneiderte Softwareentwicklung und Marketingautomatisierung spezialisiert hat. Wir liefern innovative Unternehmenslösungen, die digitale Transformation für Unternehmen weltweit vorantreiben und modernste KI-Technologien mit bewährter Software-Engineering-Exzellenz kombinieren.',
-    'about.trust': 'Wir betreuen Kunden in den VAE, Großbritannien, den USA und darüber hinaus.',
+    'about.description': 'SMARB Technologies ist ein führendes, in Pakistan ansässiges Technologieunternehmen, das sich auf KI-Lösungen, maßgeschneiderte Softwareentwicklung und Marketingautomatisierung spezialisiert hat. Wir liefern innovative Unternehmenslösungen, die digitale Transformation für Unternehmen weltweit vorantreiben und modernste KI-Technologien mit bewährter Software-Engineering-Exzellenz kombinieren.',
+    'about.trust': 'Wir betreuen Kunden in Pakistan, Großbritannien, den USA und darüber hinaus.',
     'about.metrics.projects': '10+ Projekte geliefert',
     'about.metrics.countries': '4+ Länder bedient',
     'about.metrics.clients': '50+ Zufriedene Kunden',
     'about.metrics.experience': '5+ Jahre Erfahrung',
-    'about.metrics.trusted': 'Vertraut von Unternehmen in VAE, UK, USA & Pakistan',
+    'about.metrics.trusted': 'Vertraut von Unternehmen in Pakistan, UK, USA & weltweit',
     'about.mission.badge': 'Unsere Mission',
     'about.mission.title': 'Digitale Innovation vorantreiben',
     'about.mission.description1': 'Unsere Mission ist es, Unternehmen weltweit durch modernste Technologielösungen, KI-Innovation und strategische digitale Transformation zu stärken. Wir glauben, dass jede Organisation Zugang zu erstklassiger Technologie-Expertise verdient.',
-    'about.mission.description2': 'Mit Hauptsitz in den VAE kombinieren wir regionale Expertise mit globalen Technologiestandards, um Lösungen zu liefern, die echte Geschäftsauswirkungen erzielen. Unser Team ist leidenschaftlich daran interessiert, Unternehmen im digitalen Zeitalter zum Erfolg zu verhelfen.',
+    'about.mission.description2': 'Mit Hauptsitz in Pakistan kombinieren wir regionale Expertise mit globalen Technologiestandards, um Lösungen zu liefern, die echte Geschäftsauswirkungen erzielen. Unser Team ist leidenschaftlich daran interessiert, Unternehmen im digitalen Zeitalter zum Erfolg zu verhelfen.',
     
     // Values
     'values.innovation.title': 'Innovation an erster Stelle',
@@ -291,7 +306,7 @@ const translations = {
     'values.quality.title': 'Qualität gewährleistet',
     'values.quality.description': 'Wir halten die höchsten Standards in der Softwareentwicklung und KI-Lösungen ein.',
     'values.global.title': 'Globale Reichweite',
-    'values.global.description': 'Betreuung von Kunden in VAE, UK, USA und weltweite Expansion.',
+    'values.global.description': 'Betreuung von Kunden in Pakistan, UK, USA und weltweite Expansion.',
     'values.results.title': 'Ergebnisorientiert',
     'values.results.description': 'Wir konzentrieren uns auf die Lieferung messbarer Geschäftsergebnisse und ROI.',
     
@@ -312,7 +327,7 @@ const translations = {
     
     // Services Section
     'services.badge': 'Unsere Dienstleistungen',
-    'services.title': 'SMARB Technologies Unternehmenslösungen - KI, Software & Digitales Marketing',
+    'services.title': 'Unternehmenslösungen - KI, Software & Marketing',
     'services.subtitle': 'Von maßgeschneiderter Softwareentwicklung und KI-Lösungen bis hin zu Geschäftsautomatisierung und digitalem Marketing bietet SMARB Technologies umfassende Technologiedienstleistungen für moderne Unternehmen, die digitale Transformation anstreben.',
     
     // Service Items
@@ -405,6 +420,20 @@ const translations = {
     'caseStudies.timeline': 'Zeitrahmen',
     'caseStudies.testimonial': 'Kundenstimme',
     'caseStudies.tags': 'Technologien',
+    
+    // Ventures Section
+    'ventures.title': 'Unsere Unternehmen',
+    'ventures.subtitle': 'Smarb Technologies treibt innovative Unternehmen in Software, KI und Marketing voran — wir entwickeln Tools, die Automatisierung und digitales Wachstum neu definieren.',
+    'ventures.visamate.title': 'VisaMate',
+    'ventures.visamate.description': 'Eine SaaS-Plattform für Visa- und Einwanderungsautomatisierung.',
+    'ventures.visamate.cta': 'Website besuchen',
+    'ventures.yellowbee.title': 'Yellow Bee Marketing',
+    'ventures.yellowbee.description': 'Digitalmarketing-Abteilung von Smarb Technologies.',
+    'ventures.yellowbee.cta': 'Seite besuchen',
+    'ventures.skillmap.title': 'SkillMap',
+    'ventures.skillmap.description': 'Eine KI-gestützte Aufgabenautomatisierungs- und Projektmanagementplattform, die bald startet, um mit globalen PM-Tools zu konkurrieren.',
+    'ventures.skillmap.cta': 'Demnächst verfügbar',
+    'ventures.comingSoon': 'Demnächst verfügbar',
     
     // CTA Section
     'cta.title': 'Bereit, Ihr Unternehmen zu automatisieren & Wachstum zu skalieren?',

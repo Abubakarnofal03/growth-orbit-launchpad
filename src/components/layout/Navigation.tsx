@@ -38,6 +38,7 @@ const Navigation = () => {
     { name: t('nav.about'), path: "/", section: "about" },
     { name: t('nav.services'), path: "/", section: "services" },
     { name: t('nav.caseStudies'), path: "/", section: "case-studies" },
+    { name: t('ventures.title'), path: "/", section: "ventures" },
     { name: t('nav.contact'), path: "/", section: "contact" },
   ];
 
@@ -70,7 +71,7 @@ const Navigation = () => {
             loading="eager"
             className="h-6 w-auto xs:h-7 sm:h-8 md:h-9 lg:h-10 xl:h-12 transition-all duration-300 flex-shrink-0"
           />
-          <span className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-poppins font-bold text-foreground group-hover:text-primary transition-all duration-300 sm:ml-1">
+          <span className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-poppins font-bold text-foreground group-hover:text-primary transition-all duration-300 sm:ml-1">
             <span className="inline xl:hidden">SMARB</span>
             <span className="hidden xl:inline">SMARB Technologies</span>
           </span>
@@ -78,7 +79,7 @@ const Navigation = () => {
         </Link>
 
         {/* Desktop Navigation - Centered */}
-        <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-6 xl:space-x-8">
+        <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-2 xl:space-x-4 2xl:space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -92,7 +93,7 @@ const Navigation = () => {
                   }
                 }
               }}
-              className={`text-base font-medium transition-colors duration-200 hover:text-primary relative font-poppins ${
+              className={`text-xs xl:text-sm 2xl:text-base font-medium transition-colors duration-200 hover:text-primary relative font-poppins whitespace-nowrap ${
                 location.pathname === item.path && !item.section
                   ? "text-primary"
                   : "text-foreground"
@@ -110,7 +111,7 @@ const Navigation = () => {
         </div>
 
         {/* Medium Screen Navigation - Centered */}
-        <div className="hidden md:flex lg:hidden absolute left-1/2 transform -translate-x-1/2 items-center space-x-3">
+        <div className="hidden md:flex lg:hidden absolute left-1/2 transform -translate-x-1/2 items-center space-x-2">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -124,7 +125,7 @@ const Navigation = () => {
                   }
                 }
               }}
-              className={`text-sm font-medium transition-colors duration-200 hover:text-primary relative font-poppins ${
+              className={`text-xs font-medium transition-colors duration-200 hover:text-primary relative font-poppins whitespace-nowrap ${
                 location.pathname === item.path && !item.section
                   ? "text-primary"
                   : "text-foreground"
