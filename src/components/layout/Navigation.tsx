@@ -110,38 +110,6 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Medium Screen Navigation - Centered */}
-        <div className="hidden md:flex lg:hidden absolute left-1/2 transform -translate-x-1/2 items-center space-x-2">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              onClick={(e) => {
-                if (item.section && item.path === "/") {
-                  e.preventDefault();
-                  const element = document.getElementById(item.section);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }
-              }}
-              className={`text-xs font-medium transition-colors duration-200 hover:text-primary relative font-poppins whitespace-nowrap ${
-                location.pathname === item.path && !item.section
-                  ? "text-primary"
-                  : "text-foreground"
-              }`}
-            >
-              {item.name}
-              {location.pathname === item.path && !item.section && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                />
-              )}
-            </Link>
-          ))}
-        </div>
-
         {/* Right Corner - Language Toggle, Contact Button and Mobile Menu */}
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 flex-nowrap">
           {/* Language Toggle Button */}
@@ -155,7 +123,7 @@ const Navigation = () => {
             <span className="hidden xs:inline">{language.toUpperCase()}</span>
           </Button>
 
-          {/* Large Screen Contact Button */}
+          {/* Desktop Contact Button */}
           <div className="hidden lg:flex">
             <Button 
               variant="default" 
@@ -169,23 +137,9 @@ const Navigation = () => {
             </Button>
           </div>
 
-          {/* Medium Screen Contact Button */}
-          <div className="hidden md:flex lg:hidden">
-            <Button 
-              variant="default" 
-              size="default" 
-              className="px-3 py-2 text-xs sm:text-sm font-semibold whitespace-nowrap flex-shrink-0"
-              asChild
-            >
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                {t('nav.contact')}
-              </a>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
+          {/* Hamburger Menu Button - Shows on Mobile & Tablet */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-all duration-300 bg-secondary/30 flex-shrink-0 min-w-[40px] min-h-[40px] flex items-center justify-center"
+            className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-all duration-300 bg-secondary/30 flex-shrink-0 min-w-[40px] min-h-[40px] flex items-center justify-center"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -194,14 +148,14 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile & Tablet Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-200"
+            className="lg:hidden bg-white border-t border-gray-200"
           >
             <div className="px-4 py-4 space-y-4">
               {navItems.map((item) => (
