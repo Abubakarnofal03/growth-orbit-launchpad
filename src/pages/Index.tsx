@@ -838,10 +838,10 @@ const Index = () => {
               className="grid grid-cols-2 gap-6"
             >
               {values.map((value, index) => (
-                <Card key={index} className="p-6 text-center hover:shadow-medium transition-all duration-300">
+                <Card key={index} className="p-6 text-center hover:shadow-medium transition-all duration-300 overflow-hidden">
                   <div className="mb-4 flex justify-center">{value.icon}</div>
-                  <h4 className="font-semibold mb-2">{value.title}</h4>
-                  <p className="text-sm text-muted-foreground">{value.description}</p>
+                  <h4 className="font-semibold mb-2 break-words">{value.title}</h4>
+                  <p className="text-sm text-muted-foreground break-words">{value.description}</p>
                 </Card>
               ))}
             </motion.div>
