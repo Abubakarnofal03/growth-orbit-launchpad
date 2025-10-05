@@ -117,7 +117,7 @@ const Navigation = () => {
             variant="outline"
             size="sm"
             onClick={toggleLanguage}
-            className="px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium border border-gray-300 hover:bg-gray-50 transition-all duration-200 flex-shrink-0 whitespace-nowrap"
+            className="px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium border border-gray-300 hover:bg-primary hover:text-white hover:border-primary transition-all duration-200 flex-shrink-0 whitespace-nowrap"
           >
             <Languages className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1" />
             <span className="hidden xs:inline">{language.toUpperCase()}</span>
@@ -128,7 +128,7 @@ const Navigation = () => {
             <Button 
               variant="default" 
               size="lg" 
-              className="px-4 xl:px-6 py-2.5 text-sm font-semibold whitespace-nowrap flex-shrink-0"
+              className="px-4 xl:px-6 py-2.5 text-sm font-semibold whitespace-nowrap flex-shrink-0 hover:shadow-lg hover:scale-105 transition-all duration-300"
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
