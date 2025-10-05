@@ -1804,12 +1804,12 @@ const Index = () => {
 
                 {/* Call to Action */}
                 <div className="flex justify-center pt-4">
-                  <Button className="w-full sm:w-auto" asChild>
-                    <a href="#contact">
-                      {t('contact.form.submit')}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
+                <Button className="w-full sm:w-auto" asChild>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    {t('contact.form.submit')}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
                 </div>
               </div>
             </>}
