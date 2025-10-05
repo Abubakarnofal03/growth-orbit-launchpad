@@ -22,7 +22,7 @@ const Footer = () => {
     contact: [
       {
         icon: <MapPin className="h-4 w-4" />,
-        text: "United Arab Emirates",
+        text: "Pakistan",
       },
       {
         icon: <Mail className="h-4 w-4" />,
