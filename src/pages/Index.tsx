@@ -1217,28 +1217,28 @@ const Index = () => {
             }} viewport={{
               once: true
             }}>
-              <Card className="p-8 hover:shadow-strong transition-all duration-300 group h-full">
+              <Card className="p-8 hover:shadow-strong transition-all duration-300 group h-full overflow-hidden">
                 <div className="flex items-center justify-center mb-6">
                   <img src="/visamate-logo.png" alt="VisaMate - AI-Powered Visa Application Services by SMARB Technologies" className="h-16 w-auto" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-center group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold mb-4 text-center group-hover:text-primary transition-colors break-words">
                   VisaMate
                 </h3>
-                <p className="text-muted-foreground mb-6 text-center leading-relaxed">
+                <p className="text-muted-foreground mb-6 text-center leading-relaxed break-words">
                   {t('ventures.visamate.description')}
                 </p>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-sm">{t('ventures.visamate.feature1')}</span>
+                    <span className="text-sm break-words">{t('ventures.visamate.feature1')}</span>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-sm">{t('ventures.visamate.feature2')}</span>
+                    <span className="text-sm break-words">{t('ventures.visamate.feature2')}</span>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-sm">{t('ventures.visamate.feature3')}</span>
+                    <span className="text-sm break-words">{t('ventures.visamate.feature3')}</span>
                   </div>
                 </div>
                 <Button variant="outline" className="w-full" asChild>
@@ -1250,7 +1250,7 @@ const Index = () => {
               </Card>
             </motion.div>
 
-            {/* Yellow Bee Marketing */}
+            {/* SkillMap - Coming Soon */}
             <motion.div initial={{
               opacity: 0,
               y: 30
@@ -1262,35 +1262,37 @@ const Index = () => {
             }} viewport={{
               once: true
             }}>
-              <Card className="p-8 hover:shadow-strong transition-all duration-300 group h-full">
-                <div className="flex items-center justify-center mb-6">
-                  <img src="/yellowbee-logo.png" alt="Yellow Bee Marketing - Digital Marketing Agency by SMARB Technologies" className="h-16 w-auto" />
+              <Card className="p-8 hover:shadow-strong transition-all duration-300 group h-full overflow-hidden relative">
+                <div className="absolute top-4 right-4">
+                  <Badge className="bg-primary text-white">Coming Soon</Badge>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-center group-hover:text-primary transition-colors">
-                  Yellow Bee Marketing
+                <div className="flex items-center justify-center mb-6">
+                  <div className="h-16 w-16 bg-gradient-to-br from-primary to-primary/60 rounded-lg flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white">SM</span>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-center group-hover:text-primary transition-colors break-words">
+                  SkillMap
                 </h3>
-                <p className="text-muted-foreground mb-6 text-center leading-relaxed">
-                  {t('ventures.yellowbee.description')}
+                <p className="text-muted-foreground mb-6 text-center leading-relaxed break-words">
+                  {t('ventures.skillmap.description')}
                 </p>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-sm">{t('ventures.yellowbee.feature1')}</span>
+                    <span className="text-sm break-words">{t('ventures.skillmap.feature1')}</span>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-sm">{t('ventures.yellowbee.feature2')}</span>
+                    <span className="text-sm break-words">{t('ventures.skillmap.feature2')}</span>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-sm">{t('ventures.yellowbee.feature3')}</span>
+                    <span className="text-sm break-words">{t('ventures.skillmap.feature3')}</span>
                   </div>
                 </div>
-                <Button variant="outline" className="w-full" asChild>
-                  <a href="#contact">
-                    {t('ventures.learnMore')}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                <Button variant="outline" className="w-full" disabled>
+                  {t('ventures.comingSoon')}
                 </Button>
               </Card>
             </motion.div>
