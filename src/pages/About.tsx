@@ -26,7 +26,7 @@ const About = () => {
     {
       icon: <Globe className="h-8 w-8 text-primary" />,
       title: "Global Reach",
-      description: "Based in Pakistan, we serve clients across USA, UAE, and beyond.",
+      description: "Based in Pakistan, we serve clients across USA, UK, and beyond.",
     },
     {
       icon: <Award className="h-8 w-8 text-primary" />,

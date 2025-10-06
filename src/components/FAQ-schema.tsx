@@ -19,7 +19,7 @@ const FAQSchema = () => {
         "name": "Where is SMARB Technologies located?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SMARB Technologies is based in Pakistan and serves clients globally, with a strong presence in the UAE and Middle East markets."
+          "text": "SMARB Technologies is based in Pakistan and serves clients globally, with a strong presence in Middle East, USA, and UK markets."
         }
       },
       {
