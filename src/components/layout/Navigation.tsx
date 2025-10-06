@@ -110,19 +110,8 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Right Corner - Language Toggle, Contact Button and Mobile Menu */}
+        {/* Right Corner - Contact Button and Mobile Menu */}
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 flex-nowrap">
-          {/* Language Toggle Button */}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={toggleLanguage}
-            className="px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium border border-gray-300 hover:bg-primary hover:text-white hover:border-primary transition-all duration-200 flex-shrink-0 whitespace-nowrap"
-          >
-            <Languages className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1" />
-            <span className="hidden xs:inline">{language.toUpperCase()}</span>
-          </Button>
-
           {/* Desktop Contact Button */}
           <div className="hidden lg:flex">
             <Button 
@@ -190,17 +179,7 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="flex flex-col space-y-3 mt-6">
-                {/* Language Toggle in Mobile Menu */}
                 <Button
-                  variant="outline"
-                  onClick={toggleLanguage}
-                  className="w-full py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 transition-all duration-200"
-                >
-                  <Languages className="h-4 w-4 mr-2" />
-                  {t('language.switchTo')} {language === 'en' ? t('language.german') : t('language.english')}
-                </Button>
-                
-                <Button 
                   variant="default" 
                   className="w-full py-3 text-base font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-medium hover:shadow-strong transform hover:scale-105 transition-all duration-300" 
                   asChild
