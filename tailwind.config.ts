@@ -48,6 +48,7 @@ export default {
 			},
 			fontFamily: {
 				'poppins': ['Poppins', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
 			},
 			fontSize: {
 				'hero': ['72px', { lineHeight: '1.1', letterSpacing: '-0.02em' }],

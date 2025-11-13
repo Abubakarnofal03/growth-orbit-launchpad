@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,44 +9,66 @@
   50% { opacity: 0; }
 }
 
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Professional Agency Color Palette */
-    --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
-
-    /* Primary brand color - Professional Navy */
-    --primary: 220 100% 25%;
+    /* New Design System Color Palette */
+    /* Deep Navy #002B5B */
+    --primary: 210 100% 18%;
     --primary-foreground: 0 0% 100%;
 
-    /* Neutral grays for professional look */
-    --secondary: 210 15% 96%;
-    --secondary-foreground: 220 15% 25%;
+    /* Royal Blue #0050A0 */
+    --secondary: 210 100% 31%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 15% 95%;
-    --muted-foreground: 220 10% 50%;
+    /* Off-White Background #F8FAFC */
+    --background: 210 20% 98%;
+    --foreground: 220 13% 9%;
 
-    --accent: 220 100% 25%;
+    /* Text Primary #111827 */
+    --text-primary: 220 13% 9%;
+    
+    /* Text Muted #6B7280 */
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent #0078D7 */
+    --accent: 207 100% 42%;
     --accent-foreground: 0 0% 100%;
 
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 9%;
+
+    --muted: 210 20% 96%;
+    
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 90%;
-    --input: 210 15% 90%;
-    --ring: 220 100% 25%;
+    /* Border / Shadow rgba(0,0,0,0.06) */
+    --border: 0 0% 0% / 0.06;
+    --input: 0 0% 0% / 0.06;
+    --ring: 210 100% 18%;
 
-    --radius: 8px;
+    --radius: 10px;
 
     /* Professional Agency Brand Colors */
     --brand-primary: 220 100% 25%;
@@ -146,10 +170,24 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-poppins;
+    @apply bg-background text-foreground font-inter;
     font-feature-settings: "liga" on, "calt" on;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-inter;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
   /* Responsive text for German translations */
   .text-responsive {
