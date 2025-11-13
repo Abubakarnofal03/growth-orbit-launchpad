@@ -13,122 +13,75 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Professional Agency Color Palette */
-    --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    /* Neron-inspired Glassmorphism Theme */
+    --background: 213 65% 8%;  /* Matte Navy #0A1628 */
+    --foreground: 210 40% 98%;
+    --card: 213 65% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 213 50% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 190 100% 50%;  /* Electric Cyan #00D9FF */
+    --primary-foreground: 213 65% 8%;
+    --secondary: 270 65% 60%;  /* Soft Violet #9D4EDD */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 213 40% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 190 100% 50%;
+    --accent-foreground: 213 65% 8%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 213 40% 20%;
+    --input: 213 40% 15%;
+    --ring: 190 100% 50%;
+    --radius: 1rem;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(0, 217, 255, 0.2);
+    --glass-blur: 20px;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    /* Brand Colors - Glassmorphism palette */
+    --brand-primary: 190 100% 50%;  /* Cyan */
+    --brand-secondary: 270 65% 60%;  /* Violet */
+    --brand-accent: 280 70% 65%;     /* Purple accent */
+    --brand-charcoal: 213 30% 10%;
+    --brand-navy: 213 65% 8%;
 
-    /* Primary brand color - Professional Navy */
-    --primary: 220 100% 25%;
-    --primary-foreground: 0 0% 100%;
+    /* Gradients - Futuristic glows */
+    --gradient-primary: linear-gradient(135deg, rgba(0, 217, 255, 0.3) 0%, rgba(157, 78, 221, 0.3) 100%);
+    --gradient-secondary: linear-gradient(135deg, rgba(157, 78, 221, 0.2) 0%, rgba(0, 217, 255, 0.2) 100%);
+    --gradient-hero: radial-gradient(ellipse at top right, rgba(0, 217, 255, 0.15), transparent 60%), radial-gradient(ellipse at bottom left, rgba(157, 78, 221, 0.15), transparent 60%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --gradient-curved: radial-gradient(circle at 50% 0%, rgba(0, 217, 255, 0.2), transparent 70%);
+    --gradient-glow: radial-gradient(circle, rgba(0, 217, 255, 0.4) 0%, transparent 70%);
 
-    /* Neutral grays for professional look */
-    --secondary: 210 15% 96%;
-    --secondary-foreground: 220 15% 25%;
+    /* Shadows - Border glows */
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 40px rgba(0, 217, 255, 0.4), 0 0 80px rgba(0, 217, 255, 0.2);
+    --shadow-glow-violet: 0 0 40px rgba(157, 78, 221, 0.4), 0 0 80px rgba(157, 78, 221, 0.2);
 
-    --muted: 210 15% 95%;
-    --muted-foreground: 220 10% 50%;
-
-    --accent: 220 100% 25%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 210 15% 90%;
-    --input: 210 15% 90%;
-    --ring: 220 100% 25%;
-
-    --radius: 8px;
-
-    /* Professional Agency Brand Colors */
-    --brand-primary: 220 100% 25%;
-    --brand-secondary: 220 15% 20%;
-    --brand-accent: 220 100% 30%;
-    --brand-gray: 220 10% 50%;
-    --brand-light: 210 15% 96%;
-
-    /* Clean Professional Backgrounds */
-    --gradient-hero: linear-gradient(135deg, hsl(220 100% 25%) 0%, hsl(220 100% 20%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 15% 98%) 100%);
-    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 15% 98%) 100%);
-
-    /* Professional Shadows */
-    --shadow-soft: 0 1px 3px hsl(220 15% 15% / 0.08);
-    --shadow-medium: 0 4px 16px hsl(220 15% 15% / 0.12);
-    --shadow-strong: 0 8px 32px hsl(220 15% 15% / 0.16);
-    --shadow-card: 0 2px 8px hsl(220 15% 15% / 0.06);
-
-    /* Smooth Professional Animations */
+    /* Transitions - Variable speeds */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    /* Professional Dark Mode */
-    --background: 220 30% 8%;
-    --foreground: 210 15% 95%;
-
-    --card: 220 30% 10%;
-    --card-foreground: 210 15% 95%;
-
-    --popover: 220 30% 10%;
-    --popover-foreground: 210 15% 95%;
-
-    --primary: 220 100% 40%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 220 30% 12%;
-    --secondary-foreground: 210 15% 85%;
-
-    --muted: 220 30% 12%;
-    --muted-foreground: 210 15% 60%;
-
-    --accent: 220 100% 40%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 30% 18%;
-    --input: 220 30% 18%;
-    --ring: 220 100% 40%;
-
-    /* Professional dark gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(220 30% 8%) 0%, hsl(220 30% 12%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220 30% 10%) 0%, hsl(220 30% 12%) 100%);
-    --gradient-section: linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 30% 10%) 100%);
-
-    /* Professional dark shadows */
-    --shadow-soft: 0 1px 3px hsl(0 0% 0% / 0.3);
-    --shadow-medium: 0 4px 16px hsl(0 0% 0% / 0.4);
-    --shadow-strong: 0 8px 32px hsl(0 0% 0% / 0.5);
-    --shadow-card: 0 2px 8px hsl(0 0% 0% / 0.3);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    /* Dark mode uses same theme - always dark for this design */
+    --background: 213 65% 8%;
+    --foreground: 210 40% 98%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
@@ -143,6 +96,7 @@ All colors MUST be HSL.
 
   html, body {
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -150,7 +104,53 @@ All colors MUST be HSL.
     font-feature-settings: "liga" on, "calt" on;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #0A1628;
+    position: relative;
   }
+  
+  /* Glass morphism utilities */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+  }
+
+  .border-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .border-glow-violet {
+    box-shadow: var(--shadow-glow-violet);
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.3), transparent);
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
   /* Responsive text for German translations */
   .text-responsive {
     @apply text-sm sm:text-base lg:text-lg;
