@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Target, Users, Globe, Award, TrendingUp, Zap } from "lucide-react";
+import { TextReveal } from "@/components/ui/TextReveal";
 
 const AboutSection = () => {
   const stats = [
@@ -44,9 +45,11 @@ const AboutSection = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-[#111827]">
             About Us
           </h2>
-          <p className="text-lg text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
-            Smarb Technologies is a Pakistan-based software agency helping enterprises modernize, automate, and innovate. We deliver quality engineering, reliable communication, and measurable results.
-          </p>
+          <div className="max-w-3xl mx-auto">
+            <TextReveal className="text-lg sm:text-xl md:text-2xl text-[#6B7280] leading-relaxed font-medium text-center justify-center">
+              Smarb Technologies is a Pakistan-based software agency helping enterprises modernize, automate, and innovate. We deliver quality engineering, reliable communication, and measurable results.
+            </TextReveal>
+          </div>
         </motion.div>
 
         {/* Stats Section */}
@@ -83,11 +86,9 @@ const AboutSection = () => {
             <h3 className="text-3xl md:text-4xl font-bold mb-6 text-[#111827]">
               Driving Digital Innovation
             </h3>
-            <p className="text-lg text-[#6B7280] leading-relaxed mb-6">
-              Our mission is to empower businesses worldwide through cutting-edge technology solutions, 
-              AI innovation, and strategic digital transformation. We believe every organization deserves 
-              access to world-class technology expertise.
-            </p>
+            <TextReveal className="text-lg text-[#6B7280] leading-relaxed mb-6">
+              Our mission is to empower businesses worldwide through cutting-edge technology solutions, AI innovation, and strategic digital transformation. We believe every organization deserves access to world-class technology expertise.
+            </TextReveal>
             <p className="text-lg text-[#6B7280] leading-relaxed">
               Headquartered in Pakistan, we combine regional expertise with global technology standards 
               to deliver solutions that drive real business impact. Our team is passionate about helping 

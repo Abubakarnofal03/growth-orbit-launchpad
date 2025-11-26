@@ -1,9 +1,19 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useTypewriter } from "@/hooks/use-typewriter";
+import { useRef } from "react";
 
 const HeroSection = () => {
+  const ref = useRef(null);
+  const { scrollY } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const backgroundY = useTransform(scrollY, [0, 1000], [0, 400]);
+  const textY = useTransform(scrollY, [0, 1000], [0, 200]);
+
   const typewriterWords = [
     "Leading Technology Solutions for Global Businesses",
     "Innovating Digital Experiences That Scale",
@@ -11,7 +21,7 @@ const HeroSection = () => {
     "Transforming Ideas Into Scalable Reality"
   ];
 
-  const { currentText, isTyping, isDeleting, currentWordIndex } = useTypewriter({
+  const { currentText, isTyping, isDeleting } = useTypewriter({
     words: typewriterWords,
     typeSpeed: 60,
     deleteSpeed: 35,
@@ -20,7 +30,7 @@ const HeroSection = () => {
   });
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative w-full overflow-hidden">
+    <section ref={ref} id="home" className="min-h-screen flex items-center justify-center relative w-full overflow-hidden">
       {/* Video Background */}
       <video 
         autoPlay 
@@ -37,12 +47,12 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-[#002B5B]/80 via-[#0050A0]/70 to-[#002B5B]/80 z-10" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10" />
       
-      {/* Animated particles/glow effect */}
-      <div className="absolute inset-0 z-10 overflow-hidden">
+      {/* Animated particles/glow effect with Parallax */}
+      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         <motion.div
+          style={{ y: backgroundY }}
           animate={{
             x: [0, 100, 0],
-            y: [0, 100, 0],
             opacity: [0.3, 0.6, 0.3],
           }}
           transition={{
@@ -53,9 +63,9 @@ const HeroSection = () => {
           className="absolute top-20 left-20 w-72 h-72 bg-[#0078D7]/20 rounded-full blur-3xl"
         />
         <motion.div
+          style={{ y: backgroundY }}
           animate={{
             x: [0, -100, 0],
-            y: [0, -100, 0],
             opacity: [0.3, 0.6, 0.3],
           }}
           transition={{
@@ -70,6 +80,7 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-6 lg:px-20 relative z-20 max-w-[1440px] w-full">
         <motion.div
+          style={{ y: textY }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -90,7 +101,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight min-h-[4rem] sm:min-h-[5rem] md:min-h-[6rem]"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight min-h-[4rem] sm:min-h-[5rem] md:min-h-[8rem] tracking-tight"
           >
             <span className="relative bg-gradient-to-r from-blue-300 via-white to-blue-400 bg-clip-text text-transparent inline-block"
               style={{
@@ -116,7 +127,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-base sm:text-lg md:text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto font-light"
           >
             Trusted software engineers delivering cloud, AI, and web excellence.
           </motion.p>
@@ -127,13 +138,10 @@ const HeroSection = () => {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <motion.div
-              whileHover={{ scale: 1.05, y: -3 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <div>
               <Button
                 size="lg"
-                className="group bg-[#0078D7] hover:bg-[#0066B8] text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-[#0078D7]/50 transition-all duration-300 relative overflow-hidden"
+                className="group bg-[#0078D7] hover:bg-[#0066B8] text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-[#0078D7]/50 transition-all duration-300 relative overflow-hidden w-full sm:w-auto"
                 asChild
               >
                 <a href="#contact">
@@ -147,16 +155,13 @@ const HeroSection = () => {
                   />
                 </a>
               </Button>
-            </motion.div>
+            </div>
             
-            <motion.div
-              whileHover={{ scale: 1.05, y: -3 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <div>
               <Button
                 variant="outline"
                 size="lg"
-                className="group bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="group bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto"
                 asChild
               >
                 <a href="#case-studies">
@@ -164,7 +169,7 @@ const HeroSection = () => {
                   <ArrowRight className="ml-2 h-5 w-5 inline group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Trust indicators */}
@@ -172,7 +177,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="mt-16 flex flex-wrap justify-center gap-8 text-sm text-white/80"
+            className="mt-16 flex flex-wrap justify-center gap-8 text-sm text-white/80 font-medium"
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
