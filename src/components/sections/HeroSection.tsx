@@ -29,23 +29,24 @@ const HeroSection = () => {
   });
 
   return (
-    <section 
-      ref={ref} 
-      id="home" 
+    <section
+      ref={ref}
+      id="home"
       className="min-h-screen flex items-center justify-center relative w-full overflow-hidden bg-background"
     >
       {/* Animated mesh gradient background */}
       <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
-      
+
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid opacity-30" />
-      
+
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          style={{ 
+          style={{
             y: backgroundY,
             background: "radial-gradient(circle, hsl(187 100% 50% / 0.15) 0%, transparent 70%)",
+            willChange: "transform",
           }}
           animate={{
             x: [0, 50, 0],
@@ -59,9 +60,10 @@ const HeroSection = () => {
           className="absolute top-1/4 -left-20 w-[600px] h-[600px] rounded-full animate-pulse-glow"
         />
         <motion.div
-          style={{ 
+          style={{
             y: backgroundY,
             background: "radial-gradient(circle, hsl(263 70% 58% / 0.15) 0%, transparent 70%)",
+            willChange: "transform",
           }}
           animate={{
             x: [0, -50, 0],
@@ -95,7 +97,7 @@ const HeroSection = () => {
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full bg-primary/40"
@@ -116,8 +118,8 @@ const HeroSection = () => {
           />
         ))}
       </div>
-      
-      <motion.div 
+
+      <motion.div
         style={{ y: textY, opacity }}
         className="container mx-auto px-6 lg:px-20 relative z-20 max-w-[1440px] w-full"
       >
@@ -145,7 +147,7 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-hero font-bold mb-8 leading-tight min-h-[2.5em] tracking-tight"
           >
-            <span 
+            <span
               className="relative text-gradient inline-block"
               style={{
                 willChange: 'transform',
@@ -154,7 +156,7 @@ const HeroSection = () => {
               }}
             >
               {currentText.trim() || "\u00A0"}
-              <motion.span 
+              <motion.span
                 className={`inline-block w-[3px] bg-gradient-to-b from-primary to-secondary ml-1 rounded-full ${isTyping || isDeleting ? 'animate-blink' : ''}`}
                 style={{
                   height: '0.9em',
@@ -163,17 +165,17 @@ const HeroSection = () => {
               />
             </span>
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-subtitle text-muted-foreground mb-12 leading-relaxed max-w-2xl mx-auto"
           >
-            Premium software engineering for startups and enterprises. 
+            Premium software engineering for startups and enterprises.
             We build AI-powered solutions, web applications, and cloud infrastructure that drive real business results.
           </motion.p>
-          
+
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -195,7 +197,7 @@ const HeroSection = () => {
                 </a>
               </Button>
             </Magnetic>
-            
+
             <Magnetic strength={0.2}>
               <Button
                 variant="outline"
@@ -223,7 +225,7 @@ const HeroSection = () => {
               "ISO-Standard Delivery",
               "24/7 Global Support"
             ].map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={item}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
