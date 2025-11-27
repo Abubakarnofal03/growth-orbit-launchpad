@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle, Sparkles, ArrowRight } from "lucide-react";
 import { sendContactEmail, ContactFormData } from "@/lib/email";
 import { useToast } from "@/components/ui/use-toast";
+import { ScrollReveal, GlowCard, Magnetic } from "@/components/ui/ScrollAnimations";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -64,40 +64,66 @@ const ContactSection = () => {
     }
   };
 
+  const contactInfo = [
+    {
+      icon: <Mail className="h-5 w-5" />,
+      label: "Email",
+      value: "info.smarb@gmail.com",
+      href: "mailto:info.smarb@gmail.com"
+    },
+    {
+      icon: <Phone className="h-5 w-5" />,
+      label: "Phone",
+      value: "+971 50 594 0132",
+      href: "tel:+971505940132"
+    },
+    {
+      icon: <MapPin className="h-5 w-5" />,
+      label: "Location",
+      value: "Pakistan",
+      href: null
+    }
+  ];
+
   return (
-    <section id="contact" className="py-20 bg-white w-full">
-      <div className="container mx-auto px-6 lg:px-20 max-w-[1440px] w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-[#111827]">
-            Let's build something that lasts.
+    <section id="contact" className="py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-card/50" />
+      <div className="absolute inset-0 bg-grid opacity-20" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      
+      {/* Floating elements */}
+      <motion.div
+        animate={{ y: [0, -30, 0], rotate: [0, 5, 0] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-40 right-10 w-72 h-72 rounded-full opacity-20"
+        style={{ background: "radial-gradient(circle, hsl(187 100% 50% / 0.3) 0%, transparent 70%)" }}
+      />
+
+      <div className="container mx-auto px-6 lg:px-20 max-w-[1440px] w-full relative z-10">
+        {/* Section Header */}
+        <ScrollReveal animation="slide-up" className="text-center mb-20">
+          <span className="inline-block px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
+            <Sparkles className="inline h-4 w-4 mr-2" />
+            Get In Touch
+          </span>
+          <h2 className="text-display font-bold mb-6 text-foreground">
+            Let's Build Something{" "}
+            <span className="text-gradient">Amazing</span>
           </h2>
-          <p className="text-lg text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
-            Get in touch with us to discuss your project
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Ready to transform your business? Let's discuss your project.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Card className="p-8 border border-[rgba(0,0,0,0.06)] rounded-xl hover:shadow-xl transition-all duration-300">
+          <ScrollReveal animation="slide-left">
+            <GlowCard glowColor="cyan" className="glass rounded-2xl p-8 border border-white/5">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <motion.div
-                    whileFocus={{ scale: 1.02 }}
-                    className="space-y-2"
-                  >
-                    <Label htmlFor="name" className="text-[#111827]">Name *</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-foreground">Name *</Label>
                     <Input
                       id="name"
                       name="name"
@@ -106,14 +132,11 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your full name"
-                      className="rounded-xl border-[rgba(0,0,0,0.06)] focus:border-[#0050A0] focus:ring-2 focus:ring-[#0050A0]/20 transition-all"
+                      className="bg-muted/50 border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-foreground placeholder:text-muted-foreground"
                     />
-                  </motion.div>
-                  <motion.div
-                    whileFocus={{ scale: 1.02 }}
-                    className="space-y-2"
-                  >
-                    <Label htmlFor="email" className="text-[#111827]">Email *</Label>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-foreground">Email *</Label>
                     <Input
                       id="email"
                       name="email"
@@ -122,16 +145,13 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
-                      className="rounded-xl border-[rgba(0,0,0,0.06)] focus:border-[#0050A0] focus:ring-2 focus:ring-[#0050A0]/20 transition-all"
+                      className="bg-muted/50 border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-foreground placeholder:text-muted-foreground"
                     />
-                  </motion.div>
+                  </div>
                 </div>
 
-                <motion.div
-                  whileFocus={{ scale: 1.02 }}
-                  className="space-y-2"
-                >
-                  <Label htmlFor="company" className="text-[#111827]">Company</Label>
+                <div className="space-y-2">
+                  <Label htmlFor="company" className="text-foreground">Company</Label>
                   <Input
                     id="company"
                     name="company"
@@ -139,15 +159,12 @@ const ContactSection = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="Your company name"
-                    className="rounded-xl border-[rgba(0,0,0,0.06)] focus:border-[#0050A0] focus:ring-2 focus:ring-[#0050A0]/20 transition-all"
+                    className="bg-muted/50 border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-foreground placeholder:text-muted-foreground"
                   />
-                </motion.div>
+                </div>
 
-                <motion.div
-                  whileFocus={{ scale: 1.02 }}
-                  className="space-y-2"
-                >
-                  <Label htmlFor="message" className="text-[#111827]">Message *</Label>
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-foreground">Message *</Label>
                   <Textarea
                     id="message"
                     name="message"
@@ -156,104 +173,137 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     placeholder="Tell us about your project..."
                     rows={5}
-                    className="rounded-xl border-[rgba(0,0,0,0.06)] focus:border-[#0050A0] focus:ring-2 focus:ring-[#0050A0]/20 transition-all"
+                    className="bg-muted/50 border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-foreground placeholder:text-muted-foreground resize-none"
                   />
-                </motion.div>
+                </div>
 
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                <Magnetic strength={0.1}>
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-[#0078D7] hover:bg-[#0066B8] text-white rounded-xl hover:shadow-xl hover:shadow-[#0078D7]/30 transition-all duration-300 group"
+                    className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-xl shadow-glow-cyan hover:opacity-90 transition-all duration-300 group"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
                       <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        <motion.div 
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full mr-2"
+                        />
                         Sending...
                       </>
                     ) : (
                       <>
-                        <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                         Send Message
                       </>
                     )}
                   </Button>
-                </motion.div>
+                </Magnetic>
               </form>
-            </Card>
-          </motion.div>
+            </GlowCard>
+          </ScrollReveal>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <Card className="p-8 border border-[rgba(0,0,0,0.06)] rounded-xl hover:shadow-xl transition-all duration-300">
-              <h3 className="text-2xl font-bold mb-6 text-[#111827]">Contact Information</h3>
+          <ScrollReveal animation="slide-right" className="space-y-6">
+            {/* Contact cards */}
+            <GlowCard glowColor="violet" className="glass rounded-2xl p-8 border border-white/5">
+              <h3 className="text-2xl font-bold mb-6 text-foreground">Contact Information</h3>
               <div className="space-y-6">
-                <motion.a
-                  href="mailto:info.smarb@gmail.com"
-                  whileHover={{ x: 5, scale: 1.02 }}
-                  className="flex items-start space-x-4 group cursor-pointer"
-                >
-                  <div className="text-[#0050A0] mt-1 group-hover:scale-110 transition-transform">
-                    <Mail className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-[#111827] group-hover:text-[#0050A0] transition-colors">Email</p>
-                    <p className="text-[#6B7280] group-hover:text-[#0050A0] transition-colors">info.smarb@gmail.com</p>
-                  </div>
-                </motion.a>
-                <motion.a
-                  href="tel:+971505940132"
-                  whileHover={{ x: 5, scale: 1.02 }}
-                  className="flex items-start space-x-4 group cursor-pointer"
-                >
-                  <div className="text-[#0050A0] mt-1 group-hover:scale-110 transition-transform">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-[#111827] group-hover:text-[#0050A0] transition-colors">Phone</p>
-                    <p className="text-[#6B7280] group-hover:text-[#0050A0] transition-colors">+971 50 594 0132</p>
-                  </div>
-                </motion.a>
-                <motion.div
-                  whileHover={{ x: 5, scale: 1.02 }}
-                  className="flex items-start space-x-4"
-                >
-                  <div className="text-[#0050A0] mt-1">
-                    <MapPin className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-[#111827]">Address</p>
-                    <p className="text-[#6B7280]">Pakistan</p>
-                  </div>
-                </motion.div>
+                {contactInfo.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ x: 5 }}
+                    className="group"
+                  >
+                    {item.href ? (
+                      <a href={item.href} className="flex items-start gap-4 cursor-pointer">
+                        <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                          {item.icon}
+                        </div>
+                        <div>
+                          <p className="font-medium text-foreground group-hover:text-primary transition-colors">
+                            {item.label}
+                          </p>
+                          <p className="text-muted-foreground group-hover:text-foreground transition-colors">
+                            {item.value}
+                          </p>
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 rounded-xl bg-primary/10 text-primary">
+                          {item.icon}
+                        </div>
+                        <div>
+                          <p className="font-medium text-foreground">{item.label}</p>
+                          <p className="text-muted-foreground">{item.value}</p>
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
               </div>
-            </Card>
+            </GlowCard>
 
+            {/* Response guarantee card */}
             <motion.div
               whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-8 bg-gradient-to-br from-[#002B5B] to-[#0050A0] text-white rounded-xl shadow-xl">
-                <div className="flex items-center space-x-3 mb-4">
-                  <CheckCircle className="h-8 w-8 flex-shrink-0" />
-                  <h4 className="font-semibold text-lg">24-Hour Response Guarantee</h4>
+              <div className="relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br from-primary/20 via-secondary/20 to-primary/20 border border-primary/20">
+                {/* Animated gradient background */}
+                <motion.div
+                  animate={{ 
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                  }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 opacity-30"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, hsl(187 100% 50% / 0.3), transparent)",
+                    backgroundSize: "200% 100%"
+                  }}
+                />
+                
+                <div className="relative z-10 flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-brand-emerald/20">
+                    <CheckCircle className="h-6 w-6 text-brand-emerald" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg text-foreground mb-2">
+                      24-Hour Response Guarantee
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      We'll respond to your message within 24 hours, guaranteed. 
+                      Our team is available around the clock to support your technology needs.
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm text-white/90 leading-relaxed">
-                  We'll respond to your message within 24 hours, guaranteed. Our team is available 24/7 to support your technology needs.
-                </p>
-              </Card>
+              </div>
             </motion.div>
-          </motion.div>
+
+            {/* Quick action */}
+            <motion.a
+              href="https://wa.me/971505940132?text=Hi%20SMARB%2C%20I%27m%20interested%20in%20your%20services"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center justify-between p-6 rounded-2xl glass border border-white/5 group cursor-pointer"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-brand-emerald/20 text-brand-emerald">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">Prefer WhatsApp?</p>
+                  <p className="text-sm text-muted-foreground">Chat with us directly</p>
+                </div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+            </motion.a>
+          </ScrollReveal>
         </div>
       </div>
     </section>
