@@ -4,11 +4,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import {
-  ArrowUpRight,
-  TrendingUp,
-  Users,
-  ShoppingCart,
+import { 
+  ArrowUpRight, 
+  TrendingUp, 
+  Users, 
+  ShoppingCart, 
   Globe,
   Calendar,
   Target,
@@ -148,7 +148,7 @@ const CaseStudies = () => {
               Case Studies
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
-              Real results from real clients. See how we've helped businesses
+              Real results from real clients. See how we've helped businesses 
               achieve exceptional growth across different industries.
             </p>
           </motion.div>
@@ -169,7 +169,7 @@ const CaseStudies = () => {
               Proven Results Across Industries
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From startups to established businesses, see how our strategic approach
+              From startups to established businesses, see how our strategic approach 
               delivers measurable growth and success.
             </p>
           </motion.div>
@@ -184,125 +184,139 @@ const CaseStudies = () => {
                 viewport={{ once: true }}
               >
                 <Card className="overflow-hidden hover:shadow-strong transition-all duration-300 group">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {study.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">{study.client}</p>
-
-                  {/* Key Results Preview */}
-                  <div className="grid grid-cols-2 gap-3 mb-6">
-                    {study.results.slice(0, 4).map((result, idx) => (
-                      <div key={idx} className="text-center">
-                        <div className="text-lg font-bold text-primary">{result.value}</div>
-                        <div className="text-xs text-muted-foreground">{result.metric}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {study.tags.slice(0, 3).map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs">
-                        {tag}
+                  <div className="relative">
+                    <img
+                      src={study.image}
+                      alt={study.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <Badge variant="secondary" className="bg-white/90 text-foreground">
+                        {study.industry}
                       </Badge>
-                    ))}
+                    </div>
                   </div>
+                  
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {study.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4">{study.client}</p>
+                    
+                    {/* Key Results Preview */}
+                    <div className="grid grid-cols-2 gap-3 mb-6">
+                      {study.results.slice(0, 4).map((result, idx) => (
+                        <div key={idx} className="text-center">
+                          <div className="text-lg font-bold text-primary">{result.value}</div>
+                          <div className="text-xs text-muted-foreground">{result.metric}</div>
+                        </div>
+                      ))}
+                    </div>
 
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button variant="outline" className="w-full group">
-                        View Project
-                        <ArrowUpRight className="h-4 w-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                      <DialogHeader>
-                        <DialogTitle className="text-2xl">{study.title}</DialogTitle>
-                      </DialogHeader>
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {study.tags.slice(0, 3).map((tag) => (
+                        <Badge key={tag} variant="outline" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
 
-                      <div className="space-y-6">
-                        <img
-                          src={study.image}
-                          alt={study.title}
-                          className="w-full h-64 object-cover rounded-lg"
-                        />
-
-                        <div className="grid md:grid-cols-2 gap-6">
-                          <div>
-                            <h4 className="font-semibold mb-2 text-primary">The Challenge</h4>
-                            <p className="text-sm text-muted-foreground mb-4">{study.challenge}</p>
-
-                            <h4 className="font-semibold mb-2 text-primary">Our Solution</h4>
-                            <p className="text-sm text-muted-foreground">{study.solution}</p>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" className="w-full group">
+                          View Project
+                          <ArrowUpRight className="h-4 w-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                        <DialogHeader>
+                          <DialogTitle className="text-2xl">{study.title}</DialogTitle>
+                        </DialogHeader>
+                        
+                        <div className="space-y-6">
+                          <img
+                            src={study.image}
+                            alt={study.title}
+                            className="w-full h-64 object-cover rounded-lg"
+                          />
+                          
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="font-semibold mb-2 text-primary">The Challenge</h4>
+                              <p className="text-sm text-muted-foreground mb-4">{study.challenge}</p>
+                              
+                              <h4 className="font-semibold mb-2 text-primary">Our Solution</h4>
+                              <p className="text-sm text-muted-foreground">{study.solution}</p>
+                            </div>
+                            
+                            <div>
+                              <h4 className="font-semibold mb-4 text-primary">Results Achieved</h4>
+                              <div className="grid grid-cols-2 gap-4">
+                                {study.results.map((result, idx) => (
+                                  <div key={idx} className="text-center p-3 bg-gradient-card rounded-lg">
+                                    <div className="text-primary mb-1">{result.icon}</div>
+                                    <div className="text-xl font-bold text-primary">{result.value}</div>
+                                    <div className="text-xs text-muted-foreground">{result.metric}</div>
+                                  </div>
+                                ))}
+                              </div>
+                              
+                              <div className="mt-6 p-4 bg-secondary/20 rounded-lg">
+                                <p className="text-sm italic text-muted-foreground mb-2">
+                                  "{study.testimonial}"
+                                </p>
+                                <p className="text-xs text-primary font-medium">{study.clientRole}</p>
+                              </div>
+                            </div>
                           </div>
-
-                          <div>
-                            <h4 className="font-semibold mb-4 text-primary">Results Achieved</h4>
-                            <div className="grid grid-cols-2 gap-4">
-                              {study.results.map((result, idx) => (
-                                <div key={idx} className="text-center p-3 bg-card/50 border border-border/50 rounded-lg">
-                                  <div className="text-primary mb-1">{result.icon}</div>
-                                  <div className="text-xl font-bold text-primary">{result.value}</div>
-                                  <div className="text-xs text-muted-foreground">{result.metric}</div>
-                                </div>
-                              ))}
-                            </div>
-
-                            <div className="mt-6 p-4 bg-muted/30 rounded-lg border border-border/50">
-                              <p className="text-sm italic text-muted-foreground mb-2">
-                                "{study.testimonial}"
-                              </p>
-                              <p className="text-xs text-primary font-medium">{study.clientRole}</p>
-                            </div>
+                          
+                          <div className="flex flex-wrap gap-2">
+                            {study.tags.map((tag) => (
+                              <Badge key={tag} variant="secondary">
+                                {tag}
+                              </Badge>
+                            ))}
                           </div>
                         </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          {study.tags.map((tag) => (
-                            <Badge key={tag} variant="secondary">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                </div>
-              </Card>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                </Card>
               </motion.div>
             ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-      {/* CTA Section */ }
-  <section className="py-20 bg-gradient-primary relative overflow-hidden">
-    <div className="absolute inset-0 bg-black/10" />
-    <div className="container mx-auto px-4 relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center text-white max-w-3xl mx-auto"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Ready to Be Our Next Success Story?
-        </h2>
-        <p className="text-xl text-white/90 mb-8 leading-relaxed">
-          Let's discuss how we can help you achieve similar results for your business.
-        </p>
-        <Button variant="hero-secondary" size="lg" asChild>
-          <a
-            href="https://wa.me/+923001234567?text=Hi! I'd like to discuss my project and see how you can help me achieve similar results."
-            target="_blank"
-            rel="noopener noreferrer"
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-primary relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10" />
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center text-white max-w-3xl mx-auto"
           >
-            Start Your Growth Journey
-          </a>
-        </Button>
-      </motion.div>
-    </div>
-  </section>
-    </Layout >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Be Our Next Success Story?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Let's discuss how we can help you achieve similar results for your business.
+            </p>
+            <Button variant="hero-secondary" size="lg" asChild>
+              <a 
+                href="https://wa.me/+923001234567?text=Hi! I'd like to discuss my project and see how you can help me achieve similar results." 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Start Your Growth Journey
+              </a>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+    </Layout>
   );
 };
 

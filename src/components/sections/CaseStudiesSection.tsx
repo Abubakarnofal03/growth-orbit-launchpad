@@ -180,7 +180,7 @@ const CaseStudiesSection = () => {
 
   return (
     <>
-      <section id="case-studies" className="py-20 bg-muted/30 w-full">
+      <section id="case-studies" className="py-20 bg-[#F8FAFC] w-full">
         <div className="container mx-auto px-6 lg:px-20 max-w-[1440px] w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -188,15 +188,15 @@ const CaseStudiesSection = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-[#111827]">
               Case Studies
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
               Real projects, real results. See how we've helped businesses transform.
             </p>
           </motion.div>
 
-          <div className="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory md:grid md:grid-cols-1 md:gap-24 md:overflow-visible no-scrollbar">
+          <div className="space-y-24">
             {caseStudies.map((study, index) => (
               <motion.div
                 key={study.id}
@@ -204,8 +204,9 @@ const CaseStudiesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.15, duration: 0.6 }}
                 viewport={{ once: true }}
-                className={`min-w-[85vw] md:min-w-0 snap-center grid lg:grid-cols-2 gap-6 md:gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-dense" : ""
-                  }`}
+                className={`grid lg:grid-cols-2 gap-12 items-center ${
+                  index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                }`}
               >
                 {/* Image */}
                 <motion.div
@@ -213,7 +214,7 @@ const CaseStudiesSection = () => {
                   transition={{ duration: 0.3 }}
                   className={index % 2 === 1 ? "lg:col-start-2" : ""}
                 >
-                  <div className="relative rounded-xl overflow-hidden shadow-2xl group cursor-pointer active-scale" onClick={() => handleCaseStudyClick(study)}>
+                  <div className="relative rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onClick={() => handleCaseStudyClick(study)}>
                     <img
                       src={study.image}
                       alt={study.title}
@@ -221,7 +222,7 @@ const CaseStudiesSection = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Badge className="bg-primary text-primary-foreground mb-2">{study.industry}</Badge>
+                      <Badge className="bg-[#0078D7] text-white mb-2">{study.industry}</Badge>
                     </div>
                   </div>
                 </motion.div>
@@ -234,53 +235,53 @@ const CaseStudiesSection = () => {
                   viewport={{ once: true }}
                   className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}
                 >
-                  <Card className="p-6 md:p-8 border border-border/50 rounded-xl hover:shadow-xl transition-all duration-300 group bg-card active-scale h-full flex flex-col justify-between">
-                    <Badge className="bg-primary/10 text-primary mb-4 hover:bg-primary/20">{study.industry}</Badge>
-                    <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                  <Card className="p-8 border border-[rgba(0,0,0,0.06)] rounded-xl hover:shadow-xl transition-all duration-300 group">
+                    <Badge className="bg-[#0050A0] text-white mb-4">{study.industry}</Badge>
+                    <h3 className="text-2xl font-bold mb-4 text-[#111827] group-hover:text-[#0050A0] transition-colors">
                       {study.title}
                     </h3>
-                    <p className="text-primary font-semibold mb-6">{study.client}</p>
-
+                    <p className="text-[#0050A0] font-semibold mb-6">{study.client}</p>
+                    
                     <div className="space-y-4 mb-6">
                       <div>
-                        <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                        <h4 className="font-semibold text-[#111827] mb-2 flex items-center gap-2">
                           <Target className="h-4 w-4 text-red-500" />
                           Challenge
                         </h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{study.challenge}</p>
+                        <p className="text-[#6B7280] text-sm leading-relaxed">{study.challenge}</p>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                        <h4 className="font-semibold text-[#111827] mb-2 flex items-center gap-2">
                           <CheckCircle className="h-4 w-4 text-green-500" />
                           Solution
                         </h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{study.solution}</p>
+                        <p className="text-[#6B7280] text-sm leading-relaxed">{study.solution}</p>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                        <h4 className="font-semibold text-[#111827] mb-2 flex items-center gap-2">
                           <TrendingUp className="h-4 w-4 text-blue-500" />
                           Impact
                         </h4>
-                        <p className="text-muted-foreground font-semibold">{study.impact}</p>
+                        <p className="text-[#6B7280] font-semibold">{study.impact}</p>
                       </div>
                     </div>
 
                     {/* Results Grid */}
                     <div className="grid grid-cols-2 gap-3 mb-6">
                       {study.results.slice(0, 4).map((result: any, idx: number) => (
-                        <div key={idx} className="bg-muted/50 p-3 rounded-lg text-center">
-                          <div className="flex justify-center mb-1 text-primary">
+                        <div key={idx} className="bg-[#F8FAFC] p-3 rounded-lg text-center">
+                          <div className="flex justify-center mb-1 text-[#0050A0]">
                             {result.icon}
                           </div>
-                          <div className="text-lg font-bold text-foreground">{result.value}</div>
-                          <div className="text-xs text-muted-foreground">{result.metric}</div>
+                          <div className="text-lg font-bold text-[#002B5B]">{result.value}</div>
+                          <div className="text-xs text-[#6B7280]">{result.metric}</div>
                         </div>
                       ))}
                     </div>
 
                     <Button
                       variant="outline"
-                      className="w-full group/btn text-primary border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                      className="w-full group/btn text-[#0050A0] border-[#0050A0] hover:bg-[#0050A0] hover:text-white transition-all duration-300"
                       onClick={() => handleCaseStudyClick(study)}
                     >
                       View Full Case Study
@@ -289,13 +290,6 @@ const CaseStudiesSection = () => {
                   </Card>
                 </motion.div>
               </motion.div>
-            ))}
-          </div>
-
-          {/* Mobile Swipe Indicator */}
-          <div className="md:hidden flex justify-center mt-4 gap-2">
-            {caseStudies.map((_, i) => (
-              <div key={i} className="w-2 h-2 rounded-full bg-primary/20" />
             ))}
           </div>
         </div>
@@ -310,7 +304,7 @@ const CaseStudiesSection = () => {
                 <DialogTitle className="text-2xl font-bold mb-2">
                   {selectedCaseStudy.title}
                 </DialogTitle>
-                <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                <div className="flex items-center space-x-4 text-sm text-[#6B7280]">
                   <span>{selectedCaseStudy.client}</span>
                   <span>•</span>
                   <span>{selectedCaseStudy.timeline}</span>
@@ -331,7 +325,7 @@ const CaseStudiesSection = () => {
                     <Target className="h-5 w-5 text-red-500" />
                     Challenge
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">{selectedCaseStudy.challenge}</p>
+                  <p className="text-[#6B7280] leading-relaxed">{selectedCaseStudy.challenge}</p>
                 </div>
 
                 <div>
@@ -339,7 +333,7 @@ const CaseStudiesSection = () => {
                     <CheckCircle className="h-5 w-5 text-green-500" />
                     Solution
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">{selectedCaseStudy.solution}</p>
+                  <p className="text-[#6B7280] leading-relaxed">{selectedCaseStudy.solution}</p>
                 </div>
 
                 <div>
@@ -350,13 +344,13 @@ const CaseStudiesSection = () => {
                   <div className="grid grid-cols-2 gap-4">
                     {selectedCaseStudy.results.map((result: any, index: number) => (
                       <Card key={index} className="p-4 text-center">
-                        <div className="flex justify-center mb-2 text-primary">
+                        <div className="flex justify-center mb-2 text-[#0050A0]">
                           {result.icon}
                         </div>
-                        <div className="text-2xl font-bold text-foreground mb-1">
+                        <div className="text-2xl font-bold text-[#002B5B] mb-1">
                           {result.value}
                         </div>
-                        <div className="text-sm text-muted-foreground">{result.metric}</div>
+                        <div className="text-sm text-[#6B7280]">{result.metric}</div>
                       </Card>
                     ))}
                   </div>
@@ -369,19 +363,19 @@ const CaseStudiesSection = () => {
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedCaseStudy.tags.map((tag: string, index: number) => (
-                      <Badge key={index} className="bg-primary text-primary-foreground">
+                      <Badge key={index} className="bg-[#0050A0] text-white">
                         {tag}
                       </Badge>
                     ))}
                   </div>
                 </div>
 
-                <div className="bg-muted/30 rounded-lg p-6">
+                <div className="bg-[#F8FAFC] rounded-lg p-6">
                   <h3 className="text-xl font-semibold mb-3">Client Testimonial</h3>
-                  <blockquote className="text-lg italic mb-4 leading-relaxed text-muted-foreground">
+                  <blockquote className="text-lg italic mb-4 leading-relaxed text-[#6B7280]">
                     "{selectedCaseStudy.testimonial}"
                   </blockquote>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-[#6B7280]">
                     — {selectedCaseStudy.clientRole}
                   </div>
                 </div>
