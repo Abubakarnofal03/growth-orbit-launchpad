@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle } from "lucide-react";
 import { sendContactEmail, ContactFormData } from "@/lib/email";
 import { useToast } from "@/components/ui/use-toast";
 import { useTextReveal } from "@/hooks/use-text-reveal";
@@ -248,6 +248,31 @@ const ContactSection = () => {
                 </motion.div>
               </div>
             </Card>
+
+            {/* WhatsApp CTA Card */}
+            <motion.a
+              href="https://wa.me/971505940132?text=Hi%20SMARB%20Technologies!%20I'm%20interested%20in%20your%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ duration: 0.3 }}
+              className="block"
+            >
+              <Card className="p-10 bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white rounded-2xl shadow-2xl shadow-[#25D366]/20 relative overflow-hidden cursor-pointer">
+                {/* Subtle pattern */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.1),transparent_50%)]" />
+                
+                <div className="flex items-center space-x-4 mb-5 relative z-10">
+                  <div className="p-3 bg-white/20 rounded-xl">
+                    <MessageCircle className="h-6 w-6" />
+                  </div>
+                  <h4 className="font-bold text-xl">Chat on WhatsApp</h4>
+                </div>
+                <p className="text-white/90 leading-relaxed relative z-10">
+                  Get instant support! Click here to start a conversation with our team on WhatsApp.
+                </p>
+              </Card>
+            </motion.a>
 
             <motion.div
               whileHover={{ scale: 1.02, y: -5 }}

@@ -39,8 +39,8 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/company/108614278/", label: "LinkedIn" },
-    { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com/growthorbit", label: "Instagram" },
-    { icon: <Facebook className="h-5 w-5" />, href: "https://facebook.com/growthorbit", label: "Facebook" },
+    { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/smarb.technologies?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
+    { icon: <Facebook className="h-5 w-5" />, href: "https://www.facebook.com/people/SMARB-Technologies/61579102958908/", label: "Facebook" },
   ];
 
   const whatsappNumber = "+971 50 594 0132";
