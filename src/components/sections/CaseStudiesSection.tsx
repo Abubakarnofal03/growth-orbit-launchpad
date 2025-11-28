@@ -180,18 +180,31 @@ const CaseStudiesSection = () => {
 
   return (
     <>
-      <section id="case-studies" className="py-20 bg-[#F8FAFC] w-full">
-        <div className="container mx-auto px-6 lg:px-20 max-w-[1440px] w-full">
+      <section id="case-studies" className="py-32 bg-card w-full relative overflow-hidden">
+        {/* Background effect */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(var(--primary)/0.03),transparent_60%)] pointer-events-none" />
+        
+        <div className="container mx-auto px-6 lg:px-20 max-w-[1440px] w-full relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-[#111827]">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="inline-block text-sm font-semibold tracking-[0.2em] uppercase text-primary/70 mb-4"
+            >
+              Our Work
+            </motion.span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-foreground tracking-tight">
               Case Studies
             </h2>
-            <p className="text-lg text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Real projects, real results. See how we've helped businesses transform.
             </p>
           </motion.div>

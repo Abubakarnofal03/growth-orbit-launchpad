@@ -90,7 +90,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight min-h-[4rem] sm:min-h-[5rem] md:min-h-[6rem]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] min-h-[5rem] sm:min-h-[6rem] md:min-h-[7rem] tracking-tight"
           >
             <span className="relative bg-gradient-to-r from-blue-300 via-white to-blue-400 bg-clip-text text-transparent inline-block"
               style={{
