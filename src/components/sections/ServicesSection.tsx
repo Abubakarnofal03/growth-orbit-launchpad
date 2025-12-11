@@ -1,33 +1,32 @@
 import { motion } from "framer-motion";
-import { Card } from "@/components/ui/card";
-import { Code, Globe, Zap, Cloud } from "lucide-react";
-import { useTextReveal } from "@/hooks/use-text-reveal";
+import { Bot, TrendingUp, GitBranch, Zap } from "lucide-react";
 
 const ServicesSection = () => {
-  const servicesDescription = "Comprehensive technology solutions to transform your business";
-  const { ref: descRef, displayedText: descText, inView: descInView } = useTextReveal(servicesDescription, 20);
-
   const services = [
     {
-      icon: <Code className="h-10 w-10" />,
-      title: "Custom Software",
-      description: "Tailored enterprise applications"
+      icon: <Bot className="h-8 w-8" />,
+      title: "AI Support Agents",
+      description: "24/7 intelligent customer support that resolves tickets instantly. Zero wait times, consistent quality, infinite scale.",
+      size: "large",
     },
     {
-      icon: <Globe className="h-10 w-10" />,
-      title: "Web Development",
-      description: "Scalable, secure, lightning-fast"
+      icon: <TrendingUp className="h-8 w-8" />,
+      title: "Revenue Recovery",
+      description: "Automated systems that identify and recover lost revenue from cart abandonment to failed payments.",
+      size: "medium",
     },
     {
-      icon: <Zap className="h-10 w-10" />,
-      title: "AI & Automation",
-      description: "Smarter workflows, real-time insights"
+      icon: <GitBranch className="h-8 w-8" />,
+      title: "Custom Workflows",
+      description: "Bespoke automation pipelines that eliminate repetitive tasks and streamline operations.",
+      size: "medium",
     },
     {
-      icon: <Cloud className="h-10 w-10" />,
-      title: "Cloud Solutions",
-      description: "Resilient, global-ready infrastructure"
-    }
+      icon: <Zap className="h-8 w-8" />,
+      title: "Real-time Analytics",
+      description: "Live dashboards powered by AI insights.",
+      size: "small",
+    },
   ];
 
   const containerVariants = {
@@ -35,14 +34,13 @@ const ServicesSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.15
+        staggerChildren: 0.15,
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
@@ -54,77 +52,122 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-32 bg-card w-full relative overflow-hidden">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.03),transparent_70%)] pointer-events-none" />
+    <section id="services" className="py-32 relative">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background pointer-events-none" />
       
-      <div className="container mx-auto px-6 lg:px-20 max-w-[1440px] w-full relative z-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="inline-block text-sm font-semibold tracking-[0.2em] uppercase text-primary/70 mb-4"
-          >
-            What We Do
-          </motion.span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-foreground tracking-tight">
-            Our Services
+          <span className="text-sm font-medium text-primary mb-4 block">What We Build</span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-h2 font-bold text-foreground tracking-tight mb-6">
+            Intelligent Systems for
+            <br />
+            <span className="text-gradient-primary">Modern Commerce</span>
           </h2>
-          <div ref={descRef} className="max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed min-h-[2rem]">
-              {descInView ? descText : servicesDescription}
-              {descInView && descText.length < servicesDescription.length && (
-                <span className="inline-block w-0.5 h-5 bg-primary/60 ml-0.5 animate-pulse" />
-              )}
-            </p>
-          </div>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Enterprise-grade AI solutions that transform how you operate, sell, and support.
+          </p>
         </motion.div>
 
+        {/* Bento Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px]"
         >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -12, scale: 1.02 }}
-              className="group"
-            >
-              <Card className="p-10 text-center hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 rounded-2xl border border-border/50 hover:border-primary/30 h-full bg-background/80 backdrop-blur-sm cursor-pointer relative overflow-hidden">
-                {/* Hover gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <motion.div
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="mb-8 flex justify-center text-primary group-hover:text-accent transition-colors duration-300 relative z-10"
-                >
-                  {service.icon}
-                </motion.div>
-                <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300 tracking-tight relative z-10">
-                  {service.title}
+          {/* Large Card - AI Support */}
+          <motion.div
+            variants={itemVariants}
+            className="bento-card p-8 md:col-span-2 md:row-span-2 group cursor-pointer"
+          >
+            <div className="h-full flex flex-col">
+              <div className="mb-6 text-primary group-hover:text-accent transition-colors duration-300">
+                <Bot className="h-10 w-10" />
+              </div>
+              <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">
+                {services[0].title}
+              </h3>
+              <p className="text-muted-foreground text-base flex-grow">
+                {services[0].description}
+              </p>
+              <div className="mt-6 flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-sm text-muted-foreground">Always Online</span>
+                </div>
+              </div>
+            </div>
+            {/* Glow effect on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+          </motion.div>
+
+          {/* Revenue Recovery */}
+          <motion.div
+            variants={itemVariants}
+            className="bento-card p-6 md:col-span-1 md:row-span-1 group cursor-pointer"
+          >
+            <div className="h-full flex flex-col">
+              <div className="mb-4 text-primary group-hover:text-accent transition-colors duration-300">
+                <TrendingUp className="h-8 w-8" />
+              </div>
+              <h3 className="font-heading text-xl font-bold text-foreground mb-2">
+                {services[1].title}
+              </h3>
+              <p className="text-muted-foreground text-sm flex-grow line-clamp-3">
+                {services[1].description}
+              </p>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+          </motion.div>
+
+          {/* Custom Workflows */}
+          <motion.div
+            variants={itemVariants}
+            className="bento-card p-6 md:col-span-1 md:row-span-1 group cursor-pointer"
+          >
+            <div className="h-full flex flex-col">
+              <div className="mb-4 text-primary group-hover:text-accent transition-colors duration-300">
+                <GitBranch className="h-8 w-8" />
+              </div>
+              <h3 className="font-heading text-xl font-bold text-foreground mb-2">
+                {services[2].title}
+              </h3>
+              <p className="text-muted-foreground text-sm flex-grow line-clamp-3">
+                {services[2].description}
+              </p>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+          </motion.div>
+
+          {/* Real-time Analytics - spans 2 cols */}
+          <motion.div
+            variants={itemVariants}
+            className="bento-card p-6 md:col-span-2 md:row-span-1 group cursor-pointer"
+          >
+            <div className="h-full flex items-center gap-6">
+              <div className="text-primary group-hover:text-accent transition-colors duration-300">
+                <Zap className="h-10 w-10" />
+              </div>
+              <div>
+                <h3 className="font-heading text-xl font-bold text-foreground mb-2">
+                  {services[3].title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed relative z-10">
-                  {service.description}
+                <p className="text-muted-foreground text-sm">
+                  {services[3].description}
                 </p>
-                
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              </Card>
-            </motion.div>
-          ))}
+              </div>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+          </motion.div>
         </motion.div>
       </div>
     </section>

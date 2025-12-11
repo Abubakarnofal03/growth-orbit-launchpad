@@ -1,165 +1,82 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Rocket, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { ArrowRight, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
-
-  const footerLinks = {
-    company: [
-      { name: t('nav.about'), path: "/", section: "about" },
-      { name: t('nav.services'), path: "/", section: "services" },
-      { name: t('nav.caseStudies'), path: "/", section: "case-studies" },
-    ],
-    services: [
-      { name: "Digital Marketing", path: "/", section: "services" },
-      { name: "Brand Strategy", path: "/", section: "services" },
-      { name: "Business Development", path: "/", section: "services" },
-      { name: "Web & Software", path: "/", section: "services" },
-    ],
-    contact: [
-      {
-        icon: <MapPin className="h-4 w-4" />,
-        text: "Pakistan",
-      },
-      {
-        icon: <Mail className="h-4 w-4" />,
-        text: "info.smarb@gmail.com",
-        link: "mailto:info.smarb@gmail.com",
-      },
-      {
-        icon: <Phone className="h-4 w-4" />,
-        text: "+971 50 594 0132",
-        link: "tel:+971505940132",
-      },
-    ],
-  };
-
-  const socialLinks = [
-    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/company/108614278/", label: "LinkedIn" },
-    { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/smarb.technologies?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
-    { icon: <Facebook className="h-5 w-5" />, href: "https://www.facebook.com/people/SMARB-Technologies/61579102958908/", label: "Facebook" },
-  ];
-
-  const whatsappNumber = "+971 50 594 0132";
-  const whatsappMessage = t('whatsapp.message');
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
   return (
-    <footer className="bg-[#002B5B] text-white">
-      <div className="container mx-auto px-6 lg:px-20 py-12 max-w-[1440px]">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand Section */}
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2">
-              <span className="text-lg sm:text-xl font-bold text-white">
-                SMARB Technologies
-              </span>
-            </Link>
-            <p className="text-white/80 text-sm leading-relaxed">
-              Proudly built in Pakistan, trusted worldwide.
-            </p>
-          </div>
+    <footer id="contact" className="relative pt-32 pb-12 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-secondary/50 to-background pointer-events-none" />
+      
+      {/* Glow effect */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
 
-          {/* Company Links */}
-          <div>
-            <h3 className="font-semibold text-white mb-4">Company</h3>
-            <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={`company-${link.name}`}>
-                  <Link
-                    to={link.path}
-                    onClick={(e) => {
-                      if (link.section && link.path === "/") {
-                        e.preventDefault();
-                        const element = document.getElementById(link.section);
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }
-                    }}
-                    className="text-white/80 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services Links */}
-          <div>
-            <h3 className="font-semibold text-white mb-4">Services</h3>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={`services-${link.name}`}>
-                  <Link
-                    to={link.path}
-                    onClick={(e) => {
-                      if (link.section && link.path === "/") {
-                        e.preventDefault();
-                        const element = document.getElementById(link.section);
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }
-                    }}
-                    className="text-white/80 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-semibold text-white mb-4">Contact</h3>
-            <ul className="space-y-3">
-              {footerLinks.contact.map((item, index) => (
-                <li key={index} className="flex items-center space-x-2">
-                  <span className="text-white">{item.icon}</span>
-                  {item.link ? (
-                    <a
-                      href={item.link}
-                      className="text-white/80 hover:text-white transition-colors text-sm"
-                    >
-                      {item.text}
-                    </a>
-                  ) : (
-                    <span className="text-white/80 text-sm">{item.text}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-white/80 text-sm">
-            © {currentYear} SMARB Technologies. All rights reserved.
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Massive CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <h2 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[120px] font-bold text-foreground tracking-tighter mb-8">
+            Let's Work
+          </h2>
+          <p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-10">
+            Ready to transform your e-commerce operations with intelligent AI systems?
           </p>
-          
-          {/* Social Links */}
-          <div className="flex items-center space-x-4">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-white transition-all duration-200 p-2 hover:bg-white/10 rounded-lg hover:scale-110"
-                aria-label={social.label}
-              >
-                {social.icon}
-              </a>
-            ))}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-block"
+          >
+            <Button
+              size="lg"
+              className="glow-button bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-7 rounded-full font-medium text-lg group"
+              onClick={() => window.open('mailto:contact@smarbtechnologies.com', '_blank')}
+            >
+              Start a Conversation
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </motion.div>
+        </motion.div>
+
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-12" />
+
+        {/* Bottom Footer */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Logo */}
+          <div className="flex items-center gap-4">
+            <span className="font-heading text-2xl font-bold text-foreground">SMARB</span>
+            <span className="text-muted-foreground">Technologies</span>
           </div>
+
+          {/* Links */}
+          <div className="flex items-center gap-6">
+            <motion.a
+              href="https://www.linkedin.com/company/108614278/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 text-muted-foreground hover:text-foreground transition-all"
+            >
+              <Linkedin className="h-5 w-5" />
+            </motion.a>
+            <motion.a
+              href="mailto:contact@smarbtechnologies.com"
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 text-muted-foreground hover:text-foreground transition-all"
+            >
+              <Mail className="h-5 w-5" />
+            </motion.a>
+          </div>
+
+          {/* Copyright */}
+          <p className="text-sm text-muted-foreground">
+            © 2025 SMARB Technologies. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
