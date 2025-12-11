@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Code, Target, Clock, BarChart3, Zap, TrendingUp, Users, Calendar, CheckCircle, ShoppingCart } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  ArrowUpRight,
+  Code,
+  Target,
+  Clock,
+  BarChart3,
+  Zap,
+  TrendingUp,
+  Users,
+  Calendar,
+  CheckCircle,
+  ShoppingCart
+} from "lucide-react";
 
 const CaseStudiesSection = () => {
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<any>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const caseStudies = [
     {
@@ -29,7 +39,8 @@ const CaseStudiesSection = () => {
       tags: ["ANSYS", "Fusion 360", "SOLIDWORKS", "MATLAB", "CAD", "FEA", "CFD"],
       testimonial: "This platform revolutionized our engineering workflow by seamlessly integrating multiple design and simulation tools, significantly improving our development efficiency.",
       clientRole: "Lead Research Engineer",
-      image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&h=600&fit=crop",
+      externalLink: "https://www.decorium.com"
     },
     {
       id: 2,
@@ -69,7 +80,8 @@ const CaseStudiesSection = () => {
       tags: ["AI Chatbot", "Botpress", "GPT-4o", "WooCommerce API", "Multilingual Support"],
       testimonial: "The O'TRADE AI Chatbot transformed our customer interactions. Clients can now inquire in their own language, get product details instantly, and even receive receipts in PDF format — all without waiting for a sales rep.",
       clientRole: "Head of Digital Transformation, O'Trade",
-      image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&h=600&fit=crop",
+      externalLink: "https://www.theshoppingcart.shop"
     },
     {
       id: 4,
@@ -89,7 +101,8 @@ const CaseStudiesSection = () => {
       tags: ["Shopify", "WordPress", "E-commerce", "UX Design", "Performance Optimization"],
       testimonial: "The new Shopify store exceeded our expectations with seamless performance and significantly improved user engagement and conversion rates.",
       clientRole: "Founder, Omnifits",
-      image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=600&fit=crop",
+      externalLink: "https://www.hayafitintima.shop"
     },
     {
       id: 5,
@@ -109,7 +122,8 @@ const CaseStudiesSection = () => {
       tags: ["AI Automation", "Document Processing", "System Integration", "Government Services"],
       testimonial: "VisaMate revolutionized our visa processing operations. The AI automation and streamlined workflow have dramatically improved efficiency.",
       clientRole: "CTO, Global Immigration Services",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      externalLink: "https://www.visamate.pro"
     },
     {
       id: 6,
@@ -174,60 +188,84 @@ const CaseStudiesSection = () => {
   ];
 
   const handleCaseStudyClick = (study: any) => {
-    setSelectedCaseStudy(study);
-    setIsModalOpen(true);
+    console.log("Clicked study:", study.title);
+    if (study.externalLink) {
+      window.location.href = study.externalLink;
+    } else {
+      navigate(`/case-study/${study.id}`);
+    }
   };
 
   return (
-    <>
-      <section id="case-studies" className="py-32 bg-card w-full relative overflow-hidden">
-        {/* Background effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(var(--primary)/0.03),transparent_60%)] pointer-events-none" />
-        
-        <div className="container mx-auto px-6 lg:px-20 max-w-[1440px] w-full relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-center mb-20"
-          >
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="inline-block text-sm font-semibold tracking-[0.2em] uppercase text-primary/70 mb-4"
-            >
-              Our Work
-            </motion.span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-foreground tracking-tight">
-              Case Studies
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Real projects, real results. See how we've helped businesses transform.
-            </p>
-          </motion.div>
+    <section id="case-studies" className="py-32 bg-card w-full relative overflow-hidden">
+      {/* Background effect */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(var(--primary)/0.03),transparent_60%)] pointer-events-none" />
 
-          <div className="space-y-24">
-            {caseStudies.map((study, index) => (
-              <motion.div
-                key={study.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15, duration: 0.6 }}
-                viewport={{ once: true }}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? "lg:grid-flow-dense" : ""
+      <div className="container mx-auto px-6 lg:px-20 max-w-[1440px] w-full relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+          className="text-center mb-20"
+        >
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="inline-block text-sm font-semibold tracking-[0.2em] uppercase text-primary/70 mb-4"
+          >
+            Our Work
+          </motion.span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-foreground tracking-tight">
+            Case Studies
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Real projects, real results. See how we've helped businesses transform.
+          </p>
+        </motion.div>
+
+        <div className="space-y-24">
+          {caseStudies.map((study, index) => (
+            <motion.div
+              key={study.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+              viewport={{ once: true }}
+              className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-dense" : ""
                 }`}
+            >
+              {/* Image */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className={index % 2 === 1 ? "lg:col-start-2" : ""}
               >
-                {/* Image */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                  className={index % 2 === 1 ? "lg:col-start-2" : ""}
-                >
-                  <div className="relative rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onClick={() => handleCaseStudyClick(study)}>
+                {/* Image Container with conditional wrapping */}
+                {study.externalLink ? (
+                  <a
+                    href={study.externalLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative rounded-xl overflow-hidden shadow-2xl group cursor-pointer"
+                  >
+                    <img
+                      src={study.image}
+                      alt={study.title}
+                      className="w-full h-[400px] object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Badge className="bg-[#0078D7] text-white mb-2">{study.industry}</Badge>
+                    </div>
+                  </a>
+                ) : (
+                  <div
+                    className="relative rounded-xl overflow-hidden shadow-2xl group cursor-pointer"
+                    onClick={() => handleCaseStudyClick(study)}
+                  >
                     <img
                       src={study.image}
                       alt={study.title}
@@ -238,23 +276,90 @@ const CaseStudiesSection = () => {
                       <Badge className="bg-[#0078D7] text-white mb-2">{study.industry}</Badge>
                     </div>
                   </div>
-                </motion.div>
+                )}
+              </motion.div>
 
-                {/* Content */}
-                <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 1 ? 50 : -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.15 + 0.1, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}
-                >
-                  <Card className="p-8 border border-[rgba(0,0,0,0.06)] rounded-xl hover:shadow-xl transition-all duration-300 group">
+              {/* Content */}
+              <motion.div
+                initial={{ opacity: 0, x: index % 2 === 1 ? 50 : -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.15 + 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+                className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}
+              >
+                {study.externalLink ? (
+                  <a
+                    href={study.externalLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block group"
+                  >
+                    <Card
+                      className="p-8 border border-[rgba(0,0,0,0.06)] rounded-xl hover:shadow-xl transition-all duration-300 cursor-pointer"
+                    >
+                      <Badge className="bg-[#0050A0] text-white mb-4">{study.industry}</Badge>
+                      <h3 className="text-2xl font-bold mb-4 text-[#111827] group-hover:text-[#0050A0] transition-colors">
+                        {study.title}
+                      </h3>
+                      <p className="text--[#0050A0] font-semibold mb-6">{study.client}</p>
+
+                      <div className="space-y-4 mb-6">
+                        <div>
+                          <h4 className="font-semibold text-[#111827] mb-2 flex items-center gap-2">
+                            <Target className="h-4 w-4 text-red-500" />
+                            Challenge
+                          </h4>
+                          <p className="text-[#6B7280] text-sm leading-relaxed">{study.challenge}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-[#111827] mb-2 flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500" />
+                            Solution
+                          </h4>
+                          <p className="text-[#6B7280] text-sm leading-relaxed">{study.solution}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-[#111827] mb-2 flex items-center gap-2">
+                            <TrendingUp className="h-4 w-4 text-blue-500" />
+                            Impact
+                          </h4>
+                          <p className="text-[#6B7280] font-semibold">{study.impact}</p>
+                        </div>
+                      </div>
+
+                      {/* Results Grid */}
+                      <div className="grid grid-cols-2 gap-3 mb-6">
+                        {study.results.slice(0, 4).map((result: any, idx: number) => (
+                          <div key={idx} className="bg-[#F8FAFC] p-3 rounded-lg text-center">
+                            <div className="flex justify-center mb-1 text-[#0050A0]">
+                              {result.icon}
+                            </div>
+                            <div className="text-lg font-bold text-[#002B5B]">{result.value}</div>
+                            <div className="text-xs text-[#6B7280]">{result.metric}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <Button
+                        variant="outline"
+                        className="w-full group/btn text-[#0050A0] border-[#0050A0] hover:bg-[#0050A0] hover:text-white transition-all duration-300"
+                      >
+                        View Full Case Study
+                        <ArrowUpRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                      </Button>
+                    </Card>
+                  </a>
+                ) : (
+                  <Card
+                    onClick={() => handleCaseStudyClick(study)}
+                    className="p-8 border border-[rgba(0,0,0,0.06)] rounded-xl hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                  >
                     <Badge className="bg-[#0050A0] text-white mb-4">{study.industry}</Badge>
                     <h3 className="text-2xl font-bold mb-4 text-[#111827] group-hover:text-[#0050A0] transition-colors">
                       {study.title}
                     </h3>
-                    <p className="text-[#0050A0] font-semibold mb-6">{study.client}</p>
-                    
+                    <p className="text--[#0050A0] font-semibold mb-6">{study.client}</p>
+
                     <div className="space-y-4 mb-6">
                       <div>
                         <h4 className="font-semibold text-[#111827] mb-2 flex items-center gap-2">
@@ -295,109 +400,22 @@ const CaseStudiesSection = () => {
                     <Button
                       variant="outline"
                       className="w-full group/btn text-[#0050A0] border-[#0050A0] hover:bg-[#0050A0] hover:text-white transition-all duration-300"
-                      onClick={() => handleCaseStudyClick(study)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCaseStudyClick(study);
+                      }}
                     >
                       View Full Case Study
                       <ArrowUpRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                     </Button>
                   </Card>
-                </motion.div>
+                )}
               </motion.div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
-
-      {/* Case Study Modal */}
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          {selectedCaseStudy && (
-            <>
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold mb-2">
-                  {selectedCaseStudy.title}
-                </DialogTitle>
-                <div className="flex items-center space-x-4 text-sm text-[#6B7280]">
-                  <span>{selectedCaseStudy.client}</span>
-                  <span>•</span>
-                  <span>{selectedCaseStudy.timeline}</span>
-                </div>
-              </DialogHeader>
-
-              <div className="space-y-6 mt-6">
-                <div className="relative h-64 rounded-lg overflow-hidden">
-                  <img
-                    src={selectedCaseStudy.image}
-                    alt={selectedCaseStudy.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <Target className="h-5 w-5 text-red-500" />
-                    Challenge
-                  </h3>
-                  <p className="text-[#6B7280] leading-relaxed">{selectedCaseStudy.challenge}</p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    Solution
-                  </h3>
-                  <p className="text-[#6B7280] leading-relaxed">{selectedCaseStudy.solution}</p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <BarChart3 className="h-5 w-5 text-blue-500" />
-                    Results & Impact
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {selectedCaseStudy.results.map((result: any, index: number) => (
-                      <Card key={index} className="p-4 text-center">
-                        <div className="flex justify-center mb-2 text-[#0050A0]">
-                          {result.icon}
-                        </div>
-                        <div className="text-2xl font-bold text-[#002B5B] mb-1">
-                          {result.value}
-                        </div>
-                        <div className="text-sm text-[#6B7280]">{result.metric}</div>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <Code className="h-5 w-5 text-purple-500" />
-                    Technologies Used
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedCaseStudy.tags.map((tag: string, index: number) => (
-                      <Badge key={index} className="bg-[#0050A0] text-white">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="bg-[#F8FAFC] rounded-lg p-6">
-                  <h3 className="text-xl font-semibold mb-3">Client Testimonial</h3>
-                  <blockquote className="text-lg italic mb-4 leading-relaxed text-[#6B7280]">
-                    "{selectedCaseStudy.testimonial}"
-                  </blockquote>
-                  <div className="text-sm text-[#6B7280]">
-                    — {selectedCaseStudy.clientRole}
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
-    </>
+      </div>
+    </section>
   );
 };
 

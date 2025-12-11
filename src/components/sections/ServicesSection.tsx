@@ -1,34 +1,42 @@
 import { motion } from "framer-motion";
 import { Bot, TrendingUp, GitBranch, Zap, Code, ShoppingCart, Users, Globe, Cpu, Database } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ServicesSection = () => {
+  const navigate = useNavigate();
   const services = [
     {
+      id: "ai-automation",
       icon: <Bot className="h-8 w-8" />,
       title: "AI Automation",
       description: "24/7 intelligent agents for customer support, lead qualification, and workflow automation. Zero wait times, infinite scale.",
     },
     {
+      id: "custom-software",
       icon: <Code className="h-8 w-8" />,
       title: "Custom Software",
       description: "Bespoke applications tailored to your unique business requirements and workflows.",
     },
     {
+      id: "crm-development",
       icon: <Users className="h-8 w-8" />,
       title: "CRM Development",
       description: "Custom CRM solutions that streamline sales, marketing, and customer relationships.",
     },
     {
+      id: "ecommerce-stores",
       icon: <ShoppingCart className="h-8 w-8" />,
       title: "E-commerce Stores",
       description: "High-converting online stores built for scale and optimized for revenue.",
     },
     {
+      id: "wordpress-development",
       icon: <Globe className="h-8 w-8" />,
       title: "WordPress Development",
       description: "Custom WordPress sites, themes, and plugins for any business need.",
     },
     {
+      id: "data-analytics",
       icon: <Database className="h-8 w-8" />,
       title: "Data & Analytics",
       description: "Real-time dashboards and insights powered by AI.",
@@ -60,7 +68,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background pointer-events-none" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -90,6 +98,7 @@ const ServicesSection = () => {
             <motion.div
               key={service.title}
               variants={itemVariants}
+              onClick={() => navigate(`/services/${service.id}`)}
               className={`bento-card p-6 group cursor-pointer ${index === 0 ? 'md:col-span-2 lg:col-span-1 lg:row-span-2' : ''}`}
             >
               <div className="h-full flex flex-col">

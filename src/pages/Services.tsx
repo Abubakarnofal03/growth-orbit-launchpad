@@ -1,13 +1,14 @@
-import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import Layout from "@/components/layout/Layout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  TrendingUp, 
-  Palette, 
-  Users, 
-  Code, 
+import {
+  TrendingUp,
+  Palette,
+  Users,
+  Code,
   Target,
   Search,
   Mail,
@@ -15,7 +16,9 @@ import {
   Smartphone,
   Globe,
   Shield,
-  Zap
+  Zap,
+  CheckCircle,
+  ArrowRight
 } from "lucide-react";
 
 const Services = () => {
@@ -33,12 +36,8 @@ const Services = () => {
         "Content Marketing Strategy",
         "Analytics & Performance Tracking"
       ],
-      deliverables: [
-        "Marketing Strategy Document",
-        "Campaign Performance Reports",
-        "Content Calendar",
-        "ROI Analysis"
-      ],
+      deliverables: "Strategy Doc, Reports, ROI Analysis",
+      estTime: "2-4 weeks setup",
       timeline: "2-4 weeks setup, ongoing optimization"
     },
     {
@@ -54,12 +53,8 @@ const Services = () => {
         "Brand Positioning & Messaging",
         "Brand Experience Design"
       ],
-      deliverables: [
-        "Brand Strategy Document",
-        "Logo & Visual Assets",
-        "Brand Guidelines",
-        "Marketing Materials"
-      ],
+      deliverables: "Logo, Brand Book, Assets",
+      estTime: "3-6 weeks",
       timeline: "3-6 weeks"
     },
     {
@@ -75,12 +70,8 @@ const Services = () => {
         "Lead Generation Systems",
         "Growth Planning & Execution"
       ],
-      deliverables: [
-        "Business Growth Plan",
-        "Market Analysis Report",
-        "Sales Process Documentation",
-        "Partnership Proposals"
-      ],
+      deliverables: "Growth Plan, Market Report",
+      estTime: "4-8 weeks",
       timeline: "4-8 weeks"
     },
     {
@@ -96,12 +87,8 @@ const Services = () => {
         "Database Design & Optimization",
         "Cloud Solutions & Deployment"
       ],
-      deliverables: [
-        "Technical Specification",
-        "Fully Functional Application",
-        "Source Code & Documentation",
-        "Deployment & Training"
-      ],
+      deliverables: "Full Application, Source Code",
+      estTime: "6-12 weeks",
       timeline: "6-12 weeks"
     }
   ];
@@ -178,7 +165,7 @@ const Services = () => {
               Everything You Need to Grow
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              From marketing and branding to development and business strategy, 
+              From marketing and branding to development and business strategy,
               we provide end-to-end solutions for your growth needs.
             </p>
           </motion.div>
@@ -187,67 +174,51 @@ const Services = () => {
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
-                id={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 sm:p-8 md:p-12 hover:shadow-strong transition-all duration-300 group">
-                  <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-                    <div>
-                      <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
-                        {service.icon}
-                      </div>
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-                        {service.title}
-                      </h3>
-                      <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                        {service.description}
-                      </p>
-                      
-                      <div className="mb-6">
-                        <h4 className="font-semibold mb-3 flex items-center">
-                          <Shield className="h-4 w-4 mr-2 text-primary" />
-                          What's Included
-                        </h4>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                          {service.features.map((feature, idx) => (
-                            <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                              <Zap className="h-3 w-3 mr-2 text-primary flex-shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <Button variant="premium" asChild>
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                          Get {service.title} Quote
-                        </a>
-                      </Button>
+                <Link to={`/services/${service.id}`}>
+                  <Card className="p-6 sm:p-8 md:p-12 hover:shadow-strong transition-all duration-300 group cursor-pointer h-full">
+                    <div className="mb-6 inline-block p-4 rounded-xl bg-primary/5 text-primary group-hover:scale-110 transition-transform duration-300">
+                      {service.icon}
                     </div>
 
-                    <div className="space-y-6">
-                      <div className="bg-gradient-card p-6 rounded-xl">
-                        <h4 className="font-semibold mb-3 text-primary">Deliverables</h4>
-                        <ul className="space-y-2">
-                          {service.deliverables.map((deliverable, idx) => (
-                            <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                              <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" />
-                              {deliverable}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                    <h3 className="text-2xl font-bold mb-4 font-heading group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
 
-                      <div className="bg-gradient-card p-6 rounded-xl">
-                        <h4 className="font-semibold mb-3 text-primary">Timeline</h4>
-                        <p className="text-sm text-muted-foreground">{service.timeline}</p>
+                    <p className="text-muted-foreground mb-8 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <ul className="space-y-3 mb-8">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm font-medium">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border/50">
+                      <div>
+                        <div className="text-sm text-muted-foreground mb-1">Deliverables</div>
+                        <div className="font-semibold text-sm">{service.deliverables}</div>
+                      </div>
+                      <div>
+                        <div className="text-sm text-muted-foreground mb-1">Timeline</div>
+                        <div className="font-semibold text-sm">{service.estTime}</div>
                       </div>
                     </div>
-                  </div>
-                </Card>
+
+                    <div className="mt-8 flex justify-between items-center text-primary font-medium">
+                      <span>Explore Process</span>
+                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Card>
+                </Link>
               </motion.div>
             ))}
           </div>

@@ -1,13 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer id="contact" className="relative pt-32 pb-12 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-secondary/50 to-background pointer-events-none" />
-      
+
       {/* Glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
 
@@ -34,7 +36,10 @@ const Footer = () => {
             <Button
               size="lg"
               className="glow-button bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-7 rounded-full font-medium text-lg group"
-              onClick={() => window.open('mailto:contact@smarbtechnologies.com', '_blank')}
+              onClick={() => {
+                navigate('/contact');
+                window.scrollTo(0, 0);
+              }}
             >
               Start a Conversation
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

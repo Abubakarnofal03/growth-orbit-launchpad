@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -17,16 +19,43 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Services", href: "#services" },
-    { name: "Case Study", href: "#case-study" },
-    { name: "Contact", href: "#contact" },
+    { name: "Services", href: "/#services" },
+    { name: "Case Study", href: "/#case-studies" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+
+    if (href.startsWith('/')) {
+      if (href === '/contact') {
+        navigate(href);
+        return;
+      }
+
+      // Handle hash links from other pages
+      if (href.includes('#')) {
+        const [path, hash] = href.split('#');
+        if (location.pathname !== path) {
+          navigate(href);
+          return;
+        }
+
+        // If on same page, scroll to hash
+        const target = document.querySelector(`#${hash}`);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+        return;
+      }
+
+      navigate(href);
+    } else if (href.startsWith('#')) {
+      // Legacy support or direct hash on same page
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -35,11 +64,10 @@ const Navigation = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "glass border-b border-white/5"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? "glass border-b border-white/5"
+        : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -70,7 +98,7 @@ const Navigation = () => {
               whileTap={{ scale: 0.98 }}
             >
               <Button
-                onClick={() => handleNavClick('#contact')}
+                onClick={() => handleNavClick('/contact')}
                 className="glow-button gradient-border bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-full font-medium text-sm"
               >
                 Book Strategy
@@ -108,7 +136,7 @@ const Navigation = () => {
                 </button>
               ))}
               <Button
-                onClick={() => handleNavClick('#contact')}
+                onClick={() => handleNavClick('/contact')}
                 className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
               >
                 Book Strategy

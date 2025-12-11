@@ -4,11 +4,11 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
+import {
   ArrowLeft,
-  TrendingUp, 
-  Target, 
-  Users, 
+  TrendingUp,
+  Target,
+  Users,
   BarChart3,
   Calendar,
   CheckCircle,
@@ -58,29 +58,13 @@ const CaseStudyDetail = () => {
         "COMSOL Multiphysics for coupled physics simulation",
         "Custom Python scripts for automation and data processing"
       ],
-      additionalDetails: {
-        modelingCapabilities: [
-          "Parametric & surface modeling",
-          "Sheet metal & weldment design",
-          "Assembly modeling & kinematics",
-          "Generative design & topology optimization",
-          "Reverse engineering from point cloud data"
-        ],
-        simulationTypes: [
-          "Structural analysis (static & dynamic)",
-          "Thermal analysis",
-          "Flow simulation (CFD)",
-          "Motion analysis",
-          "Electromagnetic analysis"
-        ],
-        optimizationFeatures: [
-          "Topology optimization",
-          "Multi-objective design optimization",
-          "Parametric optimization",
-          "Shape & size optimization",
-          "Multi-physics optimization"
-        ]
-      }
+      implementation: [
+        "Requirement analysis and tool selection (4 weeks)",
+        "Platform architecture design (8 weeks)",
+        "Integration of CAD and simulation tools (16 weeks)",
+        "Validation and testing (8 weeks)",
+        "Deployment and training (4 weeks)"
+      ]
     },
     {
       id: 2,
@@ -117,32 +101,100 @@ const CaseStudyDetail = () => {
         "ROS2 for system integration",
         "Python for data processing and analysis"
       ],
-      additionalDetails: {
-        designFeatures: [
-          "Artificial nematic muscle actuators",
-          "Flexible continuum spine structure",
-          "Integrated sensor array",
-          "Advanced gait control system",
-          "Energy recovery mechanisms"
-        ],
-        performanceMetrics: [
-          "25% improvement in energy efficiency",
-          "35% reduction in terrain slippage",
-          "93% actuator response accuracy",
-          "5° max spine bending error",
-          "70% shock absorption improvement"
-        ],
-        developmentPhases: [
-          "CAD design and modeling",
-          "Actuator system development",
-          "Control system integration",
-          "Prototype assembly and testing",
-          "Performance optimization"
-        ]
-      }
+      implementation: [
+        "CAD design and modeling",
+        "Actuator system development",
+        "Control system integration",
+        "Prototype assembly and testing",
+        "Performance optimization"
+      ]
     },
     {
       id: 3,
+      title: "O'TRADE AI Chatbot – Multilingual Wholesale Assistant",
+      client: "O'Trade",
+      industry: "Chatbots / E-commerce",
+      image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=1200&h=600&fit=crop",
+      challenge: "O'Trade needed a multilingual AI chatbot to streamline wholesale product inquiries, handle customer requests, and automate receipt generation across Webchat and WhatsApp.",
+      solution: "Developed an AI-powered chatbot using Botpress and GPT-4o, integrated with WooCommerce REST API for product data. The bot supports natural product queries, multilingual conversations (English, French, Arabic), PDF receipt generation, and escalation to human agents.",
+      results: [
+        { metric: "Response Speed", value: "Instant", icon: <TrendingUp className="h-5 w-5" /> },
+        { metric: "User Engagement", value: "+60%", icon: <Users className="h-5 w-5" /> },
+        { metric: "Error Reduction", value: "-80%", icon: <Target className="h-5 w-5" /> },
+        { metric: "Automation Rate", value: "70%", icon: <BarChart3 className="h-5 w-5" /> }
+      ],
+      timeline: "4 weeks (Phase 1)",
+      tags: ["AI Chatbot", "Botpress", "GPT-4o", "WooCommerce API", "Multilingual Support"],
+      testimonial: "The O'TRADE AI Chatbot transformed our customer interactions. Clients can now inquire in their own language, get product details instantly, and even receive receipts in PDF format.",
+      clientRole: "Head of Digital Transformation, O'Trade",
+      detailedDescription: "The O'TRADE AI Chatbot functions as a 24/7 intelligent assistant, bridging the gap between wholesale buyers and the product catalog. Capable of understanding complex queries in multiple languages, it automates the entire inquiry-to-receipt process, significantly reducing the workload on human support staff.",
+      keyFeatures: [
+        "Multilingual support (English, French, Arabic)",
+        "Real-time WooCommerce product inventory integration",
+        "Automated PDF receipt generation",
+        "Seamless WhatsApp and Webchat integration",
+        "Intelligent escalation to human agents",
+        "Context-aware conversation handling"
+      ],
+      technicalStack: [
+        "Botpress for chatbot orchestration",
+        "OpenAI GPT-4o for natural language understanding",
+        "WooCommerce REST API for product data",
+        "Node.js for custom integrations",
+        "Docker for containerization",
+        "WhatsApp Business API"
+      ],
+      implementation: [
+        "Requirement gathering and conversation design (1 week)",
+        "Botpress setup and GPT-4o integration (1 week)",
+        "WooCommerce API and PDF generation integration (1 week)",
+        "Testing, refinement, and deployment (1 week)"
+      ]
+    },
+    {
+      id: 4,
+      title: "Shopify E-Commerce Store Development for Omnifits",
+      client: "Omnifits",
+      industry: "E-Commerce / Fitness Apparel",
+      image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200&h=600&fit=crop",
+      challenge: "Omnifits needed a modern, mobile-first e-commerce solution for their premium fitness apparel brand with optimized checkout flow and seamless product management for 100+ SKUs.",
+      solution: "Developed a custom Shopify-based e-commerce platform with tailored fitness niche theme, optimized product pages, integrated payment gateways, shipping automation, and SEO-friendly structure.",
+      results: [
+        { metric: "Uptime", value: "99.9%", icon: <CheckCircle className="h-5 w-5" /> },
+        { metric: "User Engagement", value: "+45%", icon: <TrendingUp className="h-5 w-5" /> },
+        { metric: "Checkout Conversion", value: "+25%", icon: <Target className="h-5 w-5" /> },
+        { metric: "Product SKUs", value: "100+", icon: <Zap className="h-5 w-5" /> }
+      ],
+      timeline: "4-6 weeks",
+      tags: ["Shopify", "Liquid", "E-commerce", "UX Design", "Performance Optimization"],
+      testimonial: "The new Shopify store exceeded our expectations with seamless performance and significantly improved user engagement and conversion rates.",
+      clientRole: "Founder, Omnifits",
+      detailedDescription: "Omnifits required a high-performance, visually striking online store that mirrored the premium quality of their fitness apparel. We delivered a fully customized Shopify solution that not only looks great but is engineered for sales, featuring a streamlined checkout process and advanced inventory management.",
+      keyFeatures: [
+        "Custom Shopify theme development",
+        "Mobile-first responsive design",
+        "Advanced product filtering and search",
+        "Automated shipping calculation",
+        "Integrated payment gateways",
+        "SEO optimization and schema markup"
+      ],
+      technicalStack: [
+        "Shopify (Liquid templating)",
+        "HTML5, CSS3, JavaScript",
+        "Google Analytics 4 integration",
+        "Klaviyo for email marketing",
+        "Yotpo for reviews",
+        "Custom app integrations"
+      ],
+      implementation: [
+        "Theme selection and customization (1 week)",
+        "Product data migration and setup (1 week)",
+        "App integration and configuration (1 week)",
+        "QA, testing, and launch (1 week)"
+      ]
+    },
+    {
+      id: 5,
       title: "VisaMate: AI-Powered Visa Application System",
       client: "Global Immigration Services",
       industry: "Government Services",
@@ -186,7 +238,7 @@ const CaseStudyDetail = () => {
       ]
     },
     {
-      id: 2,
+      id: 6,
       title: "SkillMap: AI-Driven Team Formation Platform",
       client: "TechCorp Solutions",
       industry: "Technology",
@@ -229,7 +281,7 @@ const CaseStudyDetail = () => {
       ]
     },
     {
-      id: 3,
+      id: 7,
       title: "PDF_QA with RAG: Intelligent Document System",
       client: "LegalTech Innovations",
       industry: "Legal Services",
@@ -269,6 +321,48 @@ const CaseStudyDetail = () => {
         "Frontend interface creation (6 weeks)",
         "Integration and testing (4 weeks)",
         "Deployment and user training (3 weeks)"
+      ]
+    },
+    {
+      id: 8,
+      title: "Motion Study & Impact Analysis of RoboCup Robot",
+      client: "RoboCup SSL Research Project",
+      industry: "Mechanical Engineering / Robotics",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=600&fit=crop",
+      challenge: "In RoboCup Small Size League (SSL), precision ball control is critical. This project involved designing a compact, lightweight, and durable robot body with an efficient dribbler system capable of withstanding repeated high-speed impacts while maintaining grip and stability.",
+      solution: "Developed a comprehensive CAD design using Fusion 360 with motion studies and ANSYS Workbench analysis for dribbler impact optimization at multiple RPMs, focusing on roller material elasticity and wear resistance.",
+      results: [
+        { metric: "Design Speed", value: "2 weeks", icon: <Target className="h-5 w-5" /> },
+        { metric: "Simulation Time", value: "4 days", icon: <TrendingUp className="h-5 w-5" /> },
+        { metric: "Impact Analysis", value: "1 week", icon: <BarChart3 className="h-5 w-5" /> },
+        { metric: "Error Deviation", value: "<5%", icon: <CheckCircle className="h-5 w-5" /> }
+      ],
+      timeline: "6 weeks",
+      tags: ["Mechanical", "Fusion 360", "ANSYS Workbench", "RoboCup SSL", "CAD Design"],
+      testimonial: "The comprehensive design and analysis approach resulted in a 30% faster ball handling response with optimized durability and performance.",
+      clientRole: "Research Team Lead, RoboCup SSL Project",
+      detailedDescription: "For the highly competitive RoboCup Small Size League, we engineered a next-generation dribbler system. By utilizing advanced CAD modeling and finite element analysis (FEA), we optimized the robot's dribbler mechanism for maximum ball control under high-speed impact conditions, ensuring durability without compromising agility.",
+      keyFeatures: [
+        "Advanced CAD modeling in Fusion 360",
+        "Motion study simulation",
+        "ANSYS Workbench impact analysis",
+        "Material selection optimization",
+        "Stress and deformation analysis",
+        "Dynamic response testing"
+      ],
+      technicalStack: [
+        "Autodesk Fusion 360 for design",
+        "ANSYS Workbench for simulation",
+        "SolidWorks for validation",
+        "MATLAB for data analysis",
+        "3D Printing for prototyping"
+      ],
+      implementation: [
+        "Conceptual design and CAD modeling (2 weeks)",
+        "Motion study and kinematic analysis (1 week)",
+        "FEA and impact simulation (1 week)",
+        "Design optimization and refinement (1 week)",
+        "Final documentation and reporting (1 week)"
       ]
     }
   ];
@@ -310,7 +404,7 @@ const CaseStudyDetail = () => {
                 Back to Case Studies
               </Link>
             </Button>
-            
+
             <div className="flex flex-wrap gap-2 mb-4">
               <Badge variant="secondary">{study.industry}</Badge>
               {study.tags.map((tag) => (
@@ -323,7 +417,7 @@ const CaseStudyDetail = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               {study.title}
             </h1>
-            
+
             <p className="text-xl text-muted-foreground mb-6">
               {study.client} • {study.timeline}
             </p>
