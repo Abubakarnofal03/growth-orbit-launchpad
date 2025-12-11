@@ -1,21 +1,19 @@
-import { ReactNode } from "react";
-import Navigation from "./Navigation";
-import Footer from "./Footer";
-import StickyBottomBar from "./StickyBottomBar";
+import Navigation from "@/components/layout/Navigation";
+import Footer from "@/components/layout/Footer";
+import { useLenis } from "@/hooks/use-lenis";
 
 interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  useLenis();
+
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden">
+    <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="flex-1 pt-16 lg:pt-20 w-full max-w-full">
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
-      <StickyBottomBar />
     </div>
   );
 };
