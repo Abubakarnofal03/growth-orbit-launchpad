@@ -11,7 +11,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient noise-overlay">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient noise-overlay pt-20">
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
