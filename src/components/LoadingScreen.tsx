@@ -6,23 +6,21 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // Smooth, professional fill animation
     const fillInterval = setInterval(() => {
       setFillProgress((prev) => {
         if (prev >= 100) {
           clearInterval(fillInterval);
-          // Brief pause before exit
           setTimeout(() => {
             setIsExiting(true);
             setTimeout(() => {
               onComplete();
-            }, 1000);
-          }, 500);
+            }, 800);
+          }, 400);
           return 100;
         }
-        return prev + 1.8; // Smooth, controlled fill rate
+        return prev + 2;
       });
-    }, 20);
+    }, 18);
 
     return () => clearInterval(fillInterval);
   }, [onComplete]);
@@ -33,37 +31,37 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ 
-            y: "-100vh", 
-            transition: { 
-              duration: 1.2, 
-              ease: [0.25, 0.1, 0.25, 1] 
-            } 
+            opacity: 0,
+            transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } 
           }}
-          className="fixed inset-0 z-[9999] bg-[#F8FAFC] flex items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-[#030712] flex items-center justify-center overflow-hidden"
         >
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#002B5B]/5 via-transparent to-[#0050A0]/5" />
+          {/* Background mesh gradient */}
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#6366F1]/10 rounded-full blur-[120px]" />
+            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#22D3EE]/8 rounded-full blur-[100px]" />
+          </div>
 
-          {/* Main SMARB text with liquid fill */}
+          {/* Main SMARB text with fill */}
           <div className="relative">
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               className="relative"
             >
-              {/* Base text (subtle outline) */}
+              {/* Base text (outline) */}
               <h1
-                className="text-[100px] sm:text-[140px] md:text-[180px] lg:text-[220px] xl:text-[260px] font-bold text-[#E5E7EB]"
+                className="text-[80px] sm:text-[120px] md:text-[160px] lg:text-[200px] font-bold text-[#1a1f2e]"
                 style={{
-                  letterSpacing: "-0.03em",
-                  fontFamily: "Inter, sans-serif",
+                  letterSpacing: "-0.04em",
+                  fontFamily: "Space Grotesk, sans-serif",
                 }}
               >
                 SMARB
               </h1>
 
-              {/* Filling liquid text */}
+              {/* Filling text */}
               <motion.div
                 className="absolute inset-0 overflow-hidden"
                 style={{
@@ -71,17 +69,17 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
                 }}
               >
                 <h1
-                  className="text-[100px] sm:text-[140px] md:text-[180px] lg:text-[220px] xl:text-[260px] font-bold bg-gradient-to-b from-[#002B5B] via-[#0050A0] to-[#002B5B] bg-clip-text text-transparent"
+                  className="text-[80px] sm:text-[120px] md:text-[160px] lg:text-[200px] font-bold bg-gradient-to-b from-[#6366F1] via-[#8B5CF6] to-[#22D3EE] bg-clip-text text-transparent"
                   style={{
-                    letterSpacing: "-0.03em",
-                    fontFamily: "Inter, sans-serif",
+                    letterSpacing: "-0.04em",
+                    fontFamily: "Space Grotesk, sans-serif",
                   }}
                 >
                   SMARB
                 </h1>
               </motion.div>
 
-              {/* Refined liquid wave effect at fill line */}
+              {/* Wave effect */}
               <motion.div
                 className="absolute left-0 right-0"
                 style={{
@@ -89,7 +87,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
                   transform: "translateY(-50%)",
                 }}
                 animate={{
-                  opacity: fillProgress > 10 && fillProgress < 100 ? [0.4, 0.7, 0.4] : 0,
+                  opacity: fillProgress > 5 && fillProgress < 100 ? [0.3, 0.6, 0.3] : 0,
                 }}
                 transition={{
                   duration: 2,
@@ -99,33 +97,32 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
               >
                 <svg
                   width="100%"
-                  height="40"
-                  viewBox="0 0 1200 40"
+                  height="30"
+                  viewBox="0 0 1200 30"
                   preserveAspectRatio="none"
-                  className="w-full h-[40px]"
+                  className="w-full h-[30px]"
                 >
                   <motion.path
-                    d="M0,20 Q300,5 600,20 T1200,20 L1200,40 L0,40 Z"
-                    fill="url(#liquidGradient)"
-                    initial={{ d: "M0,20 Q300,5 600,20 T1200,20 L1200,40 L0,40 Z" }}
+                    d="M0,15 Q300,5 600,15 T1200,15 L1200,30 L0,30 Z"
+                    fill="url(#liquidGradientDark)"
                     animate={{
                       d: [
-                        "M0,20 Q300,5 600,20 T1200,20 L1200,40 L0,40 Z",
-                        "M0,20 Q300,35 600,20 T1200,20 L1200,40 L0,40 Z",
-                        "M0,20 Q300,5 600,20 T1200,20 L1200,40 L0,40 Z",
+                        "M0,15 Q300,5 600,15 T1200,15 L1200,30 L0,30 Z",
+                        "M0,15 Q300,25 600,15 T1200,15 L1200,30 L0,30 Z",
+                        "M0,15 Q300,5 600,15 T1200,15 L1200,30 L0,30 Z",
                       ],
                     }}
                     transition={{
-                      duration: 3,
+                      duration: 2.5,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
                   />
                   <defs>
-                    <linearGradient id="liquidGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#0050A0" stopOpacity="0.6" />
-                      <stop offset="50%" stopColor="#0078D7" stopOpacity="0.4" />
-                      <stop offset="100%" stopColor="#002B5B" stopOpacity="0.3" />
+                    <linearGradient id="liquidGradientDark" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#6366F1" stopOpacity="0.5" />
+                      <stop offset="50%" stopColor="#22D3EE" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#6366F1" stopOpacity="0.5" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -133,41 +130,24 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
             </motion.div>
           </div>
 
-          {/* Inspirational Quote */}
+          {/* Progress bar */}
           <motion.div
-            className="absolute bottom-32 left-1/2 transform -translate-x-1/2 max-w-2xl px-6 text-center"
+            className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-64"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <p className="text-lg sm:text-xl text-[#6B7280] font-light italic leading-relaxed">
-              "Building tomorrow's digital solutions, today."
-            </p>
-          </motion.div>
-
-          {/* Professional progress indicator */}
-          <motion.div
-            className="absolute bottom-24 left-1/2 transform -translate-x-1/2 w-80 max-w-[90%]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
-            <div className="h-[2px] bg-[#E5E7EB] rounded-full overflow-hidden">
+            <div className="h-[2px] bg-[#1a1f2e] rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#002B5B] via-[#0050A0] to-[#002B5B] rounded-full"
+                className="h-full bg-gradient-to-r from-[#6366F1] to-[#22D3EE] rounded-full"
                 initial={{ width: "0%" }}
                 animate={{ width: `${fillProgress}%` }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
+                transition={{ duration: 0.1, ease: "easeOut" }}
               />
             </div>
-            <motion.p
-              className="text-center mt-4 text-sm text-[#6B7280] font-medium"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-            >
+            <p className="text-center mt-3 text-xs text-[#64748B] font-medium tracking-wider">
               {Math.round(fillProgress)}%
-            </motion.p>
+            </p>
           </motion.div>
         </motion.div>
       )}
