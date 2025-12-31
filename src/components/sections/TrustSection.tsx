@@ -59,12 +59,12 @@ const TrustSection = () => {
             </span>
           </div>
           
-          <div className="relative">
-            <div className="flex animate-marquee">
+          <div className="relative overflow-hidden">
+            <div className="flex animate-marquee whitespace-nowrap">
               {[...clients, ...clients].map((client, index) => (
                 <span
                   key={index}
-                  className="text-giant font-display text-stroke whitespace-nowrap mx-8 hover:text-foreground transition-all duration-300 cursor-default"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-giant font-display text-stroke mx-4 sm:mx-8 hover:text-foreground transition-all duration-300 cursor-default"
                 >
                   {client}
                 </span>

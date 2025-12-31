@@ -15,24 +15,24 @@ const Footer = () => {
       <div className="absolute inset-0 scanlines pointer-events-none" />
 
       {/* Main CTA Section */}
-      <div className="relative z-10 container mx-auto px-4 py-24 md:py-32">
+      <div className="relative z-10 container mx-auto px-4 py-16 sm:py-24 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-massive font-display text-stroke mb-8 hover:text-foreground transition-colors duration-500">
+          <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-massive font-display text-stroke mb-6 sm:mb-8 hover:text-foreground transition-colors duration-500">
             LET'S WORK
           </h2>
           
           <Button
             size="lg"
             onClick={() => navigate("/contact")}
-            className="group bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider text-xl px-12 py-8 box-neon"
+            className="group bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider text-base sm:text-xl px-8 sm:px-12 py-6 sm:py-8 box-neon"
           >
             Start Your Project
-            <ArrowUpRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <ArrowUpRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </Button>
         </motion.div>
       </div>
