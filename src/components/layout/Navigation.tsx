@@ -18,8 +18,8 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Services", href: "#services" },
-    { name: "Case Studies", href: "#case-studies" },
+    { name: "Services", href: "/services" },
+    { name: "Case Studies", href: "/case-studies" },
     { name: "Contact", href: "/contact" },
   ];
 
