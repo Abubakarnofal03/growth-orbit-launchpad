@@ -327,7 +327,7 @@ const ServiceDetail = () => {
                     step: "03",
                     title: "Dashboard Creation",
                     description: "Visualizing data in intuitive, real-time dashboards for easy monitoring.",
-                    image: "https://images.unsplash.com/photo-1543286386-713df548e9cc?w=800&h=600&fit=crop"
+                    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
                 },
                 {
                     step: "04",
