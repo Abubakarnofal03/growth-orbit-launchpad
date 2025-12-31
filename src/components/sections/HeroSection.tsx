@@ -65,12 +65,12 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-display text-foreground mb-4"
           >
-            <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-wide mb-2">
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-wide mb-2">
               WE BUILD
             </span>
-            <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-wide text-gradient-harsh min-h-[1.2em]">
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-wide text-gradient-harsh min-h-[1.2em]">
               {currentText}
-              <span className={`inline-block w-[3px] h-[0.9em] bg-primary ml-1 align-middle ${isTyping ? 'animate-pulse' : ''}`} />
+              <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-primary ml-1 align-middle ${isTyping ? 'animate-pulse' : ''}`} />
             </span>
           </motion.h1>
 
@@ -79,7 +79,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-sans leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 font-sans leading-relaxed px-2"
           >
             We partner with <span className="text-foreground font-medium">ambitious brands</span> to deploy 
             AI systems that generate <span className="text-primary font-semibold">7-figure returns</span>. 
@@ -91,19 +91,19 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-6 mb-12"
+            className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-8 sm:mb-12 px-2"
           >
             <div className="flex items-center gap-2 text-muted-foreground">
-              <Shield className="h-5 w-5 text-primary" />
-              <span className="font-mono text-sm">SOC 2 Compliant</span>
+              <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+              <span className="font-mono text-xs sm:text-sm">SOC 2 Compliant</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
-              <Zap className="h-5 w-5 text-secondary" />
-              <span className="font-mono text-sm">$12M+ Revenue Generated</span>
+              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-secondary" />
+              <span className="font-mono text-xs sm:text-sm">$12M+ Revenue</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
-              <Award className="h-5 w-5 text-accent" />
-              <span className="font-mono text-sm">Fortune 500 Trusted</span>
+              <Award className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
+              <span className="font-mono text-xs sm:text-sm">Fortune 500</span>
             </div>
           </motion.div>
 
@@ -112,21 +112,21 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-20 px-2"
           >
             <Button
               size="lg"
               onClick={() => navigate("/contact")}
-              className="group bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider px-10 py-7 text-base"
+              className="group bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider px-6 sm:px-10 py-5 sm:py-7 text-sm sm:text-base w-full sm:w-auto"
             >
               Apply for Partnership
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("#case-studies")}
-              className="group border-2 border-border hover:border-primary hover:bg-primary/5 font-mono uppercase tracking-wider px-10 py-7 text-base"
+              className="group border-2 border-border hover:border-primary hover:bg-primary/5 font-mono uppercase tracking-wider px-6 sm:px-10 py-5 sm:py-7 text-sm sm:text-base w-full sm:w-auto"
             >
               View Our Work
             </Button>
@@ -137,12 +137,12 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="border-t border-border/50 pt-12"
+            className="border-t border-border/50 pt-8 sm:pt-12"
           >
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground/60 mb-8">
+            <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground/60 mb-6 sm:mb-8">
               Trusted by industry leaders
             </p>
-            <div className="flex items-center justify-center gap-12 md:gap-16 flex-wrap">
+            <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-16 flex-wrap">
               {clientLogos.map((client, index) => (
                 <motion.div
                   key={client.name}
@@ -154,7 +154,7 @@ const HeroSection = () => {
                   <img
                     src={client.logo}
                     alt={client.name}
-                    className="h-12 w-12 md:h-14 md:w-14 object-contain rounded grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                    className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain rounded grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                   />
                 </motion.div>
               ))}

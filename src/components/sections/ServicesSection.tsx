@@ -54,7 +54,7 @@ const ServicesSection = () => {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section id="services" ref={ref} className="py-24 bg-background relative overflow-hidden">
+    <section id="services" ref={ref} className="py-16 sm:py-24 bg-background relative overflow-hidden">
       {/* Grid Pattern */}
       <div className="absolute inset-0 grid-brutal opacity-20" />
 
@@ -64,10 +64,10 @@ const ServicesSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
-          <span className="tag-electric mb-4 inline-block">What We Do</span>
-          <h2 className="text-giant font-display text-foreground">
+          <span className="tag-electric mb-3 sm:mb-4 inline-block">What We Do</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-giant font-display text-foreground">
             SERVICES
           </h2>
         </motion.div>
@@ -81,34 +81,34 @@ const ServicesSection = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               onClick={() => navigate(`/services/${service.id}`)}
-              className={`group cursor-pointer p-8 border-2 border-border hover:border-primary bg-card/50 backdrop-blur-sm transition-all duration-300 hover-brutal ${
+              className={`group cursor-pointer p-6 sm:p-8 border-2 border-border hover:border-primary bg-card/50 backdrop-blur-sm transition-all duration-300 hover-brutal ${
                 service.size === "large" ? "md:col-span-2 md:row-span-2" : ""
               }`}
             >
               {/* Tag */}
               {service.tag && (
-                <span className="tag-neon mb-4 inline-block">{service.tag}</span>
+                <span className="tag-neon mb-3 sm:mb-4 inline-block text-xs">{service.tag}</span>
               )}
 
               {/* Icon */}
-              <div className="mb-6">
-                <service.icon className="h-12 w-12 text-primary" />
+              <div className="mb-4 sm:mb-6">
+                <service.icon className="h-10 w-10 sm:h-12 sm:w-12 text-primary" />
               </div>
 
               {/* Content */}
-              <h3 className={`font-display tracking-wide mb-4 ${
-                service.size === "large" ? "text-5xl" : "text-3xl"
+              <h3 className={`font-display tracking-wide mb-3 sm:mb-4 ${
+                service.size === "large" ? "text-3xl sm:text-4xl md:text-5xl" : "text-2xl sm:text-3xl"
               }`}>
                 {service.title}
               </h3>
-              <p className="text-muted-foreground font-sans leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground font-sans leading-relaxed">
                 {service.description}
               </p>
 
               {/* Hover Arrow */}
-              <div className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="font-mono text-sm uppercase tracking-wider">Learn More</span>
-                <span className="text-xl">→</span>
+              <div className="mt-4 sm:mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="font-mono text-xs sm:text-sm uppercase tracking-wider">Learn More</span>
+                <span className="text-lg sm:text-xl">→</span>
               </div>
             </motion.div>
           ))}

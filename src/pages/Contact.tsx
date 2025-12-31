@@ -97,7 +97,7 @@ const Contact = () => {
     <Layout>
       <div className="pt-20">
         {/* Hero */}
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-16 sm:py-24 relative overflow-hidden">
           <div className="absolute inset-0 grid-brutal opacity-20" />
           <div className="absolute inset-0 scanlines pointer-events-none" />
           
@@ -107,11 +107,11 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               className="max-w-4xl"
             >
-              <span className="tag-neon mb-6 inline-block">Get In Touch</span>
-              <h1 className="text-massive font-display text-foreground mb-6">
+              <span className="tag-neon mb-4 sm:mb-6 inline-block">Get In Touch</span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-massive font-display text-foreground mb-4 sm:mb-6">
                 LET'S TALK
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl">
+              <p className="text-base sm:text-xl text-muted-foreground max-w-2xl">
                 Ready to transform your business with AI? Let's discuss how we can help you achieve your goals.
               </p>
             </motion.div>
@@ -143,18 +143,18 @@ const Contact = () => {
         </section>
 
         {/* Contact Form */}
-        <section className="py-24 relative">
+        <section className="py-16 sm:py-24 relative">
           <div className="absolute inset-0 dots-pattern opacity-20" />
           
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 max-w-6xl mx-auto">
               {/* Form */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl font-display mb-8">SEND A MESSAGE</h2>
+                <h2 className="text-3xl sm:text-4xl font-display mb-6 sm:mb-8">SEND A MESSAGE</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

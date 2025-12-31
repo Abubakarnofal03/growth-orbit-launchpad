@@ -122,7 +122,7 @@ const CaseStudies = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 grid-brutal opacity-10" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -130,11 +130,11 @@ const CaseStudies = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <span className="tag-neon mb-6 inline-block">Our Work</span>
-            <h1 className="text-giant font-display text-foreground mb-6">
+            <span className="tag-neon mb-4 sm:mb-6 inline-block">Our Work</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-giant font-display text-foreground mb-4 sm:mb-6">
               CASE STUDIES
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl">
+            <p className="text-base sm:text-xl text-muted-foreground max-w-2xl">
               Real results from real clients. See how we've helped businesses 
               achieve exceptional growth through AI and automation.
             </p>
@@ -205,7 +205,7 @@ const CaseStudies = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 grid-brutal opacity-10" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -214,16 +214,16 @@ const CaseStudies = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-display mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display mb-4 sm:mb-6">
               READY TO BE NEXT?
             </h2>
-            <p className="text-xl text-muted-foreground mb-10">
+            <p className="text-base sm:text-xl text-muted-foreground mb-8 sm:mb-10">
               Let's discuss how we can help you achieve similar results for your business.
             </p>
             <Button
               size="lg"
               onClick={() => navigate("/contact")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider px-10 py-7"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider px-6 sm:px-10 py-5 sm:py-7 w-full sm:w-auto"
             >
               Start Your Project
               <ArrowUpRight className="ml-2 h-5 w-5" />
