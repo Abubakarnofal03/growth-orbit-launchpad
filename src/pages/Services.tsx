@@ -9,13 +9,7 @@ import {
   Palette,
   Users,
   Code,
-  Target,
-  Search,
-  Mail,
   BarChart,
-  Smartphone,
-  Globe,
-  Shield,
   Zap,
   CheckCircle,
   ArrowRight
@@ -24,90 +18,124 @@ import {
 const Services = () => {
   const services = [
     {
-      id: "marketing",
+      id: "ai-automation",
       icon: <TrendingUp className="h-12 w-12 text-primary" />,
-      title: "Digital Marketing",
-      description: "Comprehensive digital marketing strategies that drive growth and maximize ROI across all channels.",
+      title: "AI Automation",
+      description: "24/7 intelligent agents for customer support, lead qualification, and workflow automation. Zero wait times, infinite scale.",
       features: [
-        "Social Media Marketing",
-        "Search Engine Optimization (SEO)",
-        "Pay-Per-Click (PPC) Advertising",
-        "Email Marketing Automation",
-        "Content Marketing Strategy",
-        "Analytics & Performance Tracking"
+        "AI-Powered Customer Support",
+        "Lead Qualification Bots",
+        "Workflow Automation",
+        "Data Processing & Analysis",
+        "Integration with Existing Systems",
+        "24/7 Availability"
       ],
-      deliverables: "Strategy Doc, Reports, ROI Analysis",
-      estTime: "2-4 weeks setup",
-      timeline: "2-4 weeks setup, ongoing optimization"
-    },
-    {
-      id: "branding",
-      icon: <Palette className="h-12 w-12 text-primary" />,
-      title: "Brand Strategy & Design",
-      description: "Build a powerful brand identity that resonates with your audience and stands out in the market.",
-      features: [
-        "Brand Strategy Development",
-        "Logo & Visual Identity Design",
-        "Brand Guidelines Creation",
-        "Marketing Collateral Design",
-        "Brand Positioning & Messaging",
-        "Brand Experience Design"
-      ],
-      deliverables: "Logo, Brand Book, Assets",
-      estTime: "3-6 weeks",
-      timeline: "3-6 weeks"
-    },
-    {
-      id: "business",
-      icon: <Users className="h-12 w-12 text-primary" />,
-      title: "Business Development",
-      description: "Strategic business development services to help you scale, expand markets, and increase revenue.",
-      features: [
-        "Market Research & Analysis",
-        "Business Strategy Consulting",
-        "Partnership Development",
-        "Sales Process Optimization",
-        "Lead Generation Systems",
-        "Growth Planning & Execution"
-      ],
-      deliverables: "Growth Plan, Market Report",
+      deliverables: "Custom AI Agents, Integration",
       estTime: "4-8 weeks",
       timeline: "4-8 weeks"
     },
     {
-      id: "development",
+      id: "custom-software",
       icon: <Code className="h-12 w-12 text-primary" />,
-      title: "Web & Software Development",
-      description: "Custom web applications and software solutions that drive efficiency and enhance user experience.",
+      title: "Custom Software",
+      description: "Bespoke applications tailored to your unique business requirements and workflows.",
       features: [
-        "Custom Web Development",
-        "E-commerce Solutions",
-        "Mobile App Development",
-        "API Development & Integration",
-        "Database Design & Optimization",
-        "Cloud Solutions & Deployment"
+        "Custom Web Applications",
+        "Enterprise Software",
+        "API Development",
+        "Database Design",
+        "Cloud Deployment",
+        "Ongoing Maintenance"
       ],
       deliverables: "Full Application, Source Code",
+      estTime: "8-16 weeks",
+      timeline: "8-16 weeks"
+    },
+    {
+      id: "crm-development",
+      icon: <Users className="h-12 w-12 text-primary" />,
+      title: "CRM Development",
+      description: "Custom CRM solutions that streamline sales, marketing, and customer relationships.",
+      features: [
+        "Custom CRM Design",
+        "Sales Pipeline Management",
+        "Customer Data Management",
+        "Automation & Workflows",
+        "Reporting & Analytics",
+        "Third-party Integrations"
+      ],
+      deliverables: "Custom CRM, Training",
       estTime: "6-12 weeks",
       timeline: "6-12 weeks"
+    },
+    {
+      id: "ecommerce-stores",
+      icon: <Zap className="h-12 w-12 text-primary" />,
+      title: "E-commerce Stores",
+      description: "High-converting online stores built for scale. Secure payments, seamless checkout.",
+      features: [
+        "Custom Store Design",
+        "Payment Integration",
+        "Inventory Management",
+        "Mobile Optimization",
+        "SEO & Marketing Setup",
+        "Analytics & Tracking"
+      ],
+      deliverables: "Full E-commerce Store",
+      estTime: "4-8 weeks",
+      timeline: "4-8 weeks"
+    },
+    {
+      id: "data-analytics",
+      icon: <BarChart className="h-12 w-12 text-primary" />,
+      title: "Data & Analytics",
+      description: "Real-time dashboards and insights powered by AI for informed decision making.",
+      features: [
+        "Data Pipeline Setup",
+        "Real-time Dashboards",
+        "Predictive Analytics",
+        "Custom Reports",
+        "Data Visualization",
+        "AI-Powered Insights"
+      ],
+      deliverables: "Analytics Platform, Reports",
+      estTime: "4-8 weeks",
+      timeline: "4-8 weeks"
+    },
+    {
+      id: "wordpress-development",
+      icon: <Palette className="h-12 w-12 text-primary" />,
+      title: "WordPress Development",
+      description: "Custom WordPress sites, themes, and plugins. Easy to manage, SEO-friendly.",
+      features: [
+        "Custom Theme Development",
+        "Plugin Development",
+        "Performance Optimization",
+        "SEO Setup",
+        "Content Migration",
+        "Ongoing Support"
+      ],
+      deliverables: "WordPress Site, Theme",
+      estTime: "3-6 weeks",
+      timeline: "3-6 weeks"
     }
   ];
 
   const additionalServices = [
     {
-      icon: <Target className="h-6 w-6" />,
+      icon: <TrendingUp className="h-6 w-6" />,
       title: "Conversion Optimization",
       description: "Optimize your funnels and increase conversion rates"
     },
     {
-      icon: <Search className="h-6 w-6" />,
-      title: "SEO Audits",
-      description: "Comprehensive website and SEO performance analysis"
+      icon: <Code className="h-6 w-6" />,
+      title: "API Development",
+      description: "Custom API integrations and development"
     },
     {
-      icon: <Mail className="h-6 w-6" />,
-      title: "Email Marketing",
-      description: "Automated email sequences and newsletter campaigns"
+      icon: <Users className="h-6 w-6" />,
+      title: "Team Augmentation",
+      description: "Skilled developers to extend your team"
     },
     {
       icon: <BarChart className="h-6 w-6" />,
@@ -115,14 +143,14 @@ const Services = () => {
       description: "Advanced tracking and reporting infrastructure"
     },
     {
-      icon: <Smartphone className="h-6 w-6" />,
-      title: "Mobile Optimization",
-      description: "Mobile-first design and development approach"
+      icon: <Zap className="h-6 w-6" />,
+      title: "Performance Optimization",
+      description: "Speed and performance improvements"
     },
     {
-      icon: <Globe className="h-6 w-6" />,
-      title: "International Expansion",
-      description: "Market entry strategies for global expansion"
+      icon: <Palette className="h-6 w-6" />,
+      title: "UI/UX Design",
+      description: "User-centered design and prototyping"
     }
   ];
 
