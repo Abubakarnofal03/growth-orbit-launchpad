@@ -1,8 +1,21 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowRight, ArrowDown, Shield, Clock, Users, CheckCircle } from "lucide-react";
 import AnimatedBlob from "@/components/AnimatedBlob";
+
+const clientLogos = [
+  { name: "Haya Fit Intima", logo: null },
+  { name: "Decorium", logo: "/decorium logo.jpg" },
+  { name: "TheShoppingCart", logo: "/theshoppingcart logo.jpg" },
+  { name: "VisaMate", logo: "/visamate-logo.png" },
+];
+
+const trustBadges = [
+  { icon: Shield, text: "Enterprise Security" },
+  { icon: Clock, text: "24/7 Support" },
+  { icon: Users, text: "50+ Clients" },
+];
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -15,15 +28,12 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 grid-brutal opacity-30" />
+      <div className="absolute inset-0 grid-brutal opacity-20" />
       <AnimatedBlob />
-      
-      {/* Scanlines */}
-      <div className="absolute inset-0 scanlines pointer-events-none" />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Tag */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -31,19 +41,25 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <span className="tag-neon">AI-Powered Solutions</span>
+            <span className="inline-flex items-center gap-2 px-4 py-2 border border-primary/30 bg-primary/5 font-mono text-sm uppercase tracking-wider text-primary">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              AI-Powered Solutions
+            </span>
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Main Headline - Clean, no glitch */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-massive font-display text-foreground mb-6"
+            className="font-display text-foreground mb-6"
           >
-            <span className="glitch" data-text="WE BUILD">WE BUILD</span>
-            <br />
-            <span className="text-gradient-harsh">AI SYSTEMS</span>
+            <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-wide">
+              WE BUILD
+            </span>
+            <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-wide text-gradient-harsh">
+              AI SYSTEMS
+            </span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -51,23 +67,43 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 font-sans"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 font-sans leading-relaxed"
           >
             Stop bleeding money on support and inefficiencies. We deploy intelligent 
-            agents that <span className="text-primary">cut costs</span> and <span className="text-secondary">recover revenue</span>.
+            agents that <span className="text-primary font-medium">cut costs</span> and <span className="text-secondary font-medium">recover revenue</span>.
           </motion.p>
+
+          {/* Trust Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex flex-wrap justify-center gap-4 mb-10"
+          >
+            {trustBadges.map((badge) => (
+              <div
+                key={badge.text}
+                className="flex items-center gap-2 px-4 py-2 bg-card/50 border border-border"
+              >
+                <badge.icon className="h-4 w-4 text-primary" />
+                <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                  {badge.text}
+                </span>
+              </div>
+            ))}
+          </motion.div>
 
           {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
             <Button
               size="lg"
               onClick={() => scrollToSection("#case-studies")}
-              className="group bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider text-lg px-8 py-6 hover-brutal"
+              className="group bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider px-8 py-6"
             >
               View Case Studies
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -76,24 +112,42 @@ const HeroSection = () => {
               size="lg"
               variant="outline"
               onClick={() => navigate("/contact")}
-              className="group border-2 border-foreground/20 hover:border-primary font-mono uppercase tracking-wider text-lg px-8 py-6"
+              className="group border-2 border-border hover:border-primary font-mono uppercase tracking-wider px-8 py-6"
             >
               Start a Conversation
             </Button>
           </motion.div>
 
-          {/* Trust Marquee */}
+          {/* Trusted By Section */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="mt-20 border-y border-border py-4 overflow-hidden"
+            transition={{ duration: 1, delay: 0.8 }}
+            className="border-t border-border pt-10"
           >
-            <div className="flex animate-marquee whitespace-nowrap">
-              {["TRUSTED BY INNOVATORS", "•", "AI AUTOMATION", "•", "E-COMMERCE", "•", "CUSTOM SOFTWARE", "•", "TRUSTED BY INNOVATORS", "•", "AI AUTOMATION", "•", "E-COMMERCE", "•", "CUSTOM SOFTWARE", "•"].map((text, i) => (
-                <span key={i} className="mx-4 font-mono text-sm uppercase tracking-widest text-muted-foreground">
-                  {text}
-                </span>
+            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">
+              Trusted by forward-thinking brands
+            </p>
+            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+              {clientLogos.map((client) => (
+                <motion.div
+                  key={client.name}
+                  whileHover={{ scale: 1.05 }}
+                  className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity"
+                >
+                  {client.logo ? (
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="h-10 w-10 object-contain rounded grayscale hover:grayscale-0 transition-all"
+                    />
+                  ) : (
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                  )}
+                  <span className="font-sans text-sm text-foreground/80">
+                    {client.name}
+                  </span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
