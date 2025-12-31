@@ -1,79 +1,57 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navigation = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: "Services", href: "/#services" },
-    { name: "Case Study", href: "/#case-studies" },
+    { name: "Services", href: "#services" },
+    { name: "Case Studies", href: "#case-studies" },
     { name: "Contact", href: "/contact" },
   ];
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-
-    if (href.startsWith('/')) {
-      if (href === '/contact') {
-        navigate(href);
-        return;
-      }
-
-      // Handle hash links from other pages
-      if (href.includes('#')) {
-        const [path, hash] = href.split('#');
-        if (location.pathname !== path) {
-          navigate(href);
-          return;
-        }
-
-        // If on same page, scroll to hash
-        const target = document.querySelector(`#${hash}`);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-        return;
-      }
-
+    if (href.startsWith("/")) {
       navigate(href);
-    } else if (href.startsWith('#')) {
-      // Legacy support or direct hash on same page
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+    } else if (href.startsWith("#")) {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
 
   return (
     <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? "glass border-b border-white/5"
-        : "bg-transparent"
-        }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "glass border-b border-border" : "bg-transparent"
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
-            <span className="text-2xl font-heading font-bold text-foreground tracking-tight">
+          <Link to="/" className="group">
+            <span className="text-3xl font-display tracking-wider text-foreground group-hover:text-primary transition-colors">
               SMARB
             </span>
           </Link>
@@ -84,67 +62,78 @@ const Navigation = () => {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300"
+                className="relative font-mono text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors group"
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+          {/* Desktop CTA & Theme Toggle */}
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
+            <Button
+              onClick={() => handleNavClick("/contact")}
+              className="group border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground font-mono uppercase tracking-wider"
             >
-              <Button
-                onClick={() => handleNavClick('/contact')}
-                className="glow-button gradient-border bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-full font-medium text-sm"
-              >
-                Book Strategy
-              </Button>
-            </motion.div>
+              Book Strategy
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 border border-border hover:border-primary transition-colors"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-white/5"
-          >
-            <div className="px-6 py-6 space-y-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-border bg-background"
+            >
+              <div className="py-6 space-y-4">
+                {navItems.map((item, index) => (
+                  <motion.button
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => handleNavClick(item.href)}
+                    className="block w-full text-left font-mono text-lg uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors py-2"
+                  >
+                    {item.name}
+                  </motion.button>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
                 >
-                  {item.name}
-                </button>
-              ))}
-              <Button
-                onClick={() => handleNavClick('/contact')}
-                className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
-              >
-                Book Strategy
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                  <Button
+                    onClick={() => handleNavClick("/contact")}
+                    className="w-full mt-4 border-2 border-primary bg-primary text-primary-foreground font-mono uppercase tracking-wider"
+                  >
+                    Book Strategy
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </motion.nav>
   );
 };
