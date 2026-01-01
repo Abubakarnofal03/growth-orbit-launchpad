@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,11 +9,13 @@ import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle } from "lucide-re
 import { sendContactEmail, ContactFormData } from "@/lib/email";
 import { useToast } from "@/components/ui/use-toast";
 import { useTextReveal } from "@/hooks/use-text-reveal";
+import { getWhatsAppUrl, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const contactDescription = "Get in touch with us to discuss your project";
   const { ref: descRef, displayedText: descText, inView: descInView } = useTextReveal(contactDescription, 25);
+  const [whatsappUrl, setWhatsappUrl] = useState("");
   
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -22,6 +24,10 @@ const ContactSection = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    setWhatsappUrl(getWhatsAppUrl(WHATSAPP_NUMBER, "Hi SMARB Technologies! I'm interested in your services."));
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -251,7 +257,7 @@ const ContactSection = () => {
 
             {/* WhatsApp CTA Card */}
             <motion.a
-              href="https://wa.me/971505940132?text=Hi%20SMARB%20Technologies!%20I'm%20interested%20in%20your%20services."
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02, y: -5 }}

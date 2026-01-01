@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
@@ -17,6 +18,7 @@ import {
   Clock,
   Zap
 } from "lucide-react";
+import { getWhatsAppUrl, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 
 const CaseStudyDetail = () => {
@@ -384,9 +386,11 @@ const CaseStudyDetail = () => {
     );
   }
 
-  const whatsappNumber = "+971505940132";
-  const whatsappMessage = `Hi! I'm interested in learning more about the ${study.title} project.`;
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const [whatsappUrl, setWhatsappUrl] = useState("");
+
+  useEffect(() => {
+    setWhatsappUrl(getWhatsAppUrl(WHATSAPP_NUMBER, `Hi! I'm interested in learning more about the ${study.title} project.`));
+  }, [study.title]);
 
   return (
     <Layout>

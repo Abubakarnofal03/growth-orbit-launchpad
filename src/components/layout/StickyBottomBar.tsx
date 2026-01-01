@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X } from "lucide-react";
+import { getWhatsAppUrl, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 const StickyBottomBar = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,14 +16,11 @@ const StickyBottomBar = () => {
     };
 
     setIsVisible(!isDismissed);
+    setWhatsappUrl(getWhatsAppUrl(WHATSAPP_NUMBER, "Hi! I'd like to get a free audit for my business."));
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isDismissed]);
-
-  const whatsappNumber = "+971505940132";
-  const whatsappMessage = "Hi! I'd like to get a free audit for my business.";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   const handleDismiss = () => {
     setIsDismissed(true);
