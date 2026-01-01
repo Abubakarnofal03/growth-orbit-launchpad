@@ -232,6 +232,15 @@ html.lenis, html.lenis body {
     color: transparent;
   }
 
+  /* ========== HERO GRADIENT BACKGROUNDS ========== */
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+  }
+
+  .bg-gradient-section {
+    background: linear-gradient(180deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+  }
+
   /* ========== NEON GLOW EFFECTS ========== */
   .neon-glow {
     text-shadow: 
