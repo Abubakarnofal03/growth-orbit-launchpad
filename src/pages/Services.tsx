@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -14,6 +15,7 @@ import {
   CheckCircle,
   ArrowRight
 } from "lucide-react";
+import { getWhatsAppUrl, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 const Services = () => {
   const services = [
@@ -154,9 +156,11 @@ const Services = () => {
     }
   ];
 
-  const whatsappNumber = "+971505940132";
-  const whatsappMessage = "Hi! I'd like to learn more about your services.";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const [whatsappUrl, setWhatsappUrl] = useState("");
+
+  useEffect(() => {
+    setWhatsappUrl(getWhatsAppUrl(WHATSAPP_NUMBER, "Hi! I'd like to learn more about your services."));
+  }, []);
 
   return (
     <Layout>

@@ -1,11 +1,12 @@
 import Layout from "@/components/layout/Layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Check, Star, Zap, Crown, ArrowRight } from "lucide-react";
+import { getWhatsAppUrl, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -129,11 +130,17 @@ const Pricing = () => {
     }
   ];
 
-  const whatsappNumber = "+971505940132";
-  const getWhatsappUrl = (planName: string) => {
-    const message = `Hi! I'm interested in the ${planName} plan. Can you provide more details?`;
-    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-  };
+  const [whatsappUrls, setWhatsappUrls] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const urls: Record<string, string> = {};
+    plans.forEach(plan => {
+      urls[plan.name] = getWhatsAppUrl(WHATSAPP_NUMBER, `Hi! I'm interested in the ${plan.name} plan. Can you provide more details?`);
+    });
+    urls['custom'] = getWhatsAppUrl(WHATSAPP_NUMBER, "Hi! I'd like to discuss a custom pricing plan for my business.");
+    urls['audit'] = getWhatsAppUrl(WHATSAPP_NUMBER, "Hi! I'd like to get a free audit to understand which plan is best for me.");
+    setWhatsappUrls(urls);
+  }, []);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -288,7 +295,7 @@ const Pricing = () => {
                         asChild
                       >
                         <a
-                          href={getWhatsappUrl(plan.name)}
+                          href={whatsappUrls[plan.name] || '#'}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -368,7 +375,7 @@ const Pricing = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="premium" size="lg" asChild>
                 <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'd like to discuss a custom pricing plan for my business.")}`}
+                  href={whatsappUrls['custom'] || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -377,7 +384,7 @@ const Pricing = () => {
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'd like to get a free audit to understand which plan is best for me.")}`}
+                  href={whatsappUrls['audit'] || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

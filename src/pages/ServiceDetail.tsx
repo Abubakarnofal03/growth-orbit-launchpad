@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ import {
     Code,
     ArrowRight
 } from "lucide-react";
+import { getWhatsAppUrl, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 const ServiceDetail = () => {
     const { id } = useParams();
@@ -340,7 +342,11 @@ const ServiceDetail = () => {
     };
 
     const service = services[id as keyof typeof services];
-    const whatsappUrl = "https://wa.me/+971505940132?text=Hi! I'm interested in your services.";
+    const [whatsappUrl, setWhatsappUrl] = useState("");
+
+    useEffect(() => {
+        setWhatsappUrl(getWhatsAppUrl(WHATSAPP_NUMBER, "Hi! I'm interested in your services."));
+    }, []);
 
     if (!service) {
         return (

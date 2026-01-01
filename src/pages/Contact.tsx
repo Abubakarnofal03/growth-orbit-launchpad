@@ -17,6 +17,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { getWhatsAppUrl, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -83,7 +84,7 @@ const Contact = () => {
       icon: <MessageCircle className="h-6 w-6" />,
       title: "WhatsApp",
       value: "+971 50 594 0132",
-      action: "https://wa.me/+971505940132",
+      action: getWhatsAppUrl(WHATSAPP_NUMBER),
     },
     {
       icon: <Phone className="h-6 w-6" />,
