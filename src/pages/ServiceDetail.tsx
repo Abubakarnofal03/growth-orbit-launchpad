@@ -18,6 +18,10 @@ import { getWhatsAppUrl, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 const ServiceDetail = () => {
     const { id } = useParams();
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
+
     const services = {
         marketing: {
             title: "Digital Marketing",
